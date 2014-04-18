@@ -1,0 +1,40 @@
+% benutzte Pakete
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{enumerate}
+
+\renewcommand{\thesection}{Aufgabe \blattNummer.\arabic{section}:} %das Makro wird in der jeweiligen Datei gesetzt
+\renewcommand{\thesubsection}{(\alph{subsection})}
+
+\newcounter{saetze}
+\newtheorem{lem}[saetze]{Lemma}
+\newtheorem{beh}[saetze]{Behauptung}
+\newtheorem{bem}[saetze]{Bemerkung}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+\newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
+
+
+
+% technischer Krams für \bigdotcup
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
