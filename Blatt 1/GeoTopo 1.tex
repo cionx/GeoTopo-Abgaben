@@ -80,9 +80,37 @@ und die Folge $((-1)^n a_n)_{n \geq 1}$ konvergiert in $D^2$ offensichtlich nich
 
 
 
+\section{}
 
 
-\addtocounter{section}{2}
+\subsection{}
+Angenommen $[0,1]$ ist nicht zusammenhängend. Dann gibt es $U, V \subseteq [0,1]$ mit $U, V \neq \emptyset$ und $[0,1] = U \dotcup V$, so dass $U$ und $V$ offen in $[0,1]$ sind. Dabei können wir o.B.d.A. davon ausgehen, dass $1 \in V$.
+
+Wir bemerken, dass für jede Folge $(a_n)_{n \in \N}$ auf $U$ mit $a_n \to a$ in $\R$ auch $a \in U$ ist: Da $V$ offen in $[0,1]$ ist gibt es $W \subseteq \R$ offen, so dass $V = [0,1] \cap W$. Es ist daher $U = [0,1] \cap (\R-W)$ abgeschlossen in $\R$, und deshalb $a \in U$. (Aus der Analysis ist bereits bekannt, dass eine Menge $A \subseteq \R$ genau dann abgeschlossen ist, wenn für jede Folge $(a_n)_{n \in \N}$ auf $A$ mit $a_n \to a$ in $\R$ auch $a \in A$.) Analog ergibt sich, dass für jede Folge $(b_n)_{n \in \N}$ auf $V$ mit $b_n \to b$ in $\R$ schon $b \in V$.
+
+Sei nun $c = \sup U$. Da $\emptyset \neq U \subseteq [0,1]$ ist $c \in [0,1]$, also entweder $c \in U$ oder $c \in V$. Da es nach Definition von $c$ eine Folge $(a_n)_{n \in \N}$ in $U$ mit $a_n \to c$ in $\R$ gibt, muss $c \in U$. Inbesondere ist daher $c \not\in V$ und $c < 1$.
+
+Da $(c,1] \subseteq V$ gibt es eine Folge $(b_n)_{n \in \N}$ auf $V$ mit $b_n \to c$ in $\R$. Daher muss $c \in V$, was im Widerspruch zu $c \not\in V$ steht.
+
+Das zeigt, dass es keine solchen Mengen $U$ und $V$ geben kann. Also muss $[0,1]$ zusammenhängend sein.
+
+
+\subsection{}
+Sei $X$ ein wegzusammenhängender topologischer Raum. Angenommen, $X$ wäre nicht zusammenhängend. Dann gibt es offene Mengen $U, V \subseteq X$ mit $U, V \neq \emptyset$, so dass $X = U \dotcup V$. Es sei $x \in U$ und $y \in V$.
+
+Da $X$ wegzusammenhängend ist gibt es eine stetige Abbildung $\lambda : [0,1] \to X$ mit $\lambda(0) = x$ und $\lambda(1) = y$. Es ist daher
+\[
+ [0,1] = \lambda^{-1}(X) = \lambda^{-1}(U \dotcup V) = \lambda^{-1}(U) \dotcup \lambda^{-1}(V),
+\]
+mit $\lambda^{-1}(U) \neq \emptyset$ da $0 \in \lambda^{-1}(U)$ und $\lambda^{-1}(V) \neq \emptyset$ da $1 \in \lambda^{-1}(V)$. Da $U, V$ offen in $X$ sind und $\lambda$ stetig ist, sind $\lambda^{-1}(U), \lambda^{-1}(V)$ offen in $[0,1]$. Es folgt, dass $[0,1]$ nicht zusammenhängend ist, was falsch ist.
+
+Das zeigt, dass es keine solchen Mengen $U$ und $V$ gibt. Also ist $X$ zusammenhängend.
+
+
+
+
+
+\addtocounter{section}{1}
 
 
 
