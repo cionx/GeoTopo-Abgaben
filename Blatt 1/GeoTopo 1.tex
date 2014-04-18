@@ -18,4 +18,122 @@
 \begin{document}
 \maketitle
 
+
+
+
+
+\addtocounter{section}{3}
+
+
+
+
+
+\section{}
+
+
+\subsection{}
+Für alle $x,y \in X$ ist
+\[
+ d'(x,y) = 0 \Leftrightarrow \frac{d(x,y)}{d(x,y)+1} = 0 \Leftrightarrow d(x,y) = 0 \Leftrightarrow x=y
+\]
+und
+\[
+ d'(x,y) = \frac{d(x,y)}{d(x,y)+1} = \frac{d(y,x)}{d(y,x)+1} = d'(y,x),
+\]
+da $d$ eine Metrik auf $X$ ist. Die Dreiecksungleichung für $d'$ ergibt sich aus der Dreiecksungleichung für $d$ durch
+\begin{align*}
+ d'(x,z)
+ &= \frac{d(x,z)}{d(x,z)+1}
+ = 1 - \frac{1}{d(x,z)+1}
+ \leq 1 - \frac{1}{d(x,y)+d(y,z)+1} \\
+ &= \frac{d(x,y)+d(y,z)}{1+d(x,y)+d(y,z)}
+ = \frac{d(x,y)}{1+d(x,y)+d(y,z)} + \frac{d(y,z)}{1+d(x,y)+d(y,z)}\\
+ &\leq \frac{d(x,y)}{1+d(x,y)} + \frac{d(y,z)}{1+d(y,z)}
+ = d'(x,y) + d'(y,z)
+\end{align*}
+für alle $x,y,z \in X$. Das zeigt, dass $d''$ eine Metrik auf $X$ ist.
+
+
+\subsection{}
+Für alle $x,y \in X$ ist
+\[
+ d''(x,y) = 0
+ \Leftrightarrow \min\{d(x,y),1\} = 0
+ \Leftrightarrow d(x,y) = 0
+ \Leftrightarrow x=y
+\]
+und
+\[
+ d''(x,y) = \min\{d(x,y),1\} = \min\{d(y,x),1\} = d''(y,x),
+\]
+da $d$ eine Metrik auf $X$ ist. Die Dreiecksungleichung für $d''$ ergibt sich aus der Dreiecksungleichung für $d$ durch
+\begin{align*}
+ d''(x,z)
+ &= \min\{d(x,z),1\}
+ \leq \min\{d(x,y)+d(y,z),1\} \\
+ &\leq \min\{d(x,y),1\} + \min\{d(y,z),1\}
+ = d''(x,y)+d''(y,z)
+\end{align*}
+für alle $x,y,z \in X$. Dabei haben wir genutzt, dass
+\[
+ \min\{a+b,c\} \leq \min\{a+b,a+c,c+b,2c\} = \min\{a,c\}+\min\{b,c\}
+\]
+für alle $a,b,c \geq 0$.
+
+
+\subsection{}
+Es ist klar, dass $d$ und $d''$ die gleich Topologie induzieren, denn für eine Teilmenge $U \subseteq X$ und einen Punkt $x \in U$ gibt es genau dann ein $\varepsilon > 0$ mit $B_\varepsilon(x) \subseteq U$, wenn es ein $0 < \varepsilon’ \leq 1$ mit $B_{\varepsilon'}(x) \subseteq U$ gibt. (Existiert ein solches $\varepsilon'$, so kann man $\varepsilon = \varepsilon'$ wählen; existiert ein solches $\varepsilon$, so kann man $\varepsilon' = \min\{\varepsilon,1\}$ wählen.)
+
+$d'$ und $d''$ induzieren die gleiche Topologie auf $X$, da
+\[
+ d'(x,y) \leq d''(x,y) \leq 2d'(x,y) \text{ für alle } x,y \in X,
+\]
+was sich aus
+\[
+ \frac{a}{a+1} \leq \min\{a,1\} \leq \frac{2a}{a+1} \text{ für alle } a \geq 0.
+\]
+ergibt.
+
+Der erste Teil der Ungleichung folgt daraus, dass für alle $a \geq 0$
+\[
+ \frac{a}{a+1} \leq a \text{ und } \frac{a}{a+1} \leq 1
+\]
+und damit
+\[
+ \frac{a}{a+1} \leq \min\{a,1\}.
+\]
+Der zweite Teil der Ungleichung ergibt sich wegen
+\[
+ \min\{a,1\} \leq \frac{2a}{a+1}
+ \Leftrightarrow (a+1)\min\{a,1\} \leq 2a \text{ für alle } a \geq 0
+\]
+durch eine einfache Fallunterscheidung: Für $0 \leq a < 1$ ist
+\[
+ (a+1)a \leq 2a \Leftrightarrow a(1-a) \geq 0,
+\]
+was offenbar gilt, und für $a \geq 1$ ist
+\[
+ a+1 \leq 2a \Leftrightarrow a \geq 1.
+\]
+Das zeigt, dass auch $d'$ und $d''$ die gleiche Topologie induzieren.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
