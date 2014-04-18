@@ -22,7 +22,67 @@
 
 
 
-\addtocounter{section}{3}
+\section{}
+Da in der Aufgabenstellung nicht angegeben ist, bezüglich welcher Topologien die Räume betrachtet werden sollen, gehen wir davon aus, dass die durch die euklidische Norm $\|\cdot\|$ induzierte Topologie gemeint ist.
+
+
+Wir definieren
+
+\[
+ f : \inn\left(D^2\right) \to \inn\left(D^2\right),
+ x \mapsto
+ \begin{pmatrix}
+  \cos \frac{1}{1-\|x\|} & -\sin \frac{1}{1-\|x\|} \\
+  \sin \frac{1}{1-\|x\|} & \cos \frac{1}{1-\|x\|}
+ \end{pmatrix}
+ \cdot x.
+\]
+$f$ ist wohldefiniert, denn
+\[
+ \inn\left(D^2\right) = \{x \in \R^2 : \|x\| < 1\}.
+\]
+und $\|f(x)\| = \|x\|$ für alle $x \in \inn\left(D^2\right)$, da Rotationsmatrizen orthogonal sind.
+
+Wir behaupten, dass $f$ ein Homöomorphismus von $\inn\left(D^2\right)$ ist.
+
+Zum Nachweis der Bijektivität definieren wir
+\[
+ g : \inn\left(D^2\right) \to \inn\left(D^2\right),
+ x \mapsto
+ \begin{pmatrix}
+  \cos \frac{1}{1-\|x\|} & \sin \frac{1}{1-\|x\|} \\
+  -\sin \frac{1}{1-\|x\|} & \cos \frac{1}{1-\|x\|}
+ \end{pmatrix}
+ \cdot x.
+\]
+Die Wohldefiniertheit von $g$ ergibt sich analog zu der von $f$. Da $\|f(x)\| = \|x\|$ für alle $x \in \inn\left(D^2\right)$ sieht man, dass $(fg) (x) = x$ und $(gf)(x) = x$ für alle $x \in \inn\left(D^2\right)$, also $fg = gf = \id_{\inn(D^2)}$. Das zeigt, dass $f$ bijektiv ist mit $g = f^{-1}$.
+
+Die Stetigkeit von $f$ und $g$ ergibt sich direkt daraus, dass sie Verknüpfung stetiger Funktionen sind. Das zeigt, dass $f$ ein Homöomorphismus ist.
+
+Wir behaupten weiter, dass sich $f$ nicht zu einer stetigen Abbildung $D^2 \to D^2$ fortsetzen lässt. Angenommen, es gebe eine solche stetige Fortsetzung $F$ von $f$. Wir betrachten die Folge $(a_n)_{n \geq 1}$ auf $D^2$ mit
+\[
+ a_n = \vect{ 1-\frac{1}{n\pi} \\ 0} \text{ für alle } n \geq 1.
+\]
+Offenbar gilt $a_n \to e_1 = (1,0)^T$ für $n \to \infty$ in $D^2$. Aufgrund der Folgenstetigkeit von $F$ (in metrischen Räumen ist Folgenstetigkeit äquivalent zu Stetigkeit) ist daher auch $F(a_n) \to F(e_1)$ für $n \to \infty$ in $D^2$. Da $a_n \in \inn(D^2)$ für alle $n \geq 1$ ist jedoch
+\[
+ F(a_n) =
+ f(a_n) =
+ \begin{pmatrix}
+  \cos\left(n\pi\right) & -\sin\left(n\pi\right) \\
+  \sin\left(n\pi\right) &  \cos\left(n\pi\right)
+ \end{pmatrix}
+ a_n
+ = (-1)^n a_n \text{ für alle } n \geq 1,
+\]
+und die Folge $((-1)^n a_n)_{n \geq 1}$ konvergiert in $D^2$ offensichtlich nicht. Dieser Widerspruch zeigt, dass $f$ keine stetige Fortsetzung $D^2 \to D^2$ besitzt.
+
+
+
+
+
+
+
+\addtocounter{section}{2}
 
 
 
@@ -116,21 +176,6 @@ was offenbar gilt, und für $a \geq 1$ ist
  a+1 \leq 2a \Leftrightarrow a \geq 1.
 \]
 Das zeigt, dass auch $d'$ und $d''$ die gleiche Topologie induzieren.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
