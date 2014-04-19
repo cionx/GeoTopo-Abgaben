@@ -110,7 +110,81 @@ Das zeigt, dass es keine solchen Mengen $U$ und $V$ gibt. Also ist $X$ zusammenh
 
 
 
-\addtocounter{section}{1}
+\section{}
+
+
+\subsection{}
+Wir bemerken zunächst, dass
+\[
+ A := \left\{ \left. \left(x,\sin\frac{1}{x}\right) \right| x > 0\right\}
+\]
+wegzusammenhängend ist, da für $(x,\sin(1/x)), (y,\sin(1/y)) \in A$ der Weg
+\[
+ \lambda : [0,1] \to A, t \mapsto \left(x+(y-x)t, \sin \frac{1}{x+(y-x)t}\right)
+\]
+mit $\lambda(0) = (x,\sin(1/x))$ und $\lambda(1) = (y,\sin(1/y))$ existiert. Insbesondere ist $A$ daher zusammenhängend.
+
+Angenommen $S$ ist nicht zusammenhängend. Dann gibt es $U,V \subseteq S$ offen in $S$ mit $U, V \neq \emptyset$ und $S = U \dotcup V$. Es ist entweder $A \subseteq U$ oder $A \subseteq V$, denn $A$ ist zusammenhängend und es ist
+\[
+ A = A \cap S = A \cap (U \dotcup V) = (A \cap U) \dotcup (A \cap V)
+\]
+mit $A \cap U, A \cap V \subseteq A$ offen in $A$. Wir können o.B.d.A. davon ausgehen, dass $A \subseteq V$.
+
+Sei $x \in U$. Da $A \subseteq V$ und $U \cap V = \emptyset$ muss $x \in S-A = \{0\} \times [-1,1]$. Da $U$ offen in $S$ ist gibt es ein $\varepsilon > 0$, so dass $B_\varepsilon(x) \cap S \subseteq U$ für $B_\varepsilon(x) = \{y \in \R^2 : \|x-y\| < \varepsilon\}$. Es ist aber klar, dass $B_\varepsilon(x) \cap A \neq \emptyset$, und daher
+\[
+ U \cap V \supseteq B_\varepsilon(x) \cap S \cap A = B_\varepsilon(x) \cap A \neq \emptyset,
+\]
+was im Widerspruch zur Disjunktheit von $U$ und $V$ steht. Es kann also keine solchen Mengen $U$ und $V$ geben, weshalb $S$ zusammenhängend ist.
+
+
+\subsection{}
+Angenommen $S$ ist wegzusammenhängend. Dann gibt es einen Weg $\lambda : [0,1] \to S$ mit $\lambda(0) = (1,\sin 1)$ and $\lambda(1) = (0,0)$. Wir setzen $A := \Img \lambda$.
+
+Wir behaupten, dass $(t, \sin(1/t)) \in A$ für alle $0 < t \leq 1$. Um dies zu zeigen sei $\pi : \R^2 \to \R, (x,y) \mapsto x$ die Projektion auf die erste Koordinate. Die Abbildung
+\[
+ \pi \circ \lambda : [0,1] \to \R
+\]
+ist als Verknüpfung stetiger Funktionen stetig. Da $(\pi \circ \lambda)(0) = 1$ und $(\pi \circ \lambda)(1) = 0$ folgt aus dem Zwischenwertsatz, dass es für alle $0 < t \leq 1$ ein $u_t \in [0,1]$ mit $\pi(\lambda(u_t)) = t$ gibt. Für $y_t := \lambda(u_t)$ ist dann $y_t \in A$ mit $\pi(y_t) = t$. Nach Definition von $A$ folgt, dass $y_t = (t,\sin(1/t))$.
+
+Wir definieren die Folge $(a_n)_{n \in \N}$ auf $[0,1]$ als
+\[
+ a_n := \frac{1}{n\pi + \pi/2} \text{ für alle } n \in \N.
+\]
+und die Funktion
+\[
+ f : (0,\infty) \to S, t \mapsto \left(t, \sin \frac{1}{t}\right).
+\]
+Man bemerke, dass
+\[
+ f(a_n) = \left(a_n, (-1)^n\right) \text{ für alle } n \in \N.
+\]
+Für alle $n \in \N$ sei
+\[
+ T_n := \{t \in [0,1] : \lambda(t) = f(a_n)\} \text{ und }
+ t_n = \sup T_n.
+\]
+Nach der obigen Behauptung ist $T_n \neq \emptyset$ und damit $t_n \in [0,1]$ für alle $n \in \N$.
+
+Wir bemerken, dass $\lambda(t_n) = f(a_n) = (a_n,(-1)^n)$ für alle $n \in \N$: Für alle $n \in \N$ gibt es nach Definition von $t_n$ eine Folge $(b_k^n)_{k \in \N}$ auf $T_n$ mit $b_k^n \to t_n$ für $k \to \infty$. Aus der Folgenstetigkeit von $\lambda$ folgt daher, dass
+\[
+ \lambda(t_n) = \lambda\left(\lim_{k \to \infty} b_k^n\right) = \lim_{k \to \infty} \lambda(b_k^n) = \lim_{k \to \infty} f(a_n) = f(a_n) = \left(a_n,(-1)^n\right).
+\]
+
+Wir haben eine Folge $(t_n)_{n \in \N}$ auf $[0,1]$ konstruiert mit $\lambda(t_n) = (a_n, (-1)^n)$ für alle $n \in \N$. Ähnlich zur obigen Argumentation ergibt sich unter Verwendung von $\pi$, dem Zwischenwertsatz und der Monotonie von $(a_n)_{n \in \N}$, dass die Folge $(t_n)_{n \in \N}$ monoton steigend ist.
+
+Da die Folge $(t_n)_{n \in \N}$ monoton steigend und nach oben beschränkt ist, ist sie konvergent. Da $\lambda$ folgenstetig ist konvergiert also auch die Folge
+\[
+ (\lambda(t_n))_{n \in \N} = \left(\left(a_n,(-1)^n\right)\right)_{n \in \N}.
+\]
+Dies ist aber offensichtlich nicht der Fall, da die Folge $(-1)^n$ nicht konvergiert. Dieser Widerspruch zeigt, dass ein solcher Weg $\lambda$ nicht existiert, dass also $S$ nicht wegzusammenhängend ist.
+
+
+
+
+
+
+
+
 
 
 
