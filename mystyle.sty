@@ -9,8 +9,13 @@
 \renewcommand{\thesection}{Aufgabe \blattNummer.\arabic{section}:} %das Makro wird in der jeweiligen Datei gesetzt
 \renewcommand{\thesubsection}{(\alph{subsection})}
 
+% Umgebungen in kursiver Schrift
 \newcounter{saetze}
+\newtheorem*{defi}{Definition}
 \newtheorem{lem}[saetze]{Lemma}
+
+% Umgebungen in normaler Schrift
+\theoremstyle{definition}
 \newtheorem{beh}[saetze]{Behauptung}
 \newtheorem{bem}[saetze]{Bemerkung}
 
@@ -19,6 +24,8 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+
+\newcommand{\mc}{\mathcal}
 
 \newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Mat}{\operatorname{Mat}}

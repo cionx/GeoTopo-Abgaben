@@ -22,4 +22,81 @@
 
 
 
+\section{}
+\begin{defi}
+ Sei $X$ ein topologischer Raum und $x \in X$. Eine Kollektion $\mc{B}$ von Umgebungen von $x$ heißt \emph{Umgebungsbasis} von $x$, falls es für jede Umgebung $N$ von $x$ ein $M \in \mc{B}$ gibt, so dass $M \subseteq N$.
+ 
+ Wir sagen, dass $X$ das \emph{erste Abzählbarkeitsaxiom} erfüllt, bzw. dass $X$ \emph{erstabzählbar} ist, falls es für alle $x \in X$ eine abzählbare Umgebungsbasis $\mc{B}_x$ von $x$ gibt.
+\end{defi}
+
+
+\begin{bem}\label{bem: metrische Räume erstabzählbar}
+ Jeder metrische Raum ist erstabzählbar. Für einen metrischen Raum $X$ und $x \in X$ bildet nämlich
+ \[
+  \mc{B}_x := \{B_\varepsilon(x) : \varepsilon > 0, \varepsilon \in \Q\}
+ \]
+ offensichtlich eine Umgebungsbasis von $x$.
+\end{bem}
+
+
+\begin{bem}\label{bem: offene Umgebungsbasis}
+ Besitzt $x \in X$ eine abzählbare Umgebungsbasis $\mc{B}$, so besitzt $x$ auch eine abzählbare Umgebungsbasis $\mc{U}$ von offenen Umgebungen. Es enthält nämlich jedes $B \in \mc{B}$ eine offene Umgebung $U_B$ von $x$. Es sei dann
+ \[
+  \mc{U} := \{U_B : B \in B\}.
+ \]
+ Dass $\mc{U}$ eine Umgebungsbasis von $x$ ist, folgt daraus, dass es für jede Umgebung $N$ von $x$ ein $B \in \mc{B}$ gibt mit $B \subseteq N$, und deshalb
+ \[
+  U_B \subseteq B \subseteq N.
+ \]
+\end{bem}
+
+
+
+\begin{bem}\label{bem: erstabzählbar homöomorphieinvarinat}
+ Sind $X, Y$ topologische Räume und $X \cong Y$, so ist offenbar $X$ genau dann erstabzählbar, wenn $Y$ erstabzählbar ist.
+\end{bem}
+
+
+Die drei Räume $A, B, C$ sind paarweise nicht homöomorph zueinander. Zunächst zeigen wir, dass die hawaiischen Ohrring als einziger der drei Räume kompakt sind.
+
+Der Raum $A$ ist nicht kompakt, da ein Teilraum $X \subseteq \R^n$ genau dann kompakt ist, wenn $X$ in $\R^n$ abgeschlossen und beschränkt ist. Da $A$ offenbar nicht beschränkt ist, ist $A$ nicht kompakt.
+
+Die hawaiischen Ohrringe sind kompakt: Ist $\mc{U}$ eine offene Überdeckung von $B$ in $\R^2$, so gibt es ein $U_0 \in \mc{U}$ mit $0 \in U_0$. Da $U_0$ offen in $\R^2$ ist, gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(0) \subseteq U_0$. Es sei $N \in \N, N \geq 1$, so dass $N > 1/\varepsilon$. Bezeichnet $K_n$ den Kreis mit Mittelpunkt $(0,1/n)$ und Radius $1/n$ für alle $n \geq 1$, so ist also
+\[
+ B = \bigcup_{n \geq 1} K_n \subseteq U_0 \cup \bigcup_{n=1}^{N} K_n.
+\]
+Da alle $K_n$ offenbar abgeschlossen und beschränkt sind, also kompakt, und die endliche Vereinigung kompakter Mengen offenbar kompakt ist, besitzt $\mc{U}$ als offene Überdeckung von $\bigcup_{n=1}^N K_n$ eine endliche Teilüberdeckung $\mc{V} \subseteq \mc{U}$ von $\bigcup_{n=1}^N K_n$. Es ist daher $\mc{V} \cup \{U_0\} \subseteq \mc{U}$ eine endliche Teilüberdeckung von $B$. Das zeigt, dass die hawaiischen Ohrringe kompakt ist.
+
+Der Raum $C$ ist nicht kompakt. Bezeichnet $\pi : \R \to \R/\!\sim$ die kanonische Projektion, so ist nach der Definition der Quotiententopologie eine Teilmenge $U \subset C$ genau dann offen, wenn $\pi^{-1}(U)$ offen in $\R$ ist. Für $A \subseteq \R$ mit $A \cap \Z = \emptyset$ oder $A \cap \Z = \Z$ ist $\pi^{-1}(\pi(A)) = A$, also ist $\pi(U)$ offen in $C$ für jede offene Menge $U \subseteq \R$, für die $U \cap \Z = \emptyset$ oder $U \cap \Z = \Z$. Für die offene Überdeckung
+\[
+ \mc{U} := \left\{ \bigcup_{n \in \Z} B_{1/3}(n) \right\} \cup \bigcup_{n \in \Z} \{(n,n+1)\}
+\]
+von $\R$ ist daher $\mc{V} := \{\pi(U) : U \in \mc{U}\}$ eine offene Überdeckung von $C$. Da es für alle $n+1/2$ mit $n \in \Z$ eine eindeutige Menge in $\mc{U}$ gibt, die $n+1/2$ enthält, und $\pi$ auf $\R-\Z$ injektiv ist, folgt daraus, dass es für alle $\pi(n+1/2)$ mit $n \in \Z$ eine eindeutige Menge in $\mc{V}$ gibt, die $\pi(n+1/2)$ enthält. Deshalb besitzt $\mc{V}$ keine endliche Teilüberdeckung. Das zeigt, dass $C$ nicht kompakt ist.
+
+Damit haben wir gezeigt, dass die hawaiischen Ohhringe kompakt ist, $A$ und $C$ aber nicht. Also sind die hawaiischen Ohrring zu keinem der anderen beiden Räume homöomorph.
+
+Nach Bemerkung \ref{bem: metrische Räume erstabzählbar} ist $A$ erstabzählbar. Wir zeigen nun noch, dass $C$ nicht erstabzählbar ist, wodurch sich nach Bemerkung \ref{bem: erstabzählbar homöomorphieinvarinat} ergibt, dass auch $A$ und $C$ nicht homöomorph sind.
+
+Angenommen, $C$ ist erstabzählbar. Dann hat $\pi(0) \in C$ nach Bemerkung \ref{bem: offene Umgebungsbasis} eine abzählbare Umgebungsbasis $\mc{U} = \{U_n : n \in \Z\}$ von offenen Umgebungen. Wir schreiben $V_n := \pi^{-1}(U_n)$ für alle $n \in \N$ und setzen
+\[
+ \mc{V} := \{V_n : n \in \Z\}.
+\]
+Für alle $n \in \Z$ gilt, dass $\Z \subseteq V_n$, da $\pi(0) \in U_n$, und dass $V_n$ offen ist, da $U_n$ offen ist und $\pi$ stetig. Für alle $n \in \Z$ gibt es daher ein $r_n > 0$ so dass $B_{r_n}(n) \subseteq V_n$. Für alle $n \in \Z$ definieren wir
+\[
+ r'_n := \min\{r_n/2, 1/3\}
+\]
+und setzen
+\[
+ W := \bigcup_{n \in \Z} B_{r'_n}(n).
+\]
+$W$ ist eine offene Menge mit $\Z \subseteq W$ und $W \subsetneq V_n$ für alle $n \in \Z$, wobei sich $W$ und $V_n$ um je überabzählbar viele Element unterschieden. Daher ist $\pi(W) \subseteq C$ eine offene  Umgebung von $\pi(0) \in C$ mit $\pi(W) \subsetneq U_n$ für alle $n \in \Z$. Dies steht im Widerspruch dazu, dass $\mc{U}$ eine Umgebungsbasis von $\pi(0)$ ist.
+
+
+
+
+
+
+
+
+
 \end{document}
