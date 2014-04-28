@@ -118,7 +118,7 @@ f(s,t)
 \end{cases}
 =  s \left(\cos\left(\frac{\pi}{4}t\right),\sin\left(\frac{\pi}{4}t\right)\right).
 \]
-Es ist klar, dass $f$ surjektiv ist und als Bijektion $\tilde{f}$ über $q(X)$ faktorisiert. Wir erhalten ein entsprechendes kommutative Diagram.
+Es ist klar, dass $f$ surjektiv ist und als Bijektion $\tilde{f}$ über $q(X)$ faktorisiert. Wir erhalten ein entsprechendes kommutative Diagramm.
 
 \begin{center}
  \begin{tikzpicture}[node distance = 7em,auto]
@@ -145,6 +145,100 @@ verstehen wollen. ($\|\cdot\|$ bezeichnet die übliche Norm auf $\R^2$.) Da dies
 Da all diese Mengen offen in $X$ sind, zeigt dies die Stetigkeit von $\tilde{f}$.
 
 Damit ist $\tilde{f}$ eine stetige Bijektion. Da $S^1$ hausdorff ist und $q(X)$ als Quotient des kompakten Raumes $X$ ebenfalls quasikompakt ist, ist $\tilde{f}$ schon ein Homöomorphismus. Das zeigt, dass $q(X) \cong S^1$ und damit, dass $M-K$ wegzusammenhängend ist.
+
+
+
+
+
+\section{}
+\begin{lem}\label{lem: indzuierte äquivalenzrelation}
+ Es seien $X$ und $Y$ topologische Räume, $\varphi : X \to Y$ ein Homöomorphismus und $\sim$ eine Äquivalenzrelation auf $X$. Es lässt sich auf $Y$ ein Äquivalenzrelation $\sim_\varphi$ definieren durch
+ \[
+  x \sim x' \Leftrightarrow \varphi(x) \sim_\varphi \varphi(x') \text{ für alle } x, x' \in X.
+ \]
+ Für die entsprechenden Quotientenräume gilt, dass $X/\!\sim\, \cong Y/\!\sim_\varphi$.
+\end{lem}
+\begin{proof}
+ Es ist klar, dass $\sim_\varphi$ eine Äquivalenzrelation auf $Y$ definiert, und dass $\varphi$ eine Bijektion $\bar{\varphi} : X/\!\sim\, \to Y/\!\sim_\varphi$ induziert mit
+ \[
+  \bar{\varphi} : [x]_\sim \mapsto [\varphi(x)]_{\sim_\varphi}.
+ \]
+ Bezeichnen $\pi_X : X \to X/\sim$ und $\pi_Y : Y \to Y/\sim_\varphi$ die kanonischen Projektionen, so ergibt sich also das folgende kommutative Diagramm.
+ \begin{center}
+  \begin{tikzpicture}[node distance=6em,auto]
+   \node (X) {$X$};
+   \node (Y) [right of = X] {$Y$};
+   \node (XS) [below of = X] {$X/\sim$};
+   \node (YS) [below of = Y] {$Y/\sim_\varphi$};
+   \draw[->] (X) to node {$\varphi$} (Y);
+   \draw[->] (XS) to node [swap] {$\bar{\varphi}$} (YS);
+   \draw[->] (X) to node [swap] {$\pi_X$} (XS);
+   \draw[->] (Y) to node {$\pi_Y$} (YS);
+  \end{tikzpicture}
+ \end{center}
+ 
+ Da $\pi_Y \circ \varphi$ als Verknüpfung stetiger Funktionen stetig ist, und $\bar{\varphi} \circ \pi_X = \pi_Y \circ \varphi$ folgt aus der universellen Eigenschaft der Quotientenraumtopologie, dass $\bar{\varphi}$ stetig ist. Das zeigt, dass $\bar{\varphi}$ eine stetige Bijektion ist.
+ 
+ Um zu zeigen, dass $\bar{\varphi}$ ein Homöomorphismus ist, bemerken wir, dass die Äquivalenzrelation $\sim_\varphi$ durch den Homöomorphismus $\varphi^{-1}$ eine Äquivalenzrelation $(\sim_\varphi)_{\varphi^{-1}}$ auf $X$ induziert mit
+ \[
+  y \sim_\varphi y' \Leftrightarrow \varphi^{-1}(y) (\sim_\varphi)_{\varphi^{-1}} \varphi^{-1}(y') \text{ für alle } y,y' \in Y.
+ \]
+ Dabei ist direkt klar, dass $(\sim_\varphi)_{\varphi^{-1}} = \sim$. Wir erhalten also analog eine stetige Bijektion $\overline{\varphi^{-1}} : Y/\!\sim_\varphi \to X/\!\sim$ mit
+ \[
+  \overline{\varphi^{-1}} : [y]_{\sim_\varphi} \mapsto [\varphi^{-1}(y)]_\sim,
+ \]
+ für die offenbar $\overline{\varphi^{-1}} = \overline{\varphi}^{-1}$. Das zeigt, dass $\bar{\varphi}$ ein Homöomorphismus ist.
+\end{proof}
+
+Wir bezeichnen die gegebene Äquivalenzrelation mit $\sim$ und setzen
+\[
+ S := \{(x,y,z) \in T : x \geq 0\}.
+\]
+
+Wir zeigen zunächst, dass $T/\!\sim\, \cong S/\!\sim$. Bezeichnet $\iota : S \to T$ die kanonische Inklusion und sind $q : T \to T/\sim$ und $\tilde{q} : S \to S/\sim$ die kanonischen Projektionen, so erhalten wir das folgende kommutatve Diagramm.
+ \begin{center}
+  \begin{tikzpicture}[node distance=6em,auto]
+   \node (S) {$S$};
+   \node (T) [right of = S] {$T$};
+   \node (SS) [below of = S] {$S/\sim$};
+   \node (TS) [below of = T] {$T/\sim$};
+   \draw[->] (S) to node {$\iota$} (T);
+   \draw[->] (SS) to node [swap] {$\tilde{\iota}$} (TS);
+   \draw[->] (S) to node [swap] {$\tilde{q}$} (SS);
+   \draw[->] (T) to node {$q$} (TS);
+  \end{tikzpicture}
+ \end{center}
+Dabei ist $\tilde{\iota}$ die induzierte Abbildung, d.h. die eindeutige Abbildung, die das obige Diagramm kommutieren lässt. (Sie ist gegeben durch $\tilde{\iota} : [x]_\sim \mapsto [x]_\sim$.) Da $\iota$ und $q$ stetig sind, ist es auch $q \circ \iota$. Da $q \circ \iota = \tilde{\iota} \circ \tilde{q}$ folgt aus der universellen Eigenschaft des Quotientenraums, dass $\tilde{\iota}$ stetig ist.
+
+Da $S$ jede Äquivalenzklasse von $\sim$ in $T$ nichttrivial schneidet ist $\tilde{\iota}$ surjektiv. Es ist auch klar, dass $\tilde{\iota}$ injektiv ist. Also ist $\tilde{\iota}$ eine stetige Bijektion. Da $S$ kompakt ist, und $S/\sim$ damit quasikompakt, genügt es für die Homöomorphie von $\tilde{\iota}$ zu zeigen, dass $T/\sim$ hausdorff ist.
+
+Seien hierfür $x,y \in T$ mit $q(x) \neq q(y)$, also $x \neq y$ und $x \neq -y$. Da $x, y, -x$ und $-y$ paarweise verschieden sind und $T$ hausdorff ist, gibt es ein $\varepsilon > 0$, so dass die $\varepsilon$-Bälle um $x, y, -x$ und $-y$ paarweise disjunkt sind. Da
+\begin{align*}
+ q^{-1}(q(B_\varepsilon(x))) &= B_\varepsilon(x) \cup B_\varepsilon(-x) \text{ und} \\
+ q^{-1}(q(B_\varepsilon(y))) &= B_\varepsilon(y) \cup B_\varepsilon(-y) 
+\end{align*}
+offen in $T$ sind, sind $q(B_\varepsilon(x))$ und $q(B_\varepsilon(y))$ disjunkte, in $T/\sim$ offene Mengen, die $x$, bzw. $y$ enthalten. Da $q$ surjektiv ist, zeigt dies, dass $T/\sim$ hausdorff ist.
+
+Also ist $S/\!\sim\, \cong T/\!\sim$.
+
+Wir bemerken auch, dass $[-1,1] \times [0,4] \cong S$, etwa durch passende Kugelkoordinaten
+\[
+ g : [-1,1] \times [0,4] \to S, (t,u) \mapsto
+ \vect{
+  \cos(t \arcsin(1/2)) \sin(u \pi/4) \\
+  \cos(t \arcsin(1/2)) \cos(u \pi/4) \\
+  \sin(t \arcsin(1/2)).
+ }
+\]
+Es ist bekannt, dass dies eine Homöomorphismus ist. $g^{-1}$ induziert nach Lemma \ref{lem: indzuierte äquivalenzrelation} durch $\sim$ eine Äquivalenzrelation $\sim_{g^{-1}}$ auf $S$. Man sieht leicht, dass diese gerade $(t,0)$ mit $(-t,4)$ identifiziert für alle $t \in [-1,1]$ und sonst keine Identifikationen vornimmt. Daher ist nach Lemma \ref{lem: indzuierte äquivalenzrelation}
+\[
+ S/\!\sim\; \cong ([-1,1] \times [0,4])/\!\sim_{g^{-1}}\; \cong M
+\]
+wobei $M$ das Möbiusband bezeichnet, wie in der vorherigen Aufgabe definiert wurde.
+
+
+
+
 
 
 
