@@ -95,6 +95,62 @@ $W$ ist eine offene Menge mit $\Z \subseteq W$ und $W \subsetneq V_n$ für alle 
 
 
 
+\section{}
+
+
+\addtocounter{subsection}{1}
+
+
+\subsection{}
+Es ist klar, dass $R$ wegzusammenhängend ist und $R - (\{0\} \times [0,4])$ in die beiden Wegzusammenhangskomponenten $[-1,0) \times [0,4]$ und $(0,1] \times [0,4]$ zerfällt. Da $\pi_0$ funktoriell ist, zerfällt daher auch $M-K$ in höchstens zwei Wegzusammenhangskomponenten, wobei $q([-1,0) \times [0,4])$ und $q((0,1] \times [0,4])$ wegzu\-sammen\-hängend in $M-K$ sind. Wir zeigen, dass $M-K$ bereits wegzusammenhängend ist. Da Wegzusammenhangskomponenten entweder disjunkt oder gleich sind, und jede wegzusammenhängende Teilmenge in einer Wegzusammenhangskomponente liegt, reicht es hierfür zu zeigen, dass $q(X)$ wegzusammenhängend ist für
+\[
+ X := \{-1\} \times [0,4] \cup \{1\} \times [0,4].
+\]
+Dies zeigen wir, indem wir zeigen, dass $q(X) \cong S^1$. ($S^1$ ist als Quotenten des wegzusammenhängenden Raumes $[0,1]$ ebenfalls wegzusammenhängend.)
+
+Wir betrachten die Abbildung $f : X \to S^1$ mit
+\[
+f(s,t)
+=
+\begin{cases}
+   \left(\cos\left(\frac{\pi}{4}t\right),\sin\left(\frac{\pi}{4}t\right)\right) & \text{falls } s = 1, \\
+ - \left(\cos\left(\frac{\pi}{4}t\right),\sin\left(\frac{\pi}{4}t\right)\right) & \text{falls } s = -1,
+\end{cases}
+=  s \left(\cos\left(\frac{\pi}{4}t\right),\sin\left(\frac{\pi}{4}t\right)\right).
+\]
+Es ist klar, dass $f$ surjektiv ist und als Bijektion $\tilde{f}$ über $q(X)$ faktorisiert. Wir erhalten ein entsprechendes kommutative Diagram.
+
+\begin{center}
+ \begin{tikzpicture}[node distance = 7em,auto]
+  \node (X) {$X$};
+  \node (qX) [below left of = X] {$q(X)$};
+  \node (S1) [below right of = X] {$S^1$};
+  \draw[->] (X) to node [swap] {$q$} (qX);
+  \draw[->] (X) to node {$f$} (S1);
+  \draw[->] (qX) to node [swap] {$\tilde{f}$} (S1);
+ \end{tikzpicture}
+\end{center}
+
+Wir bemerken, dass $\tilde{f}$ stetig ist: Wir zeigen, dass $\tilde{f}^{-1}(B_\varepsilon(x))$ in $q(X)$ offen ist für alle $x \in S^1$ und $\varepsilon > 0$, wobei wir zur einfacheren Notation
+\[
+ B_\varepsilon(x) = \{y \in S^1 : \|x-y\| < \varepsilon\} \subseteq S^1
+\]
+verstehen wollen. ($\|\cdot\|$ bezeichnet die übliche Norm auf $\R^2$.) Da diese $\varepsilon$-Bälle eine Basis der Topologie von $S^1$ bilden, zeigen wir damit die Stetigkeit von $\tilde{f}$. Wegen der Definition der Quotientenraumtopologie genügt es hierfür zu zeigen, dass $q^{-1}(\tilde{f}^{-1}(B_\varepsilon(x)))$ offen in $X$ ist. Das Urbild eines solchen $\varepsilon$-Balles hat für passende $u, t \in (0,4)$ die Form
+\begin{align*}
+ &\{1\} \times (u,t) \text{ oder } \\
+ &\{-1\} \times (u,t) \text{ oder } \\
+ &\{-1\} \times [0,u) \cup \{1\} \times (t,4] \text{ oder } \\
+ &\{-1\} \times (t,4] \cup \{1\} \times [0,u).
+\end{align*}
+Da all diese Mengen offen in $X$ sind, zeigt dies die Stetigkeit von $\tilde{f}$.
+
+Damit ist $\tilde{f}$ eine stetige Bijektion. Da $S^1$ hausdorff ist und $q(X)$ als Quotient des kompakten Raumes $X$ ebenfalls quasikompakt ist, ist $\tilde{f}$ schon ein Homöomorphismus. Das zeigt, dass $q(X) \cong S^1$ und damit, dass $M-K$ wegzusammenhängend ist.
+
+
+
+
+
+
 
 
 
