@@ -144,7 +144,7 @@ verstehen wollen. ($\|\cdot\|$ bezeichnet die übliche Norm auf $\R^2$.) Da dies
 \end{align*}
 Da all diese Mengen offen in $X$ sind, zeigt dies die Stetigkeit von $\tilde{f}$.
 
-Damit ist $\tilde{f}$ eine stetige Bijektion. Da $S^1$ hausdorff ist und $q(X)$ als Quotient des kompakten Raumes $X$ ebenfalls quasikompakt ist, ist $\tilde{f}$ schon ein Homöomorphismus. Das zeigt, dass $q(X) \cong S^1$ und damit, dass $M-K$ wegzusammenhängend ist.
+Damit ist $\tilde{f}$ eine stetige Bijektion. Da $S^1$ Hausdorffsch ist und $q(X)$ als Quotient des kompakten Raumes $X$ ebenfalls quasikompakt ist, ist $\tilde{f}$ schon ein Homöomorphismus. Das zeigt, dass $q(X) \cong S^1$ und damit, dass $M-K$ wegzusammenhängend ist.
 
 
 
@@ -210,14 +210,14 @@ Wir zeigen zunächst, dass $T/\!\sim\, \cong S/\!\sim$. Bezeichnet $\iota : S \t
  \end{center}
 Dabei ist $\tilde{\iota}$ die induzierte Abbildung, d.h. die eindeutige Abbildung, die das obige Diagramm kommutieren lässt. (Sie ist gegeben durch $\tilde{\iota} : [x]_\sim \mapsto [x]_\sim$.) Da $\iota$ und $q$ stetig sind, ist es auch $q \circ \iota$. Da $q \circ \iota = \tilde{\iota} \circ \tilde{q}$ folgt aus der universellen Eigenschaft des Quotientenraums, dass $\tilde{\iota}$ stetig ist.
 
-Da $S$ jede Äquivalenzklasse von $\sim$ in $T$ nichttrivial schneidet ist $\tilde{\iota}$ surjektiv. Es ist auch klar, dass $\tilde{\iota}$ injektiv ist. Also ist $\tilde{\iota}$ eine stetige Bijektion. Da $S$ kompakt ist, und $S/\sim$ damit quasikompakt, genügt es für die Homöomorphie von $\tilde{\iota}$ zu zeigen, dass $T/\sim$ hausdorff ist.
+Da $S$ jede Äquivalenzklasse von $\sim$ in $T$ nichttrivial schneidet ist $\tilde{\iota}$ surjektiv. Es ist auch klar, dass $\tilde{\iota}$ injektiv ist. Also ist $\tilde{\iota}$ eine stetige Bijektion. Da $S$ kompakt ist, und $S/\sim$ damit quasikompakt, genügt es für die Homöomorphie von $\tilde{\iota}$ zu zeigen, dass $T/\sim$ Hausdorffsch ist.
 
-Seien hierfür $x,y \in T$ mit $q(x) \neq q(y)$, also $x \neq y$ und $x \neq -y$. Da $x, y, -x$ und $-y$ paarweise verschieden sind und $T$ hausdorff ist, gibt es ein $\varepsilon > 0$, so dass die $\varepsilon$-Bälle um $x, y, -x$ und $-y$ paarweise disjunkt sind. Da
+Seien hierfür $x,y \in T$ mit $q(x) \neq q(y)$, also $x \neq y$ und $x \neq -y$. Da $x, y, -x$ und $-y$ paarweise verschieden sind und $T$ Hausdorffsch ist, gibt es ein $\varepsilon > 0$, so dass die $\varepsilon$-Bälle um $x, y, -x$ und $-y$ paarweise disjunkt sind. Da
 \begin{align*}
  q^{-1}(q(B_\varepsilon(x))) &= B_\varepsilon(x) \cup B_\varepsilon(-x) \text{ und} \\
  q^{-1}(q(B_\varepsilon(y))) &= B_\varepsilon(y) \cup B_\varepsilon(-y) 
 \end{align*}
-offen in $T$ sind, sind $q(B_\varepsilon(x))$ und $q(B_\varepsilon(y))$ disjunkte, in $T/\sim$ offene Mengen, die $x$, bzw. $y$ enthalten. Da $q$ surjektiv ist, zeigt dies, dass $T/\sim$ hausdorff ist.
+offen in $T$ sind, sind $q(B_\varepsilon(x))$ und $q(B_\varepsilon(y))$ disjunkte, in $T/\sim$ offene Mengen, die $x$, bzw. $y$ enthalten. Da $q$ surjektiv ist, zeigt dies, dass $T/\sim$ Hausdorffsch ist.
 
 Also ist $S/\!\sim\, \cong T/\!\sim$.
 
@@ -235,6 +235,140 @@ Es ist bekannt, dass dies eine Homöomorphismus ist. $g^{-1}$ induziert nach Lem
  S/\!\sim\; \cong ([-1,1] \times [0,4])/\!\sim_{g^{-1}}\; \cong M
 \]
 wobei $M$ das Möbiusband bezeichnet, wie in der vorherigen Aufgabe definiert wurde.
+
+
+
+
+
+\section{}
+Statt die Teilaufgaben zu bearbeiten, betrachten wir verschiedene Möglichkeiten $\R P^n$ zu konstruieren. Die zu zeigenden Aussagen ergeben sich dann als einfache Korollare.
+
+Wir betrachten auf $\R^{n+1} - \{0\}$ die Äquivalenzrelation $\sim$ mit
+\[
+ x \sim y \Leftrightarrow \exists \lambda \in \R^\times \text{ mit } y = \lambda x.
+\]
+Es ist unmittelbar klar, dass
+\[
+ (\R^{n+1} - \{0\})/\!\sim\, \cong \R P^n \text{ via } [x]_\sim \to \vspan(x).
+\]
+
+Wir zeigen zunächst, dass bereits $S^n/\!\sim\, \cong \R P^n$. Dabei bemerke man, dass $\sim$ auf $S^n$ genau die gegenüberliegenden Punkte miteinander identifiziert, d.h.
+\[
+ x \sim x' \Leftrightarrow x = x' \text{ oder } x = -x' \text{ für alle } x,x' \in S^n.
+\]
+
+Hierfür definieren wir uns für alle $A \in X$ die Saturierung von $A$ als
+\[
+ A^{\text{sat}}
+ = \left\{\left. x \in \R^{n+1} - \{0\} \right| \exists a \in A \text{ mit } x \sim a\right\}
+ = \bigcup_{a \in A} [a]_\sim.
+\]
+Ist $U \subseteq S^n$ offen in $S^n$, so ist $U^{\text{sat}}$ offen in $\R^{n+1} - \{0\}$. Für $y \in U^{\text{sat}}$ gibt es ein $x \in U$ und $\lambda \in \R^\times$ mit $y = \lambda x$. Da $U$ offen in $S^n$ ist gibt es ein $\varepsilon > 0$ mit $B_\varepsilon(x) \cap S^n \subseteq U \cap S^n$. Es ist klar, dass daher
+\[
+ \inf \left\{\|z-x\| | z \not\in U^{\text{sat}}\right\} > 0.
+\]
+Deshalb gibt es ein $\delta > 0$ mit $B_\delta(x) \subseteq U^{\text{sat}}$. Es ist daher auch
+\[
+ U^{\text{sat}} \supseteq \lambda B_\delta(x) = B_{\lambda \delta}(\lambda x) = B_{\lambda \delta}(y).
+\]
+Das zeigt, dass $U^{\text{sat}}$ offen in $R^{n+1} - \{0\}$ ist.
+
+Wir betrachten nun das folgende kommutative Diagramm.
+\begin{center}
+ \begin{tikzpicture}[node distance=5em,auto]
+  \node (Sn) {$S^n$};
+  \node (Rn+1) [right of = Sn, node distance = 9em] {$\R^{n+1}-\{0\}$};
+  \node (Sn/) [below of = Sn] {$S^n/\sim$};
+  \node (Rn+1/) [below of = Rn+1] {$(\R^{n+1}-\{0\})/\sim$};
+  \draw[->] (Sn) to node {$\iota$} (Rn+1);
+  \draw[->] (Sn/) to node [swap] {$\iota'$} (Rn+1/);
+  \draw[->] (Sn) to node [swap] {$\pi_1$} (Sn/);
+  \draw[->] (Rn+1) to node {$\pi_2$} (Rn+1/);
+ \end{tikzpicture}
+\end{center}
+Dabei bezeichnet $\iota$ die kanonische Inklusion, $\pi_1$ und $\pi_2$ bezeichnen die kanonischen Projektionen und $\iota'$ die induzierte Abbildung, die das Diagram kommutieren lässt, d.h.
+\[
+ \iota' : S^n / \sim \to (\R^{n+1}-\{0\})/\sim, [x]_\sim \to [x]_\sim.
+\]
+
+Die Wohldefiniertheit von $\iota'$ ist klar Es ist auch klar, dass $\iota'$ injektiv ist. Die Surjektivität von $\iota'$ folgt daraus, dass $S^n$ jede Äquivalenzklasse von $\sim$ auf $\R^{n+1}-\{0\}$ nichttrivial schneidet. $\iota'$ ist also bijektiv. $\iota$ ist auch stetig, denn $\pi_2 \circ \iota$ ist als Komposition stetiger Abbildungen stetig, und wegen $\pi_2 \circ \iota = \iota' \circ \pi_1$ folgt daraus durch die universelle Eigenschaft des Quotientenraums, dass $\iota'$ stetig ist. Das zeigt, dass $\iota'$ eine stetige Bijektion ist.
+
+Um zu zeigen, dass $\iota'$ ein Homöomorphismus ist, zeigen wir, dass $\iota'$ offen ist. Da eine Menge $U \subseteq S^n/\!\sim$ genau dann offen in $S^n/\!\sim$ ist, wenn $\pi_1^{-1}(U)$ offen in $S^n$ ist, und $V \subseteq (\R^{n+1} - \{0\})/\!\sim$ genau dann offen in $(\R^{n+1}-\{0\})/\!\sim$ ist, wenn $\pi_2^{-1}(V)$ offen in $\R^{n+1} - \{0\}$ ist, genügt für die Offenheit von $\iota'$ zu zeigen, dass
+\[
+ \pi_2^{-1}(\iota'(\pi(U)))
+\]
+offen ist in $\R^{n+1} - \{0\}$ für alle $U \subseteq S^n$ offen in $S^n$. Da
+\[
+ \pi_2^{-1}(\iota'(\pi(A))) = A^{\text{sat}} \text{ für alle } A \subseteq S^n
+\]
+fogt dies aus den vorherigen Beobachtungen über die Saturierung offener Mengen.
+
+Das zeigt, dass $\iota'$ offen und somit ein Homöomorphismus ist.
+
+Wir gehen nun noch einen Schritt weiter. Wir können $D^n$ mit „der nördlichen Hemisphäre“ der $S^n$ identifizieren via der Abbildung
+\[
+ D^n \to S^n, (x_1, \ldots, x_n) \mapsto \left(x_1, \ldots, x_n, \sqrt{1-\sum_{i=1}^n x_i^2}\right).
+\]
+Bezeichnen wir das Bild dieser Abbildung mit $\tilde{D}^n$, so erhalten wir einen Homöomorphismus
+\begin{align*}
+ \varphi_n : D^n &\to \tilde{D}^n, (x_1, \ldots, x_n) \mapsto \left(x_1, \ldots, x_n, \sqrt{1-\sum_{i=1}^n x_i^2}\right) \\
+ \varphi_n^{-1} : \tilde{D}^n &\to D^n, (x_1, \ldots, x_n, x_{n+1}) \to (x_1, \ldots, x_n).
+\end{align*}
+
+Wir behaupten nun weiter, dass bereits $\tilde{D}^n/\!\sim\, \cong S^n/\!\sim$. Hierfür betrachen wir das folgende kommutative Diagramm.
+\begin{center}
+ \begin{tikzpicture}[node distance=5em,auto]
+  \node (Dn) {$\tilde{D}^n$};
+  \node (Sn) [right of = Dn, node distance = 7em] {$S^n$};
+  \node (Dn/) [below of = Dn] {$\tilde{D}^n/\sim$};
+  \node (Sn/) [below of = Sn] {$S^n/\sim$};
+  \draw[->] (Dn) to node {$\iota$} (Sn);
+  \draw[->] (Dn/) to node [swap] {$\iota'$} (Sn/);
+  \draw[->] (Dn) to node [swap] {$\pi_1$} (Dn/);
+  \draw[->] (Sn) to node {$\pi_2$} (Sn/);
+ \end{tikzpicture}
+\end{center}
+Dabei ist $\iota$ die kanonische Inklusion, $\pi_1$ und $\pi_2$ sind die kanonischen Projektionen und $\iota'$ ist die eindeutige Abbildung, die das Diagramm kommutieren lässt. Diese ist offenbar wohldefiniert und eindeutig.
+Da $\pi_2 \circ \iota = \iota' \circ \pi_1$ stetig ist, folgt aus der universellen Eigenschaft des Quotientenraums, dass $\iota'$ stetig ist. Es ist klar, dass $\iota'$ injektiv ist, und die Surjektivität von $\iota'$ folgt daraus, dass $\tilde{D}^n$ jede Äquivalenzklasse von $\sim$ auf $S^n$ nichttrivial schneidet. Es ist also $\iota'$ eine stetige Bijektion.
+
+Da $\tilde{D}^n \cong D^n$ kompakt ist, und daher $\tilde{D}^n/\!\sim$ als Quotient eines kompakten Raumes quasikompakt, genügt es, um zu zeigen, dass $\iota'$ ein Homöomorphismus ist, zu zeigen, dass $S^n/\!\sim$ Hausdorffsch ist. Seien hierfür $x,y \in S^n$ mit $\pi_2(x) \neq \pi_2(y)$, also $x \neq y$ und $x \neq -y$. Dann sind $x, -x, y$ und $-y$ paarweise verschieden. Da $S^n$ Hausdorffsch ist, gibt es daher ein $\varepsilon > 0$, so dass die $\varepsilon$-Bälle um $x,-x,y$ und $-y$ eingeschränkt auf $S^n$ paarweise disjunkt sind. Da
+\begin{align*}
+ \pi_2^{-1}(\pi_2(B_\varepsilon(x) \cap S^n)) &= (B_\varepsilon(x) \cup B_\varepsilon(-x)) \cap S^n \text{ und} \\
+ \pi_2^{-1}(\pi_2(B_\varepsilon(y) \cap S^n)) &= (B_\varepsilon(y) \cup B_\varepsilon(-y)) \cap S^n
+\end{align*}
+sind daher $\pi_2(B_\varepsilon(x))$ und $\pi_2(B_\varepsilon(y))$ offen und disjunkt in $S^2/\!\sim$. Da $\pi_2$ surjektiv ist, zeigt dies, dass $S^n/\!\sim\,$ Hausdorffsch ist.
+
+Das zeigt, dass $\tilde{D}^n \cong S^n / \sim$.
+
+Durch den Homöomorphismus $\varphi_n^{-1}$ wird nach Lemma \ref{lem: indzuierte äquivalenzrelation} durch die Äquivalenzrelation $\sim$ auf $\tilde{D}^n$ eine Äquivalenzrelation $\sim^*$ auf $D^n$ induziert. Da $\sim$ auf $S^n$ genau die gegebenüberliegenden Punkt miteinander identifiziert ergibt sich direkt, dass $\sim^*$ die auf dem Rand von $D^n$ gegenüberliegenden Punkte miteinander identifiziert und sonst keine Identifikationen vornimmt. Nach Lemma \ref{lem: indzuierte äquivalenzrelation} gilt auch
+\[
+ D^n/\!\sim^*\, \cong \tilde{D}^n/\!\sim.
+\]
+
+Insgesamt haben wir damit nun gezeigt, dass
+\[
+ D^n/\!\sim^*\,
+ \cong \tilde{D}^n\!/\sim\,
+ \cong S^n/\!\sim\,
+ \cong (\R^{n+1}-\{0\})/\!\sim\,
+ \cong \R P^n.
+\]
+
+\subsection{}
+Ist $\sim$ auf $D^1 = [0,1]$ die Äquivalenzrelation, die $0$ und $1$ identifiziert und sonst keine Identifikationen vornimmt, so ist bekanntermaßen $[0,1]/\!\sim \cong S^1$. Nach der obigen Diskussion gilt aber auch $D^1/\!\sim\, \cong \R P^1$. Also ist $S^1 \cong \R P^1$.
+
+\subsection{}
+Dies wurde in der obigen Diskussion gezeigt.
+
+
+
+
+
+
+
+
+
+
 
 
 
