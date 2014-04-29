@@ -34,4 +34,53 @@ Das zeigt, dass $(x_n)_{n \in \N}$ einen Häufungspunkt besitzt, und damit, dass
 
 
 
+
+\section{}
+Wir setzen $Y := X \times X$ und $\Delta := \Delta(X)$. Für $A,B \subseteq X$ ist
+\begin{align*}
+                  (A \times B) \cap \Delta \neq \emptyset
+ &\Leftrightarrow \exists x \in X : (x,x) \in A \times B \\
+ &\Leftrightarrow \exists x \in X : x \in A \text{ und } x \in B \\
+ &\Leftrightarrow A \cap B \neq \emptyset,
+\end{align*}
+also
+\[
+ A \times B \subseteq Y-\Delta
+ \Leftrightarrow (A \times B) \cap \Delta = \emptyset
+ \Leftrightarrow A \cap B = \emptyset.
+\]
+
+Da die Mengen der Form $U \times V \subseteq Y$ mit offenen $U, V \subseteq X$ eine Basis der Produkttopologie auf $Y$ bilden, gilt
+\begin{align*}
+                &\, W \subseteq Y \text{ ist offen} \\
+ \Leftrightarrow&\, \forall (x,y) \in W \exists U,V \subseteq X \text{ offen mit } (x,y) \in U \times V \subseteq W \\
+ \Leftrightarrow&\, \forall (x,y) \in W \exists U,V \subseteq X \text{ offen mit } x \in U, y \in V \text{ und } U \times V \subseteq W.
+\end{align*}
+
+Zusammengefasst gilt daher
+\begin{align*}
+                &\, \Delta \text{ ist abgeschlossen in } Y \\
+ \Leftrightarrow&\, Y-\Delta \text{ ist offen in } Y \\
+ \Leftrightarrow&\, \forall (x,y) \in (Y-\Delta) \exists U,V \subseteq X \text{ offen mit } x \in U, y \in V, U \times V \subseteq Y-\Delta \\
+ \Leftrightarrow&\, \forall (x,y) \in (Y-\Delta) \exists U,V \subseteq X \text{ offen mit } x \in U, y \in V, U \cap V = \emptyset \\
+ \Leftrightarrow&\, \forall x,y \in X \text{ mit } x \neq y \exists U,V \subseteq X \text{ offen mit } x \in U, y \in V, U \cap V = \emptyset \\
+ \Leftrightarrow&\, X \text{ ist Hausdorffsch.}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
