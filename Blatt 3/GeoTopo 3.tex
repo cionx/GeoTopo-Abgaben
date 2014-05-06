@@ -215,9 +215,9 @@ Sei zunächst $A \in \SO(2)$. Wir behaupten, dass es ein $\varphi \in [-\pi,\pi]
 \[
  A = \vect{\cos \varphi & -\sin \varphi \\ \sin \varphi & \cos \varphi}.
 \]
-Es sei
+Hierfür betrachten wir
 \[
- A = \vect{a & b \\ c & d}.
+ A = \vect{a & b \\ c & d} \text{ mit } a,b,c,d \in \R.
 \]
 Da
 \[
@@ -252,17 +252,17 @@ Für das charakteristische Polynom $\chi_B$ von $B$ gilt daher
  = t^2 - 1 \\
  &= (t+1)(t-1).
 \end{align*}
-Also besitzt $B$ einen Eigenvektor zum Eigenwert $1$. Das zeigt, dass jedes Matrix $B \in \On(2) - \SO(2)$ einen Eigenvektor zum Eigenwert $1$ besitzt. (Diese Aussage ist auch geometrisch klar.)
+Also besitzt $B$ einen Eigenvektor zum Eigenwert $1$. Das zeigt, dass jede orthogonale Matrix $B \in \On(2) - \SO(2)$ einen Eigenvektor zum Eigenwert $1$ besitzt. (Diese Aussage ist auch geometrisch klar.)
 
 Sei nun $C \in \SO(3)$. Da $\chi_C$ ein reelles Polynom ungeraden Grades ist, besitzt $\chi_C$ eine reelle Nullstelle, d.h. $C$ besitzt einen reellen Eigenwert $\lambda \in \R$. Da für einen entsprechenden Eigenvektor $v$ gilt, dass
 \[
  \|v\| = \|Cv\| = \|\lambda v \| = |\lambda| \|v\|,
 \]
-muss $|\lambda| = 1$, also $\lambda = 1$ oder $\lambda = -1$. Angenommen es ist $\lambda = -1$. Indem wir das orthogonale Komplement von $\gen{v}_\R$ in $\R^3$ betrachtent, also $\gen{v}_R^\perp$, können wir $C$ durch einen passenden Basiswechsel eine Matrix der Form
+muss $|\lambda| = 1$, also $\lambda = 1$ oder $\lambda = -1$ (da $v$ ein Eigenvektor ist, muss $v \neq 0$ und damit $\|v\| \neq 0$). Angenommen es ist $\lambda = -1$. Indem wir das orthogonale Komplement von $\gen{v}_\R$ in $\R^3$ betrachtent, also $\gen{v}_R^\perp$, können wir $C$ durch einen passenden Basiswechsel eine Matrix der Form
 \[
  \vect{-1 & \\ & A}
 \]
-überführen, wobei $A \in \On(2)$. Da $1 = \det C = -1 \det A$ muss $\det A = -1$, also $A \in \On(2) - \SO(2)$. Nach der obigen Diskussion besitzt daher $A$ einen Eigenvektor zum Eigenwert $1$, also auch $C$.
+überführen, wobei $A \in \On(2)$. Da $1 = \det C = -\det A$ muss $\det A = -1$, also $A \in \On(2) - \SO(2)$. Nach der obigen Diskussion besitzt daher $A$ einen Eigenvektor zum Eigenwert $1$, also auch $C$.
 
 Insbesondere lässt sich jede Matrix $A \in \SO(3)$ durch einen passenden Basiswechsel in die Form
 \[
@@ -271,30 +271,30 @@ Insbesondere lässt sich jede Matrix $A \in \SO(3)$ durch einen passenden Basisw
 mit $A' \in \SO(2)$ überführen, also in die Form
 \[
  \begin{pmatrix}
-  1 &             0 &             0 \\
-  0 &  \cos \varphi & -\sin \varphi \\
-  0 & -\sin \varphi &  \cos \varphi \\
+  1 &            0 &             0 \\
+  0 & \cos \varphi & -\sin \varphi \\
+  0 & \sin \varphi &  \cos \varphi \\
  \end{pmatrix}
 \]
-mit $\varphi \in [-\pi,\pi]$, wobei $A$ auf $\gen{v}_\R^\perp$ durch Rotation um den Winkel $\varphi$ operiert, wobei $v$ ein Eigenvektor von $A$ zum Eigenwert $1$ ist.
+mit $\varphi \in [-\pi,\pi]$, wobei $A$ auf $\gen{v}_\R^\perp$ durch Rotation um den Winkel $\varphi$ operiert, wenn $v$ ein Eigenvektor von $A$ zum Eigenwert $1$ ist.
 
-Sei nun $f \in \SO(3)$ mit Eigenvektor $v$ zum Eigenwert $1$, so dass $f$ auf $\gen{v}_\R^\perp$ durch Rotation um den Winkel $\varphi \in [-\pi,\pi]$ wirkt. Wir können o.B.d.A. davon ausgehen, dass $v \in S^2 \subseteq D^3$. Es hat dann $f$ unter $p$ offensichtlich das Urbild $(\varphi/\pi)v$.
+Sei nun $f \in \SO(3)$ mit Eigenvektor $v$ zum Eigenwert $1$, so dass $f$ auf $\gen{v}_\R^\perp$ durch Rotation um den Winkel $\varphi \in [-\pi,\pi]$ wirkt. Durch Normierung können o.B.d.A. davon ausgehen, dass $v \in S^2 \subseteq D^3$. Es hat dann $f$ unter $p$ das Urbild $(\varphi/\pi) \cdot v$.
 
 
 \addtocounter{subsection}{1}
 \subsection{}
-Der Fall $p(x) = p(y) = E$ ist trivial, es müssen dann $x = y = 0$. Wir betrachten daher im Folgenden den Fall, dass $p(x) = p(y) \neq E$, also insbesonder $x,y \neq 0$.
+Der Fall $p(x) = p(y) = E$ ist trivial, es muss dann $x = y = 0$. Wir betrachten daher im Folgenden den Fall, dass $p(x) = p(y) \neq E$, also $x,y \neq 0$.
 
 Da $p(x) = p(y)$, haben $p(x)$ und $p(y)$ die gleiche Rotationsachso, nämlich $\gen{x}_\R$, bzw. $\gen{y}_\R$. Daher müssen $x$ und $y$ linear abhängig sein.
 
-Ist $y = \lambda x$ für ein $\lambda > 0$, so rotieren $p(x)$ und $p(y)$ gleichorientiert, also um den Winkel $\pi \cdot \|x\|$ und $\pi \cdot \|y\|$. Es muss daher $\|x\| = \|y\| = \lambda \|x\|$, also $\lambda = 1$ und somit $x = y$.
+Ist $y = \lambda x$ für ein $\lambda > 0$, so rotieren $p(x)$ und $p(y)$ gleichorientiert, also um den Winkel $\pi \cdot \|x\|$ und $\pi \cdot \|y\|$. Da $\|x\|, \|y\| \leq 1$ muss daher $\|x\| = \|y\| = \lambda \|x\|$, also $\lambda = 1$ und somit $x = y$.
 
-Ist $y = \lambda x$ für ein $\lambda < 0$, so rotieren $p(x)$ und $p(y)$ unterschiedlich orientiert, also um die Winkel $\pi \cdot \|x\|$ und $\pi \cdot \|y\|$. Damit diese Rotationen gleich sind, muss $\|x\| = \|y\| = 1$. Es ist dann $\lambda = -1$ und somit $x = -y$.
+Ist $y = \lambda x$ für ein $\lambda < 0$, so rotieren $p(x)$ und $p(y)$ unterschiedlich orientiert, also um die Winkel $\pi \cdot \|x\|$ und $\pi \cdot \|y\|$. Damit diese Rotationen gleich, muss $\|x\| = \|y\| = 1$, da $\|x\|,\|y\| \leq 1$. Es ist dann $\lambda = -1$ und somit $x = -y$.
 
 
-\addtocounter{subsection}{-1}
+\addtocounter{subsection}{-2}
 \subsection{}
-Wir betrachten die Äquivalenzrelation $\sim$ auf $D^3$, die jeden Punkt $x \in S^2 \subseteq D^3$ mit seinem Antipodenpunkt $-x$ identifiziert. Durch den vorherigen Aufgabenteil ergibt sich, dass $x \sim y \Leftrightarrow p(x) = p(y)$ für alle $x,y \in D^3$. Daher faktorisiert $p$ als Bijektion $\tilde{p} : D^3/{\sim} \to \SO(3)$, die nach der universellen Eigenschaft des Quotienten stetig ist (denn $p$ ist nach Annahme stetig). Da $D^3/{\sim}$ als Quotient eines quasikompakten Raumes ebenfalls quasikompakt ist, und $\SO(3) \subseteq R^9$ Hausdorff ist, ist $\tilde{p}$ bereits ein Homöomorphismus.
+Wir betrachten die Äquivalenzrelation ${\sim}={\sim^*_3}$ auf $D^3$, die jeden Punkt $x \in S^2 \subseteq D^3$ mit seinem Antipodenpunkt $-x$ identifiziert. Durch den vorherigen Aufgabenteil ergibt sich, dass $x \sim y \Leftrightarrow p(x) = p(y)$ für alle $x,y \in D^3$. Daher faktorisiert $p$ als Bijektion $\tilde{p} : D^3/{\sim} \to \SO(3)$, die nach der universellen Eigenschaft des Quotienten stetig ist (denn $p$ ist nach Annahme stetig). Da $D^3/{\sim}$ als Quotient eines quasikompakten Raumes ebenfalls quasikompakt ist, und $\SO(3) \subseteq \R^9$ Hausdorff ist, ist $\tilde{p}$ bereits ein Homöomorphismus.
 
 Wir betrachten das kommutative Diagramm in Abbildung \ref{fig: p Quotientenabbildung}.
 \begin{figure}\centering
@@ -317,8 +317,9 @@ Da $\tilde{p}$ und $\pi$ offenbar Quotientenabbildungen sind, ist es offenbar au
 \]
 
 
+\addtocounter{subsection}{1}
 \subsection{}
-Wir haben letzte Woche gezeigt, dass das Diagramm in Abbildung \ref{fig: q Quotientenabbildung} kommutiert, und dass $\tilde{q}$ ein Homöomorphismus ist. Da $\pi$ eine Quotientenabbildung ist, ist damit analog zur obigen Argumentation auch $q$ eine Quotientenabbildung. ($\tilde{q}$ entspricht dem Homöomorphismus $D^n/{\sim^*} \cong \R P^n$).
+Wir haben letzte Woche gezeigt, dass das Diagramm in Abbildung \ref{fig: q Quotientenabbildung} kommutiert, und dass $\tilde{q}$ ein Homöomorphismus ist. Da $\pi$ eine Quotientenabbildung ist, ist damit analog zur obigen Argumentation auch $q$ eine Quotientenabbildung. ($\tilde{q}$ entspricht dem Homöomorphismus $D^3/{\sim^*_3} \cong \R P^3$).
 \begin{figure}\centering
  \begin{tikzpicture}[node distance = 6em, auto]
   \node (D3sim) {$D^3$};
@@ -334,11 +335,11 @@ Wir haben letzte Woche gezeigt, dass das Diagramm in Abbildung \ref{fig: q Quoti
 
 
 \subsection{}
-Es ist $q(x) = q(y)$ genau dann, wenn $\pi(x) = \pi(y)$, also wenn $x \sim^* y$, also wenn $x = y$ oder $x,y \in S^2 \subseteq D^3$ mit $x = -y$.
+Für alle $x,y \in D^3$ ist $q(x) = q(y)$ genau dann, wenn $\pi(x) = \pi(y)$, also wenn $x \sim^*_3 y$, also wenn $x = y$ oder $x,y \in S^2 \subseteq D^3$ mit $x = -y$.
 
 
 \subsection{}
-Wir haben das kommutative Diagramm wie in Abbildung \ref{fig: alles zusammen}.
+Zusammengefasst haben wir nun das kommutative Diagramm wie in Abbildung \ref{fig: alles zusammen}.
 \begin{figure}\centering
  \begin{tikzpicture}[node distance = 6em, auto]
   \node (D3) {$D^3$};
@@ -351,10 +352,10 @@ Wir haben das kommutative Diagramm wie in Abbildung \ref{fig: alles zusammen}.
   \draw[->] (D3sim) to node {$\tilde{p}$} (SO3);
   \draw[->] (D3sim) to node [swap] {$\tilde{q}$} (RP3);
  \end{tikzpicture}
- \caption{Alles zusammen.}
+ \caption{Die bisherigen Diagramme zusammengefasst.}
  \label{fig: alles zusammen}
 \end{figure}
-Da $\tilde{p}$ und $\tilde{q}$ Homöomorphismen sind ist auch $f : \tilde{p} \circ \tilde{q}^{-1} : \R P^3 \to \SO(3)$ ein Homöomorphismus, und da das Diagramm kommutiert ist
+Da $\tilde{p}$ und $\tilde{q}$ Homöomorphismen sind ist auch $f := \tilde{p} \circ \tilde{q}^{-1} : \R P^3 \to \SO(3)$ ein Homöomorphismus, und da das Diagramm kommutiert ist
 \[
  f \circ q
  = \tilde{p} \circ \tilde{q}^{-1} \circ q
@@ -365,7 +366,7 @@ $f$ ist auch durch die Eigenschaft, dass $f \circ q = p$ bereits eindeutig besti
 \[
  g(q(x)) = p(x) = f(q(x)) \text{ für alle } x \in D^3,
 \]
-da $q$ surjektiv ist also bereits $g(x) = f(x)$ für alle $x \in \R P^3$ und somit $f = g$.
+und da $q$ surjektiv ist damit bereits $g(x) = f(x)$ für alle $x \in \R P^3$, und somit $f = g$.
 
 
 
