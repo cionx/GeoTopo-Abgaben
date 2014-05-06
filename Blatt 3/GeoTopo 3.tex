@@ -67,7 +67,137 @@ Zusammengefasst gilt daher
  \Leftrightarrow&\, X \text{ ist Hausdorffsch.}
 \end{align*}
 
-Fun fact: Ein alternativer, intuitiverer Beweis lässt sich mithilfe von Netzen formulieren: Dass $\Delta$ abgeschlossen ist, ist äquivalent dazu, dass für jedes Netz $(h_\alpha)$ auf $\Delta$, das gegen ein $h \in X \times X$ konvergiert, bereits $h \in \Delta$. Da $(h_\alpha) = (x_\alpha, x_\alpha)$ für ein Netz $x_\alpha$ auf $X$ und $h = (x,y)$ mit $x,y \in X$ ist dies äquivalent dazu, dass für jedes Netz $(x_\alpha)$ auf $X$ mit $x_\alpha \to x$ und $x_\alpha \to y$ bereits $x = y$. Dies bedeudet gerade, dass Grenzwerte von Netzen auf $X$ eindeutig sind, was bekanntermaßen äquivalent dazu ist, dass $X$ Hausdorff ist.
+Fun fact: Ein alternativer, intuitiverer Beweis lässt sich mithilfe von Netzen formulieren: Dass $\Delta$ abgeschlossen ist, ist äquivalent dazu, dass für jedes Netz $(h_\alpha)$ auf $\Delta$, das gegen ein $h \in X \times X$ konvergiert, bereits $h \in \Delta$. Da $(h_\alpha) = (x_\alpha, x_\alpha)$ für ein Netz $x_\alpha$ auf $X$ und $h = (x,y)$ mit $x,y \in X$ ist dies äquivalent dazu, dass für jedes Netz $(x_\alpha)$ auf $X$ mit $x_\alpha \to x$ und $x_\alpha \to y$ bereits $x = y$. Dies bedeutet gerade, dass Grenzwerte von Netzen auf $X$ eindeutig sind, was bekanntermaßen äquivalent dazu ist, dass $X$ Hausdorff ist.
+
+
+
+
+
+\section{}
+Es bezeichne $\sim$ die Äquivalenzrelation auf $\R^{n+1} - \{0\}$ mit
+\[
+ x \sim y \Leftrightarrow \exists \lambda \in \R^\times \text{ mit } y = \lambda x.
+\]
+Außerdem sei
+\[
+ S^n = \{x \in \R^{n+1} : \|x\|=1\}
+\]
+die $n$-Sphäre und
+\[
+ \tilde{D}^n := \{(x_1, \ldots, x_{n+1}) \in S^n : x_{n+1} \geq 0\}.
+\]
+die „nördliche“ Hemisphäre der $S^n$. Man bemerke, dass $\sim$ auf $S^n$ genau die Antipodenpunkte miteinander identifiziert, also den Punkt $x \in S^n$ mit dem Punkt $-x \in S^n$.
+Es bezeichne außerdem $\sim^*$ die Äquivalenzrelation auf $D^n$, die die Antipodenpunkte des Randes von $D^n$ miteinander identifziert, also jeden Punkt $x \in S^{n-1} \subseteq D^n$ mit dem Antipodenpunkt $-x \in S^{n-1} \subseteq D^n$. Es seien
+\[
+ \varphi : D^n \to \tilde{D}^n, (x_1, \ldots, x_n) \mapsto \left(x_1, \ldots, x_n, \sqrt{1-\sum_{i=1}^n x_i^2}\right)
+\]
+und
+\[
+ \psi : S^n/{\sim} \to \R P^n, [x]_\sim \mapsto [x]_\sim.
+\]
+
+Wir haben bereits letze Woche gezeigt, dass
+\[
+ D^n/{\sim^*}
+ \cong \tilde{D}^n/{\sim}
+ \cong S^n/{\sim}
+ \cong (\R^{n+1}-\{0\})/{\sim}
+ \cong \R P^n,
+\]
+wobei der Homöomorphismus $D^n/{\sim}^*, \cong \tilde{D}^n/{\sim}$ durch $\varphi$ induziert wird, der Homöomorphismus $\tilde{D}^n/{\sim} \cong S^n/{\sim}$ durch die kanonische Inklusion $\tilde{D}^n \incl S^n$ induziert wird, und der Homöomorphismus $S^n/{\sim} \cong (\R^{n+1}-\{0\})/{\sim}$ durch $\psi$ gegeben ist. Auch haben wir im Laufe des Nachweises dieser Homöomorphien gezeigt, dass $S^n/{\sim}$ Hausdorff ist.
+
+
+\subsection{}
+Dies haben wir bereits letzte Woche gezeigt.
+
+
+\subsection{}
+Dies folgt direkt daraus, dass $S^n /{\sim} \cong \R P^n$, und dass $S^n/{\sim}$ Hausdorff ist.
+
+
+\subsection{}
+Es bezeichne $\sim$ die Äquivalenzrelation auf $S^2$, die jeden Punkt $x \in S^2$ mit dem Antipodenpunkt $-x \in S^2$ identifiziert, sowie $\pi : S^2 \to S^2/{\sim}$ die kanonische Projektion.
+Wir setzen
+\begin{align*}
+ S &:= \left\{(x,y,z) \in S^2 : z \geq \frac{1}{2} \text{ oder } z \leq -\frac{1}{2} \right\}, \\
+ T &:= \left\{(x,y,z) \in S^2 : -\frac{1}{2} \leq z \leq \frac{1}{2}\right\} \text{ und} \\
+ R &:= S \cap T = \left\{(x,y,z) \in S^2 : z = -\frac{1}{2} \text{ oder } z = \frac{1}{2} \right\}.
+\end{align*}
+Es ist klar, dass $S,T$ und $R$ abgeschlossen in $S^2$ sind. Wir bemerken auch, dass die drei Mengen saturiert bezüglich $\sim$ sind, dass also $\pi^{-1}(\pi(X)) = X$ für alle $X \in \{S,T,R\}$. Insbesondere sind daher auch $\pi(S), \pi(T)$ und $\pi(R)$ abgeschlossen in $S/{\sim}$.
+
+Bekanntermaßen ist $S^2 /{\sim} \cong \R P^2$. Es sei $f : S^2 /{\sim} \to \R P^2$ ein Homöomorphismus. Wir setzen
+\[
+ A := f(\pi(S)), B := f(\pi(T)) \text{ und } C := A \cap B.
+\]
+Wir bemerken dabei direkt, dass $C =  f(\pi(R))$, da
+\begin{align*}
+ C
+ &= A \cap B
+ = f(\pi(S)) \cap f(\pi(T))
+ = f(\pi(S) \cap \pi(T)) \\
+ &= f(\pi(\pi^{-1}(\pi(S) \cap \pi(T))))
+ = f(\pi(\pi^{-1}(\pi(S)) \cap \pi^{-1}(\pi(T)))) \\
+ &= f(\pi(S \cap T))
+ = f(\pi(R)).
+\end{align*}
+Da $\pi(X)$ für alle $X \in \{S,T,R\}$ abgeschlossen in $S^2/{\sim}$ ist, und $f$ ein Homöomorphismus ist, sind $A, B$ und $C$ abgeschlossen in $\R P^2$.
+
+Da $f : S^2/{\sim} \to \R P^n$ ein Homöomorphismus ist, ist klar, dass auch die Einschränkung
+\[
+ \pi(S) \to f(\pi(S)) = A, x \mapsto f(x)
+\]
+ein Homöomorphismus ist. Daher ist $\pi(S) \cong A$.
+
+Wir bemerken, dass auch $S/{\sim} \cong \pi(S)$: Die stetige Abbildung $S \to \pi(S), x \mapsto \pi(x)$ faktorisiert offenbar als Bijektion $S/{\sim} \to \pi(S)$ (denn es ist $\pi(s) = \pi(s') \Leftrightarrow s \sim s'$), die nach der universellen Eigenschaft des Quotienten stetig ist. Da $S$ kompakt ist (denn $S^2$ ist kompakt und $S \subseteq S^2$ abgeschlossen) und $\pi(S)$ Hausdorff ist (denn $\pi(S) \subseteq S^2/{\sim}$ mit $S^2/{\sim}$ Hausdorff) ist g bereits ein Homöomorphismus. Dies lässt sich in dem kommutativen Diagram von Abbildung \ref{fig: S/sim pi(S)} zusammenfassen.
+\begin{figure}\centering
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (S) {$S$};
+  \node [below left of = S]  (Ssim) {$S/{\sim}$};
+  \node [below right of = S] (piS) {$\pi(S)$};
+  \draw[->] (S) to (Ssim);
+  \draw[->] (S) to (piS);
+  \draw[->] (Ssim) to node [swap] {$g$}(piS);
+ \end{tikzpicture}
+ \caption{Die Homöomorphie von $S/{\sim}$ und $\pi(S)$.}
+ \label{fig: S/sim pi(S)}
+\end{figure}
+
+Das zeigt, dass $S/{\sim} \cong A$. Komplett analog ergibt sich, dass auch $T/{\sim} \cong B$ und $R/{\sim} \cong C$. Wir zeigen nun, dass $S/{\sim} \cong D^2$, $T/{\sim} \cong M$ und $R/{\sim} \cong S^1$. Dabei ist die Homöomorphie $T/{\sim} \cong M$ bereits aus Aufgabe 2.3 bekannt.
+
+Für die Homöomorphie $S/{\sim} \cong D^2$ betrachten wir die Abbildung
+\[
+ h : S \to D^2, (x,y,z) \to \frac{\sqrt{3}}{2}(x,y).
+\]
+Diese ist offenbar wohldefiniert und surjektiv. (Man beachte, dass für alle $(x,y,z) \in S$
+\[
+ \|(x,y)\| = \sqrt{x^2+y^2} = \sqrt{1-z^2} \leq \sqrt{1-\frac{1}{4}} = \frac{\sqrt{3}}{2}
+\]
+und Gleichheit für $z = \pm 1/2$ gilt.) Es ist auch klar, dass $h$ stetig ist, und dass $h$ als Bijektion $\tilde{h} : S/{\sim} \to D^2$ faktorisiert, die nach der universellen Eigenschaft des Quotienten stetig ist. Da $S/{\sim}$ als Quotient eines quasi-kompakten Raumes selbser quasi-kompakt ist, und $D^2$ Hausdorff ist, ist $\tilde{h}$ bereits ein Homöomorphismus.
+
+Wir haben gezeigt, dass
+\[
+ A \cong \pi(S) \cong S/{\sim} \cong D^2.
+\]
+Komplett analog zeigt man auch dass $R/{\sim} \cong S^1$, und damit, dass
+\[
+ C \cong \pi(R) \cong R/{\sim} \cong S^1.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

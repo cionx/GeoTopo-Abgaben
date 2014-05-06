@@ -8,7 +8,7 @@
 \usepackage{tikz}
 
 \renewcommand{\thesection}{Aufgabe \blattNummer.\arabic{section}:} %das Makro wird in der jeweiligen Datei gesetzt
-\renewcommand{\thesubsection}{(\alph{subsection})}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
 
 % Umgebungen in kursiver Schrift
 \newcounter{saetze}
@@ -26,7 +26,11 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+\newcommand{\On}{\operatorname{O}}
+\newcommand{\SO}{\operatorname{SO}}
+
 \newcommand{\mc}{\mathcal}
+\newcommand{\incl}{\hookrightarrow}
 
 \newcommand{\Img}{\operatorname{Im}}
 \newcommand{\Mat}{\operatorname{Mat}}
@@ -37,6 +41,7 @@
 \newcommand{\dotcup}{\,\ensuremath{\mathaccent\cdot\cup}\,}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
 
 
