@@ -21,30 +21,33 @@
 \newtheorem{beh}[saetze]{Behauptung}
 \newtheorem{bem}[saetze]{Bemerkung}
 
+% Zahlenmengen
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
-\newcommand{\On}{\operatorname{O}}
-\newcommand{\SO}{\operatorname{SO}}
-
+% Abkürzungen
 \newcommand{\mc}{\mathcal}
 \newcommand{\incl}{\hookrightarrow}
 
-\newcommand{\Img}{\operatorname{Im}}
-\newcommand{\Mat}{\operatorname{Mat}}
+% Operatornamen
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\On}{O}
+\DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\vspan}{span}
 
-\newcommand{\id}{\operatorname{id}}
-\newcommand{\inn}{\operatorname{inn}}
+% Funktionen
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\inn}{inn}
 \newcommand{\dotcup}{\,\ensuremath{\mathaccent\cdot\cup}\,}
 \newcommand{\bigdotcup}{\charfusion[\mathop]{\bigcup}{\cdot}}
 
+% nimmt Argumente an
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
 \newcommand{\vect}[1]{\begin{pmatrix}#1\end{pmatrix}}
-
 
 % technischer Krams für \bigdotcup
 \makeatletter
