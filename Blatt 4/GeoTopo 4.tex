@@ -39,6 +39,27 @@ Daher sind
 in den jeweiligen Räumen offen. Wegen der Beliebigkeit von $W$ folgt, dass $p_1$ und $p_2$ offen sind.
 
 
+\subsection{}
+Bekanntermaßen ist $[0,1) \times [0,1) \cong [0,1)^2$, wobei $p_1$ und $p_2$ den kanonischen Projektionen $\pi_1, \pi_2 : [0,1)^2 \to [0,1)$ entsprechen. Diese sind nicht abgeschlossen: Es ist $\overline{B_1((1,1))} \subseteq \R^2$ abgeschlossen, also auch
+\[
+ C := [0,1)^2 \cap \overline{B_1((1,1))} \subseteq [0,1)^2.
+\]
+Es sind aber $\pi_1(C) = \pi_2 = (0,1)$ nicht abgeschlossen in $[0,1)$.
+
+
+\subsection{}
+Da $Y \neq \emptyset$ ist $p_1$ surjektiv.
+
+Es ist daher $U \subseteq X$ genau dann offen, wenn $p_1^{-1}(U) = U \times Y \subseteq X \times Y$ offen ist: Ist $U$ offen, so ist es klar, dass auch $U \times Y$ offen ist. Ist andererseits $U \times Y$ offen, so ist wegen der Offenheit und Surjektivität von $p_1$ auch
+\[
+ U = p_1(p_1^{-1}(U)) = p_1(U \times Y)
+\]
+offen.
+Da $U \subseteq X$ genau dann offen ist, wenn $p_1^{-1}(U)$ offen ist, ist $p_1$ eine Quotientenraumabbildung.
+
+
+
+
 
 
 
@@ -128,8 +149,6 @@ offen.
 Da die Mengen der Form $U \times \{j\} \subseteq \coprod_{i \in I} (X_i \times Y)$ mit $j \in I$ und $U \subseteq X_j$ offen eine topologische Basis von $\coprod_{i \in I}(X_i \times Y)$ bilden, zeigt dies die Offenheit von $f$.
 
 Da $f$ offenbar auch bijektiv ist, ist $f$ ein Homöomorphismus.
-
-
 
 
 
