@@ -42,7 +42,94 @@ in den jeweiligen Räumen offen. Wegen der Beliebigkeit von $W$ folgt, dass $p_1
 
 
 
-\addtocounter{section}{1}
+\section{}
+
+\begin{lem}\label{lem: Funktionsprodukt}
+ Seien $X_1, X_2, T_1, T_2$ topologische Räume, $f_1 : X_1 \to T_1$ und $f_2 : X_2 \to T_2$ stetige Abbildungen. Dann ist auch die Abbildung
+ \[
+  f_1 \times f_2 : X_1 \times X_2 \to T_1 \times T_2, (x_1, x_2) \mapsto (f_1(x_1), f_2(x_2))
+ \]
+ stetig. Sind $f_1$ und $f_2$ offen, so ist auch $f_1 \times f_2$ offen.
+\end{lem}
+\begin{proof}
+ Wir betrachten das kommutative Diagramm
+ \begin{center}
+  \begin{tikzpicture}[node distance = 7em, auto]
+   \node (X_1 x X_2) {$X_1 \times X_2$};
+   \node (X_1) [below left = 2em and 5em of X_1 x X_2] {$X_1$};
+   \node (X_2) [below right = 2em and 5em of X_1 x X_2] {$X_2$};
+   \node (T_1 x T_2) [below of = X_1 x X_2] {$T_1 \times T_2$};
+   \node (T_1) [below of = X_1] {$T_1$};
+   \node (T_2) [below of = X_2] {$T_2$};
+   \draw[->] (X_1 x X_2) to node[swap]{$\pi_1$} (X_1);
+   \draw[->] (X_1 x X_2) to node{$\pi_2$} (X_2);
+   \draw[->] (X_1 x X_2) to node{$f_1 \times f_2$} (T_1 x T_2);
+   \draw[->] (X_1) to node[swap]{$f_1$} (T_1);
+   \draw[->] (X_2) to node{$f_2$} (T_2);
+   \draw[->] (T_1 x T_2) to node{$\tau_1$} (T_1);
+   \draw[->] (T_1 x T_2) to node[swap]{$\tau_2$} (T_2);
+  \end{tikzpicture}
+ \end{center}
+ wobei $\pi_1, \pi_2, \tau_1$ und $\tau_2$ die entsprechenden kanonischen Projektionen bezeichnet. Da $\tau_1 \circ (f_1 \times f_2) = f_1 \circ \pi_1$ und $\tau_2 \circ (f_1 \times f_2) = f_2 \circ \pi_2$ stetig sind, ist es auch $f_1 \times f_2$ (siehe Aufgabe 3).
+ 
+ Angenommen, $f_1$ und $f_2$ sind offen. Für offene Mengen $U \subseteq X_1$, $V \subseteq X_2$ ist dann auch $f_1(U) \subseteq T_1$ und $f_2(V) \subseteq T_2$ offen, also
+ \[
+  (f_1 \times f_2)(U \times V) = f_1(U) \times f_2(V) \subseteq T_1 \times T_2
+ \]
+ offen. Da die Mengen der Form $U \times V$ mit offenen Mengen $U \subseteq X_1$ und $V \subseteq X_2$ eine topologische Basis von $X_1 \times X_2$ bilden, zeigt dies die Offenheit von $f_1 \times f_2$.
+\end{proof}
+
+
+Für alle $j \in I$ bezeichne
+\[
+ \iota_j: X_j \to \coprod_{i \in I} X_i, x \mapsto (x,j)
+\]
+und
+\[
+ \iota'_j : X_j \times Y \to \coprod_{i \in I}(X_i \times Y), (x,y) \mapsto ((x,y),j)
+\]
+die entsprechenden kanonischen Inklusionen. Da $\iota_j$ für alle $j \in I$ stetig ist, ist nach Lemma \ref{lem: Funktionsprodukt} für alle $j \in I$ auch die Abbildung
+\begin{align*}
+ \iota_j \times \id_Y:
+ X_j \times Y &\to \left(\coprod_{i \in I} X_i\right) \times Y \\
+ (x,y) &\mapsto ((x,j),y).
+\end{align*}
+stetig. Deshalb gibt es nach der universellen Eigenschaft des Koproduktes eine stetige Abbildung
+\[
+ f: \coprod_{i \in I} \left( X_i \times Y \right) \to \left( \coprod_{i \in I} X_i \right) \times Y,
+\]
+so dass das Diagramm
+\begin{center}
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (X_j x Y) {$X_j \times Y$};
+  \node (coprod X_j x Y) [below left = 2 em and 1 em of X_j x Y] {$\coprod_{i \in I} (X_i \times Y)$};
+  \node (coprod X_j x Y 2) [below right = 2 em and 1 em of X_j x Y] {$\left(\coprod_{i \in I} X_i\right) \times Y$};
+  \draw[->] (X_j x Y) to node[swap]{$\iota'_j$} (coprod X_j x Y);
+  \draw[->] (X_j x Y) to node{$\iota_j \times \id_Y$} (coprod X_j x Y 2);
+  \draw[->] (coprod X_j x Y) to node{$f$} (coprod X_j x Y 2);
+ \end{tikzpicture}
+\end{center}
+für alle $j \in I$ kommutiert. Dabei ist für alle $j \in I$ und $x \in X_j, y \in Y$
+\[
+ f( ((x,y),j) )
+ = f( \iota_j'(x,y) )
+ = (\iota_j \times \id_Y)(x,y)
+ = ((x,j),y).
+\]
+
+$f$ ist offen: Seien $j \in I$ und $U \subseteq X_j \times Y$ offen beliebig aber fest. Da $\iota_j$ per Definition des Koproduktes offen ist, und die Identität $\id_Y$ offenbar ebenfalls offen ist, ist nach Lemma \ref{lem: Funktionsprodukt} auch $\iota_j \times \id_Y$ offen. Daher ist
+\[
+ f(U \times \{j\})
+ = f(\iota_j'(U))
+ = (\iota_j \times \id_Y)(U)
+\]
+offen.
+
+Da die Mengen der Form $U \times \{j\} \subseteq \coprod_{i \in I} (X_i \times Y)$ mit $j \in I$ und $U \subseteq X_j$ offen eine topologische Basis von $\coprod_{i \in I}(X_i \times Y)$ bilden, zeigt dies die Offenheit von $f$.
+
+Da $f$ offenbar auch bijektiv ist, ist $f$ ein Homöomorphismus.
+
+
 
 
 
@@ -75,12 +162,7 @@ und deshalb
  = \bigcap_{k=1}^n (\pi_{i_k} \circ f)^{-1}(U_k)
  &= \bigcap_{k=1}^n f_{i_k}^{-1}(U_k).
 \end{align*}
-Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, ist $f_{i_k}^{-1}(U_k)$ für alle $1 \leq k \leq n$ offen, also $f^{-1}(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n})$ als endlicher Schnitt offener Mengen offen.
-
-Wegen der Beliebigkeit von $i_1, \ldots, i_n$ und $U_1, \ldots, U_n$ zeigt dies die Stetigkeit von $f$.
-
-
-
+Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, ist $f_{i_k}^{-1}(U_k)$ für alle $1 \leq k \leq n$ offen, also $f^{-1}(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n})$ als endlicher Schnitt offener Mengen offen. Wegen der Beliebigkeit von $i_1, \ldots, i_n$ und $U_1, \ldots, U_n$ zeigt dies die Stetigkeit von $f$.
 
 
 
