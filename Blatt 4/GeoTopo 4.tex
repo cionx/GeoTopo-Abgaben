@@ -15,6 +15,8 @@
 \author{Jendrik Stelzner}
 \date{\today}
 
+
+
 \begin{document}
 \maketitle
 
@@ -40,6 +42,42 @@ in den jeweiligen Räumen offen. Wegen der Beliebigkeit von $W$ folgt, dass $p_1
 
 
 
+\addtocounter{section}{1}
+
+
+
+
+
+\section{}
+
+Für alle $j \in I$ bezeichnen wir die kanonische Projektion $\prod_{i \in I} X_i \to X_j$ mit $\pi_j$, und für alle $i \in I$ setzen wir $f_i := f \circ \pi_i$. Ist $f$ stetig, so ist $f_i$ als Verknüpfung stetiger Funktionen für alle $i \in I$ stetig.
+
+Angenommen $f_i$ ist für alle $i \in I$ stetig. Für paarweise verschiedene Indizes $i_1, \ldots, i_n \in I$ und beliebige offene Mengen $U_1 \in X_{i_1}, \ldots, U_n \in X_{i_n}$ setzen wir
+\[
+ P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n}
+ = \prod_{i \in I} \begin{cases} U_k & \text{falls } i = i_k, \\ X_i & \text{sonst}, \end{cases}
+ \subseteq \prod_{i \in I} X_i.
+\]
+Da die Mengen dieser Form eine topologische Basis von $\prod_{i \in I} X_i$ bilden, genügt es zum Nachweis der Stetigkeit von $f$ zu zeigen, dass
+\[
+ f^{-1}\left(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n}\right) \subseteq T
+\]
+offen ist für alle paarweise verschiedenen Indizes $i_1, \ldots, i_n \in I$ und beliebige offene Mengen $U_1 \in X_{i_1}, \ldots, U_n \in X_{i_n}$.
+
+Seien also $i_1, \ldots, i_n$ und $U_1, \ldots, U_n$ wie zuvor beliebig aber fest. Wir bemerken, dass
+\[
+ P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n} = \bigcap_{k=1}^n \pi_{i_k}^{-1}(U_k),
+\]
+und deshalb
+\begin{align*}
+ f^{-1}\left(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n}\right)
+ &= f^{-1}\left(\bigcap_{k=1}^n \pi_{i_k}^{-1}(U_k)\right)
+ = \bigcap_{k=1}^n (\pi_{i_k} \circ f)^{-1}(U_k)
+ &= \bigcap_{k=1}^n f_{i_k}^{-1}(U_k).
+\end{align*}
+Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, ist $f_{i_k}^{-1}(U_k)$ für alle $1 \leq k \leq n$ offen, also $f^{-1}(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n})$ als endlicher Schnitt offener Mengen offen.
+
+Wegen der Beliebigkeit von $i_1, \ldots, i_n$ und $U_1, \ldots, U_n$ zeigt dies die Stetigkeit von $f$.
 
 
 
@@ -47,4 +85,9 @@ in den jeweiligen Räumen offen. Wegen der Beliebigkeit von $W$ folgt, dass $p_1
 
 
 
-\end{document}
+
+
+
+
+
+\end{document} 
