@@ -61,8 +61,6 @@ Da $U \subseteq X$ genau dann offen ist, wenn $p_1^{-1}(U)$ offen ist, ist $p_1$
 
 
 
-
-
 \section{}
 
 \begin{lem}\label{lem: Funktionsprodukt}
@@ -182,6 +180,90 @@ und deshalb
  &= \bigcap_{k=1}^n f_{i_k}^{-1}(U_k).
 \end{align*}
 Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, ist $f_{i_k}^{-1}(U_k)$ für alle $1 \leq k \leq n$ offen, also $f^{-1}(P_{i_1, \ldots, i_n}^{U_1, \ldots, U_n})$ als endlicher Schnitt offener Mengen offen. Wegen der Beliebigkeit von $i_1, \ldots, i_n$ und $U_1, \ldots, U_n$ zeigt dies die Stetigkeit von $f$.
+
+
+
+
+
+\section{}
+\begin{lem}\label{lem: Verknüpfung erhält Homotopie}
+ Seien $X', X, Y, Y'$ topologische Räume und $f,g,h,k$ stetige Abbildungen mit
+ \begin{align*}
+  f &: X \to Y, \\
+  g &: X \to Y, \\
+  h &: X' \to X \text{ und}\\
+  k &: Y \to Y'.
+ \end{align*}
+ Ist $f \simeq g$, so ist auch $fh \simeq gh$ und $kf \simeq kg$.
+\end{lem}
+\begin{proof}
+ Sei
+ \[
+  F : X \times [0,1] \to Y
+ \]
+ eine Homotopie mit $F(x,0) = f(x)$ und $F(x,1) = g(x)$ für alle $x \in X$. Da $h$ und $\id_{[0,1]}$ stetig sind, ist nach Lemma \ref{lem: Funktionsprodukt} auch
+ \[
+  h \times \id_{[0,1]} : X' \times [0,1] \to X \times [0,1].
+ \]
+ stetig. Daher ist auch die Verknüpfung
+ \[
+  F_h := F \circ (h \times \id_{[0,1]}) : X' \times [0,1] \to Y
+ \]
+ stetig. $F_h$ ist eine Homotopie und für alle $x' \in X'$ ist
+ \begin{align*}
+  F_h(x',0) &= F(h(x),0) = f(h(x')) = (fh)(x') \text{ und } \\
+  F_h(x',1) &= F(h(x),1) = g(h(x')) = (gh)(x').
+ \end{align*}
+ Das zeigt, dass $fh \simeq gh$.
+ 
+ Da $k$ und $F$ stetig sind, ist auch die Verknüpfung
+ \[
+  F_k := k \circ F : X \times [0,1] \to Y'. 
+ \]
+ stetig. $F_k$ ist eine Homotopie, und für alle $x \in X$ ist
+ \begin{align*}
+  F_k(x,0) &= k(F(x,0)) = k(f(x)) = (kf)(x) \text{ und} \\
+  F_k(x,1) &= k(F(x,1)) = k(g(x)) = (kg)(x).
+ \end{align*}
+ Das zeigt, dass $kf \simeq kg$.
+\end{proof}
+
+Zunächst nehmen wir an, dass $\varphi : X \to Y$ ist eine Homotopieäquivalenz ist. Dann gibt es eine stetige Abbildung $\psi : Y \to X$ so dass
+\[
+ \psi \varphi \simeq \id_X \quad \text{und} \quad \varphi \psi \simeq \id_Y.
+\]
+Sei $K$ ein beliebiger topologischer Raum und
+\[
+ \varphi_* : [K,X] \to [K,Y], [f] \mapsto [\varphi f].
+\]
+$\varphi_*$ ist wohldefiniert, denn für $f,g : K \to X$ mit ist $f \simeq g$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie} auch $\varphi f \simeq \varphi g$. Analog definieren wir
+\[
+ \psi_* : [K,Y] \to [K,X], [g] \mapsto [\psi g].
+\]
+Da $\psi \varphi \simeq \id_X$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie}
+\[
+ \psi \varphi f \simeq \id_X f = f \text{ für alle } f : K \to X
+\]
+und da $\varphi \psi \simeq \id_Y$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie}
+\[
+ \varphi \psi g \simeq \id_Y g = g \text{ für alle } g : K \to Y
+\]
+Also ist
+\begin{align*}
+ (\psi_* \varphi_*)([f]) &= [\psi \varphi f] = [f] \text{ für alle } [f] \in [K,X] \text{ und}\\
+ (\varphi_* \psi_*)([g]) &= [\varphi \psi g] = [g] \text{ für alle } [g] \in [K,Y].
+\end{align*}
+Das zeigt, dass $\varphi_*$ bijektiv ist mit $\psi_* = \varphi_*^{-1}$.
+
+Nun nehmen wir an, dass $\varphi : X \to Y$ stetig ist und für jeden topologischen Raum $K$ die Abbildung
+\[
+ \varphi^K_* : [K,X] \to [K,Y], [f] \mapsto [\varphi f].
+\]
+eine Bijektion ist. Wegen der Surjektivität von $\varphi_*^Y$ gibt existiert ein $\psi : Y \to X$ mit \mbox{$[\varphi \psi] = [\id_Y]$}, also $\varphi \psi \simeq \id_Y$. Da $\varphi \psi \simeq \id_Y$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie}
+\[
+ \varphi_*^X([\psi \varphi]) = [\varphi \psi \varphi] = [\varphi] = \varphi_*^X([\id_X]),
+\]
+wegen der Injektivität von $\varphi_*^X$ also $[\psi \varphi] = [\id_X]$ und deshalb $\psi \varphi \simeq \id_X$. Das zeigt, dass $\varphi$ eine Homotopieäquivalenz ist.
 
 
 
