@@ -21,6 +21,41 @@
 \maketitle
 
 
+\begin{lem}[Universelle Eigenschaft des Koproduktes]\label{lem: universell Koprodukt}
+ Es sei $I$ eine nichtleere Menge und $(X_i)_{i \in I}$ eine Familie topologischer Räume. Dann besitzt das Koprodukt $\coprod_{i \in I} X_i$ die folgende universelle Eigenschaft: Bezeichnet für alle $j \in I$
+ \[
+  \iota_j : X_j \to \coprod_{i \in I} X_i, x \mapsto (x,j)
+ \]
+ die kanonische Inklusion, so gibt es für jeden topologischen Raum $Y$ und jede Familie stetiger Abbildungen $(f_i)_{i \in I}$, so dass $f_j : X_j \to Y$ für alle $j \in I$, eine eindeutige stetige Abbildung $f : \coprod_{i \in I} X_i \to Y$ so dass $f_j = f \circ \iota_j$ für alle $j \in I$, also das Diagram
+ \begin{center}
+  \begin{tikzpicture}[auto]
+   \node (X_j) {$X_j$};
+   \node [below of = X_j, node distance = 6em] (coprod X_i) {$\coprod_{i \in I} X_i$};
+   \node [right of = coprod X_i, node distance = 8em] (Y) {$Y$};
+   \draw[->] (X_j) to node[swap]{$\iota_j$} (coprod X_i);
+   \draw[->] (X_j) to node{$f_j$} (Y);
+   \draw[->] (coprod X_i) to node[swap]{$f$} (Y);
+  \end{tikzpicture}
+ \end{center}
+für alle $j \in I$ kommutiert.
+\end{lem}
+\begin{proof}
+ Angenommen, es existiert eine solche Abbildung $f$. Für $(x,j) \in \coprod_{i \in I} X_i$ muss dann
+ \[
+  f((x,j)) = f(\iota_j(x)) = f_j(x).
+ \]
+ Das zeigt die Eindeutigkeit von $f$.
+ 
+ Zum Beweis der Existenz sei $f$ wie oben definiert. Wir müssen zeigen, dass $f$ stetig ist. Sie hierzu $U \subseteq Y$ offen, beliebig aber fest. Wir bemerken, dass $f_j^{-1}(U) \subseteq X_j$ für alle $j \in I$ offen ist, da $f_j$ für alle $j \in I$ stetig ist. Nach der Definition des Koproduktes ist eine Teilmenge $V \subseteq \coprod_{i \in I} X_i$ genau offen ist, wenn $\iota_j^{-1}(V)$ für alle $j \in I$ offen ist. Da
+ \[
+  \iota_j^{-1}(f^{-1}(U))
+  = (f \circ \iota_j)^{-1}(U)
+  = f_j^{-1}(U)
+ \]
+ für alle $j \in I$ offen ist, ist daher $f^{-1}(U) \subseteq \coprod_{i \in I} X_i$ offen. Wegen der Beliebigkeit von $U$ zeigt dies die Stetigkeit von $f$.
+\end{proof}
+
+
 
 
 
@@ -113,7 +148,7 @@ die entsprechenden kanonischen Inklusionen. Da $\iota_j$ für alle $j \in I$ ste
  X_j \times Y &\to \left(\coprod_{i \in I} X_i\right) \times Y \\
  (x,y) &\mapsto ((x,j),y).
 \end{align*}
-stetig. Deshalb gibt es nach der universellen Eigenschaft des Koproduktes eine stetige Abbildung
+stetig. Deshalb gibt es nach der universellen Eigenschaft des Koproduktes (siehe Lemma \ref{lem: universell Koprodukt}) eine stetige Abbildung
 \[
  f: \coprod_{i \in I} \left( X_i \times Y \right) \to \left( \coprod_{i \in I} X_i \right) \times Y,
 \]
