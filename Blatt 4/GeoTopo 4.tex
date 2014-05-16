@@ -26,7 +26,11 @@
  \[
   \iota_j : X_j \to \coprod_{i \in I} X_i, x \mapsto (x,j)
  \]
- die kanonische Inklusion, so gibt es für jeden topologischen Raum $Y$ und jede Familie stetiger Abbildungen $(f_i)_{i \in I}$, so dass $f_j : X_j \to Y$ für alle $j \in I$, eine eindeutige stetige Abbildung $f : \coprod_{i \in I} X_i \to Y$ so dass $f_j = f \circ \iota_j$ für alle $j \in I$, also das Diagram
+ die kanonische Inklusion, so gibt es für jeden topologischen Raum $Y$ und jede Familie von Abbildungen $(f_i)_{i \in I}$ mit
+ \[
+  f_j : X_j \to Y \text{ für alle } j \in I
+ \]
+ eine eindeutige Abbildung $f : \coprod_{i \in I} X_i \to Y$, so dass $f_j = f \circ \iota_j$ für alle $j \in I$, also das Diagramm
  \begin{center}
   \begin{tikzpicture}[auto]
    \node (X_j) {$X_j$};
@@ -37,16 +41,18 @@
    \draw[->] (coprod X_i) to node[swap]{$f$} (Y);
   \end{tikzpicture}
  \end{center}
-für alle $j \in I$ kommutiert.
+für alle $j \in I$ kommutiert. $f$ ist genau dann stetig, wenn $f_j$ für alle $j \in I$ stetig ist.
 \end{lem}
 \begin{proof}
- Angenommen, es existiert eine solche Abbildung $f$. Für $(x,j) \in \coprod_{i \in I} X_i$ muss dann
+ Dass $f_j = f \circ \iota_j$ für alle $j \in I$ ist offenbar äquivalent dazu, dass für alle $(x,j) \in \coprod_{i \in I} X_i$
  \[
   f((x,j)) = f(\iota_j(x)) = f_j(x).
  \]
- Das zeigt die Eindeutigkeit von $f$.
+ Definiert man $f$ hierdurch, so ist $f$ offenbar wohldefiniert. Das zeigt die Existenz. Die Eindeutigkeit ist klar, da jedes Element $y \in \coprod_{i \in I} X_i$ von der Form $y = (x,j)$ mit $j \in I$ und $x \in X_j$ ist.
  
- Zum Beweis der Existenz sei $f$ wie oben definiert. Wir müssen zeigen, dass $f$ stetig ist. Sie hierzu $U \subseteq Y$ offen, beliebig aber fest. Wir bemerken, dass $f_j^{-1}(U) \subseteq X_j$ für alle $j \in I$ offen ist, da $f_j$ für alle $j \in I$ stetig ist. Nach der Definition des Koproduktes ist eine Teilmenge $V \subseteq \coprod_{i \in I} X_i$ genau offen ist, wenn $\iota_j^{-1}(V)$ für alle $j \in I$ offen ist. Da
+ Ist $f$ stetig, so ist $f_j = f \circ \iota_j$ für alle $j \in I$ als Verknüpfung stetiger Abbildungen ebenfalls stetig, da die Inklusion $\iota_j$ für alle $j \in I$ stetig ist.
+ 
+ Ist $f_j$ für alle $j \in I$ stetig, so ergibt sich die Stetigkeit von $f$ wie folgt: Es sei $U \subseteq Y$ offen, beliebig aber fest. Da $f_j$ für alle $j \in I$ stetig ist, ist $f_j^{-1}(U) \subseteq X_j$ für alle $j \in I$ offen. Nach der Definition des Koproduktes ist eine Teilmenge $V \subseteq \coprod_{i \in I} X_i$ genau offen ist, wenn $\iota_j^{-1}(V) \subseteq X_j$ für alle $j \in I$ offen ist. Da
  \[
   \iota_j^{-1}(f^{-1}(U))
   = (f \circ \iota_j)^{-1}(U)
