@@ -52,7 +52,7 @@ für alle $j \in I$ kommutiert. $f$ ist genau dann stetig, wenn $f_j$ für alle 
  
  Ist $f$ stetig, so ist $f_j = f \circ \iota_j$ für alle $j \in I$ als Verknüpfung stetiger Abbildungen ebenfalls stetig, da die Inklusion $\iota_j$ für alle $j \in I$ stetig ist.
  
- Ist $f_j$ für alle $j \in I$ stetig, so ergibt sich die Stetigkeit von $f$ wie folgt: Es sei $U \subseteq Y$ offen, beliebig aber fest. Da $f_j$ für alle $j \in I$ stetig ist, ist $f_j^{-1}(U) \subseteq X_j$ für alle $j \in I$ offen. Nach der Definition des Koproduktes ist eine Teilmenge $V \subseteq \coprod_{i \in I} X_i$ genau offen ist, wenn $\iota_j^{-1}(V) \subseteq X_j$ für alle $j \in I$ offen ist. Da
+ Ist $f_j$ für alle $j \in I$ stetig, so ergibt sich die Stetigkeit von $f$ wie folgt: Es sei $U \subseteq Y$ offen, beliebig aber fest. Da $f_j$ für alle $j \in I$ stetig ist, ist $f_j^{-1}(U) \subseteq X_j$ für alle $j \in I$ offen. Da nach der Definition des Koproduktes eine Teilmenge $V \subseteq \coprod_{i \in I} X_i$ genau offen ist, wenn $\iota_j^{-1}(V) \subseteq X_j$ für alle $j \in I$ offen ist, und
  \[
   \iota_j^{-1}(f^{-1}(U))
   = (f \circ \iota_j)^{-1}(U)
@@ -69,7 +69,11 @@ für alle $j \in I$ kommutiert. $f$ ist genau dann stetig, wenn $f_j$ für alle 
 
 
 \subsection{}
-Es sei $W \subseteq X \times Y$ offen und beliebig aber fest. Da die Mengen der Form $U \times V \subseteq X \times Y$ mit $U \subseteq X$ offen und $V \subseteq Y$ offen eine topologische Basis von $X \times Y$ bilden, gibt es offene Mengen  $\{U_i | i \in I\} \subseteq X$ und $\{V_i | i \in I\} \subseteq Y$ mit
+Es sei $W \subseteq X \times Y$ offen und beliebig aber fest. Da
+\[
+ \{U \times V \mid U \subseteq X \text{ offen}, V \subseteq Y \text{ offen}\}
+\]
+eine topologische Basis von $X \times Y$ ist, gibt es offene Mengen  $\{U_i \subseteq X \mid i \in I\}$ und $\{V_i \subseteq Y \mid i \in I\}$ mit
 \[
  W = \bigcup_{i \in I} (U_i \times V_i).
 \]
@@ -81,17 +85,17 @@ in den jeweiligen Räumen offen. Wegen der Beliebigkeit von $W$ folgt, dass $p_1
 
 
 \subsection{}
-Bekanntermaßen ist $[0,1) \times [0,1) \cong [0,1)^2$, wobei $p_1$ und $p_2$ den kanonischen Projektionen $\pi_1, \pi_2 : [0,1)^2 \to [0,1)$ entsprechen. Diese sind nicht abgeschlossen: Es ist $\overline{B_1((1,1))} \subseteq \R^2$ abgeschlossen, also auch
+Bekanntermaßen ist $[0,1) \times [0,1) = [0,1)^2$, wobei $p_1$ und $p_2$ den kanonischen Projektionen $\pi_1, \pi_2 : [0,1)^2 \to [0,1)$ entsprechen. Diese sind nicht abgeschlossen: Es ist $\overline{B_1((1,1))} \subseteq \R^2$ abgeschlossen, also auch
 \[
- C := [0,1)^2 \cap \overline{B_1((1,1))} \subseteq [0,1)^2.
+ C := [0,1)^2 \cap \overline{B_1((1,1))}.
 \]
-Es sind aber $\pi_1(C) = \pi_2 = (0,1)$ nicht abgeschlossen in $[0,1)$.
+abgeschlossen in $[0,1)^2$. Da $\pi_1(C) = \pi_2(C) = (0,1)$ nicht abgeschlossen in $[0,1)$ ist, sind $\pi_1$ und $\pi_2$ nicht abgeschlossen.
 
 
 \subsection{}
 Da $Y \neq \emptyset$ ist $p_1$ surjektiv.
 
-Es ist daher $U \subseteq X$ genau dann offen, wenn $p_1^{-1}(U) = U \times Y \subseteq X \times Y$ offen ist: Ist $U$ offen, so ist es klar, dass auch $U \times Y$ offen ist. Ist andererseits $U \times Y$ offen, so ist wegen der Offenheit und Surjektivität von $p_1$ auch
+Es ist daher $U \subseteq X$ genau dann offen, wenn $p_1^{-1}(U) = U \times Y \subseteq X \times Y$ offen ist: Ist $U$ offen, so ist klar, dass auch $U \times Y$ offen ist. Ist andererseits $U \times Y$ offen, so ist wegen der Offenheit und Surjektivität von $p_1$ auch
 \[
  U = p_1(p_1^{-1}(U)) = p_1(U \times Y)
 \]
@@ -154,7 +158,7 @@ die entsprechenden kanonischen Inklusionen. Da $\iota_j$ für alle $j \in I$ ste
  X_j \times Y &\to \left(\coprod_{i \in I} X_i\right) \times Y \\
  (x,y) &\mapsto ((x,j),y).
 \end{align*}
-stetig. Deshalb gibt es nach der universellen Eigenschaft des Koproduktes (siehe Lemma \ref{lem: universell Koprodukt}) eine stetige Abbildung
+stetig. Deshalb gibt es nach der universellen Eigenschaft des Koproduktes (siehe Lemma \ref{lem: universell Koprodukt}) eine eindeutige stetige Abbildung
 \[
  f: \coprod_{i \in I} \left( X_i \times Y \right) \to \left( \coprod_{i \in I} X_i \right) \times Y,
 \]
@@ -185,9 +189,9 @@ $f$ ist offen: Seien $j \in I$ und $U \subseteq X_j \times Y$ offen beliebig abe
 \]
 offen.
 
-Da die Mengen der Form $U \times \{j\} \subseteq \coprod_{i \in I} (X_i \times Y)$ mit $j \in I$ und $U \subseteq X_j$ offen eine topologische Basis von $\coprod_{i \in I}(X_i \times Y)$ bilden, zeigt dies die Offenheit von $f$.
+Da die Mengen der Form $U \times \{j\} \subseteq \coprod_{i \in I} (X_i \times Y)$ mit $j \in I$ und $U \subseteq X_j \times Y$ offen eine topologische Basis von $\coprod_{i \in I}(X_i \times Y)$ bilden, zeigt dies die Offenheit von $f$.
 
-Da $f$ offenbar auch bijektiv ist, ist $f$ ein Homöomorphismus.
+Da $f$ offenbar auch bijektiv ist, zeigt dies, dass $f$ ein Homöomorphismus ist.
 
 
 
@@ -250,10 +254,10 @@ Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, 
  \[
   F_h := F \circ (h \times \id_{[0,1]}) : X' \times [0,1] \to Y
  \]
- stetig. $F_h$ ist eine Homotopie und für alle $x' \in X'$ ist
+ stetig, also eine Homotopie. Für alle $x' \in X'$ ist
  \begin{align*}
-  F_h(x',0) &= F(h(x),0) = f(h(x')) = (fh)(x') \text{ und } \\
-  F_h(x',1) &= F(h(x),1) = g(h(x')) = (gh)(x').
+  F_h(x',0) &= F(h(x'),0) = f(h(x')) = (fh)(x') \text{ und } \\
+  F_h(x',1) &= F(h(x'),1) = g(h(x')) = (gh)(x').
  \end{align*}
  Das zeigt, dass $fh \simeq gh$.
  
@@ -261,7 +265,7 @@ Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, 
  \[
   F_k := k \circ F : X \times [0,1] \to Y'. 
  \]
- stetig. $F_k$ ist eine Homotopie, und für alle $x \in X$ ist
+ stetig, also eine Homotopie. Für alle $x \in X$ ist
  \begin{align*}
   F_k(x,0) &= k(F(x,0)) = k(f(x)) = (kf)(x) \text{ und} \\
   F_k(x,1) &= k(F(x,1)) = k(g(x)) = (kg)(x).
@@ -269,7 +273,7 @@ Da $U_k$ für alle $1 \leq k \leq n$ offen ist, und die $f_i$ alle stetig sind, 
  Das zeigt, dass $kf \simeq kg$.
 \end{proof}
 
-Zunächst nehmen wir an, dass $\varphi : X \to Y$ ist eine Homotopieäquivalenz ist. Dann gibt es eine stetige Abbildung $\psi : Y \to X$ so dass
+Zunächst nehmen wir an, dass $\varphi : X \to Y$ ist eine Homotopieäquivalenz ist, d.h. es gibt eine stetige Abbildung $\psi : Y \to X$, so dass
 \[
  \psi \varphi \simeq \id_X \quad \text{und} \quad \varphi \psi \simeq \id_Y.
 \]
@@ -277,7 +281,7 @@ Sei $K$ ein beliebiger topologischer Raum und
 \[
  \varphi_* : [K,X] \to [K,Y], [f] \mapsto [\varphi f].
 \]
-$\varphi_*$ ist wohldefiniert, denn für $f,g : K \to X$ mit ist $f \simeq g$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie} auch $\varphi f \simeq \varphi g$. Analog definieren wir
+$\varphi_*$ ist wohldefiniert, denn für stetige Abbildungen $f,g : K \to X$ mit ist $f \simeq g$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie} auch $\varphi f \simeq \varphi g$. Analog definieren wir
 \[
  \psi_* : [K,Y] \to [K,X], [g] \mapsto [\psi g].
 \]
@@ -300,7 +304,11 @@ Nun nehmen wir an, dass $\varphi : X \to Y$ stetig ist und für jeden topologisc
 \[
  \varphi^K_* : [K,X] \to [K,Y], [f] \mapsto [\varphi f].
 \]
-eine Bijektion ist. Wegen der Surjektivität von $\varphi_*^Y$ gibt existiert ein $\psi : Y \to X$ mit \mbox{$[\varphi \psi] = [\id_Y]$}, also $\varphi \psi \simeq \id_Y$. Da $\varphi \psi \simeq \id_Y$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie}
+eine Bijektion ist. Wegen der Surjektivität von $\varphi_*^Y$ existiert eine stetige Abbildung $\psi : Y \to X$ mit
+\[
+ \varphi_*^Y(\psi) = [\varphi \psi] = [\id_Y],
+\]
+also $\varphi \psi \simeq \id_Y$. Da $\varphi \psi \simeq \id_Y$ ist nach Lemma \ref{lem: Verknüpfung erhält Homotopie}
 \[
  \varphi_*^X([\psi \varphi]) = [\varphi \psi \varphi] = [\varphi] = \varphi_*^X([\id_X]),
 \]
