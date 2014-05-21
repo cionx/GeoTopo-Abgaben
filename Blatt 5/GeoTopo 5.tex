@@ -24,4 +24,86 @@
 
 
 
+\section{}
+Wir nehmen zunächst an, dass $f : S^1 \to X$ homotop zu einer konstanten Schlinge ist. Dann gibt es eine Homotopie $F : S^1 \times [0,1] \to X$ mit
+\begin{align*}
+ F(s,0) &= \const \text{ und} \\
+ F(s,1) &= f(s)
+\end{align*}
+für alle $s \in S$. Es sei
+\begin{gather*}
+ A := S^1 \times \{0\} \subseteq S^1 \times [0,1]
+\shortintertext{und}
+ \pi : S^1 \times [0,1] \to \left( S^1 \times [0,1] \right) / A
+\end{gather*}
+die kanonische Projektion.
+
+Es ist klar, dass $F$ als Abbildung
+\[
+ \tilde{F} : \left( S^1 \times [0,1] \right) / A \to X
+\]
+faktorisiert. Diese ist nach der universellen Eigenschaft des Quotienten stetig.
+
+Wir bemerken weiter, dass $\left(S^1 \times [0,1] \right) / A \cong D^2$: Die Abbildung
+\[
+ \phi : S^1 \times [0,1] \to D^2, (s,t) \mapsto ts
+\]
+ist stetig und surjektiv, und faktorisiert als Bijektion
+\[
+ \psi : \left( S^1 \times [0,1] \right) / A \to D^2,
+\]
+die nach der universellen Eigenschaft des Quotienten stetig ist. Da $S^1 \times [0,1]$ als Produkt kompakter Räume kompakt ist, ist auch $\left( S^1 \times [0,1] \right) / A$ quasikompakt. Da $D^2$ Hausdorff ist, ist damit $\psi$ bereits ein Homöomorphismus.
+
+Durch den Isomorphismus $\psi$ faktorisiert $\tilde{F}$ als stetige Abbildung $\bar{F} : D^2 \to X$.
+
+Insgesamt ergibt sich damit ein Diagramm wie in Abbildung \ref{fig: wow such commute}.
+\begin{figure}\centering
+ \begin{tikzpicture}[auto]
+  \node (X) {$X$};
+  \node (Product) [above left = 2em and 5em of X] {$S^1 \times [0,1]$};
+  \node (Quotient) [above right = 2em and 5em of X] {$\left( S^1 \times [0,1] \right) / A$};
+  \node (D2) [below of = X, node distance = 6em] {$D^2$};
+  \draw[->] (Product) to node {$\pi$} (Quotient);
+  \draw[->] (Product) to node {$F$} (X);
+  \draw[->] (Quotient) to node[swap] {$\tilde{F}$} (X);
+  \draw[->] (Product) to node[swap] {$\phi$} (D2);
+  \draw[->] (Quotient) to node {$\psi$} (D2);
+  \draw[->] (D2) to node {$\bar{F}$} (X);
+ \end{tikzpicture}
+ \caption{Mir fällt kein passender Titel ein.}
+ \label{fig: wow such commute}
+\end{figure}
+Dieses Diagram kommutiert: Nach Konstruktion ist $\phi = \psi \pi$, sowie $F = \tilde{F} \pi$ und $\tilde{F} = \bar{F} \psi$. Daher ist auch
+\[
+ F = \tilde{F} \pi = \bar{F} \psi \pi = \bar{F} \phi.
+\]
+Da für alle $s \in S^1$
+\[
+ \bar{F}(s) = \bar{F} \phi (s,1) = F(s,1) = f(s)
+\]
+ist $\bar{F}$ eine stetige Fortsetzung von $f$ auf $D^2$.
+
+Angenommen, $f: S^1 \to X$ lässt sich zu einer stetigen Abbildung $\bar{F} : D^2 \to X$ fortsetzen. Mithilfe der stetigen Abbildung
+\[
+ \phi: S^1 \times [0,1] \to D^2, (s,t) \mapsto ts
+\]
+erhalten wir dann die Homotopie
+\[
+ F := \bar{F} \phi : S^1 \times [0,1] \to X.
+\]
+Da für alle $s \in S^1$
+\begin{align*}
+ F(s,0) &= \bar{F}(\phi(s,0)) = \bar{F}(0) = \const \text{ und} \\
+ F(s,1) &= \bar{F}(\phi(s,1)) = \bar{F}(s) = f(s)
+\end{align*}
+ist $f$ homotop zu einer konstanten Schlinge.
+
+
+
+
+
+
+
+
+
 \end{document} 
