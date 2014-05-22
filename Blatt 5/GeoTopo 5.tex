@@ -122,6 +122,52 @@ Also ist $g$ eine Homotopieäquivalenz und $X$ deshalb zusammenziehbar.
 
 
 
+\section{}
+
+
+\subsection{}
+Für die Homotopie
+\[
+ F: D^2 \times [0,1], (x,t) = tx
+\]
+ist für alle $x \in D^2$
+\begin{align*}
+ F(x,0) &= 0 = \const \text{ und}\\
+ F(x,1) &= x = \id_{D^2}(x).
+\end{align*}
+Deshalb ist $\id_{D^2}$ homotop zu einer konstanten Abbildung. Also ist $D^2$ zusammenziehbar und deshalb $\left[ K,D^2 \right]$ für jeden Raum $K$ einelementig. Insbesondere ist daher $\mc{S}\left(D^2\right) = \left[ S^1, D^2 \right]$ einelementig.
+
+Gibt es eine stetige Abbildung $r : D^2 \to S^1$ mit $r_{|S^1} = \id_{S^1}$, so ergibt sich aus den Funktoreigenschaften von $X \mapsto \mc{S}(X)$ das kommutatives Diagram in Abbildung \ref{fig: SX Funktor}, wobei $\iota : S^1 \to D^2$ die kanonische Inklusion bezeichnet.
+\begin{figure}\centering
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (S1 1) {$S^1$};
+  \node [right of = S1 1](D2) {$D^2$};
+  \node [right of = D2] (S1 2) {$S^1$};
+  \node [below of = S1 1](S S1 1) {$\mc{S}(S^1)$};
+  \node [below of = D2] (S D2) {$\mc{S}(D^2)$};
+  \node [below of = S1 2] (S S1 2) {$\mc{S}(S^2)$};
+  \draw[->] (S1 1) to node {$\iota$} (D2);
+  \draw[->] (D2) to node {$r$} (S1 2);
+  \draw[->] (S1 1) to (S S1 1);
+  \draw[->] (D2) to (S D2);
+  \draw[->] (S1 2) to (S S1 2);
+  \draw[->] (S S1 1) to node[swap] {$\mc{S}(\iota)$}  (S D2);
+  \draw[->] (S D2) to node[swap] {$\mc{S}(r)$} (S S1 2);
+ \end{tikzpicture}
+ \caption{I dunno.}
+ \label{fig: SX Funktor}
+\end{figure}
+
+Da $r \iota = \id_{S^1}$ muss auch $\mc{S}(r) \mc{S}(\iota) = \id_{\mc{S}\left(S^1\right)}$. Inbesondere muss daher $\mc{S}(r)$ surjektiv sein, da es $\mc{S}(\iota)$ als Rechtsinverses besitzt. Es ist jedoch $\mc{S}(D^2)$ einelementig und $\mc{S}(S^1)$ abzählbar unendlich (aus der Vorlesung bekannt). Dieser Widerspruch zeigt, dass keine solche Abbildung $r$ existieren kann.
+
+
+
+
+
+
+
+
+
 
 
 \end{document} 
