@@ -122,7 +122,7 @@ Also ist $g$ eine Homotopieäquivalenz und $X$ deshalb zusammenziehbar.
 
 
 
-\section{}
+\section{(Brouwerscher Fixpunktsatz)}
 
 
 \subsection{}
@@ -159,6 +159,81 @@ Gibt es eine stetige Abbildung $r : D^2 \to S^1$ mit $r_{|S^1} = \id_{S^1}$, so 
 \end{figure}
 
 Da $r \iota = \id_{S^1}$ muss auch $\mc{S}(r) \mc{S}(\iota) = \id_{\mc{S}\left(S^1\right)}$. Inbesondere muss daher $\mc{S}(r)$ surjektiv sein, da es $\mc{S}(\iota)$ als Rechtsinverses besitzt. Es ist jedoch $\mc{S}(D^2)$ einelementig und $\mc{S}(S^1)$ abzählbar unendlich (aus der Vorlesung bekannt). Dieser Widerspruch zeigt, dass keine solche Abbildung $r$ existieren kann.
+
+
+
+
+
+\section{(Fundamentalsatz der Algebra)}
+
+
+\subsection{}
+Sei $t \geq 0$ beliebig aber fest. Für $\iota_t : S^1 \to \C, z \mapsto tz$ ergibt sich das kommutative Diagram in Abbildung \ref{fig: f_t faktorisiert}.
+\begin{figure}[b]\centering
+ \begin{tikzpicture}[node distance = 6em, auto]
+  \node (C) {$\C$};
+  \node [above left of = C] (S1) {$S^1$};
+  \node [above right of = C] (C 0) {$\C - \{0\}$};
+  \draw[->] (S1) to node {$f_t$} (C 0);
+  \draw[->] (S1) to node[swap] {$\iota_t$} (C);
+  \draw[->] (C) to node[swap] {$f$} (C 0);
+ \end{tikzpicture}
+ \caption{$f_t$ faktorisiert durch $\iota_t$ über $\C$.}
+ \label{fig: f_t faktorisiert}
+\end{figure}
+Da $\C$ zusammenziehbar ist (denn $\C$ ist homöomorph zu $\R^2$), ist $\iota_t$ homotop zu einer konstanten Abbildung $c : S^1 \to \C$, also $f = f \iota_t$ homotop zur konstanten Abbildung $f c$. (Analog ergibt sich, dass jede stetige Funktion, die über einen zusammenziehbaren Raum faktorisiert, homotop zu einer konstanten Abbildung ist).
+
+
+\subsection{}
+Wir definieren
+\begin{align*}
+ F : S^1 \times [0,1] &\to \C - \{0\},0\\
+ (z,t) &\mapsto C^k z^k + t \sum_{l=0}^{k-1} a_l C^l z^l.
+\end{align*}
+$F$ ist wohldefiniert, denn für alle $(z,t) \in S^1 \times [0,1]$ ist
+\begin{align*}
+ |F(z,t)|
+ &=  \left| C^k z^k + t \sum_{l=0}^{k-1} a_l C^l z^l \right|
+ \geq \left| C^k z^k \right| - \left| t \sum_{l=0}^{k-1} a_l C^l z^l \right| \\
+ &\geq C^k - t \sum_{l=0}^{k-1} |a_l| C^l
+ \geq C^k - \sum_{l=0}^{k-1} |a_l| C^l
+ > 0.
+\end{align*}
+Es ist auch klar, dass $F$ stetig ist, also eine Homotopie. Für alle $z \in S^1$ ist
+\[
+ F(z,0) = C^k z^k \quad \text{und} \quad F(z,1) = \tilde{f}_C(z).
+\]
+Das zeigt, dass $\tilde{f}_C \simeq \left(z \mapsto C^k z^k\right)$.
+
+
+\subsection{}
+Für $k \in \Z$ sei
+\[
+ H_k : S^1 \to \C - \{0\}, z \mapsto z^k \text{ und }
+ h_k : S^1 \to S^1, z \mapsto z^k.
+\]
+Es ist klar, dass $H_k$ und $h_k$ für alle $k \in \Z$ stetig sind. Es sei $k := \deg f$.
+Dann gibt es $C \geq 0$, so dass
+\[
+ C^k > \sum_{l=0}^{k-1} |a_l| C^l.
+\]
+Nach Aufgabenteil (ii) ist dann $\tilde{f}_C \simeq C^k H_k$. Da $C^k H_k \simeq H_k$ via der Homotopie
+\[
+ S^1 \times [0,1] \to \C - \{0\}, (z,t) \mapsto  \left(t + (1-t)C^k\right) z^k
+\]
+ist daher $\tilde{f}_C \simeq H_k$. Andererseits ist $\tilde{f}_C$ nach Aufgabenteil (i) auch homotop zu einer konstanten Abbildung $c : S^1 \to \C - \{0\}$.
+
+Bezüglich der Projektion
+\[
+ q : \C - \{0\} \to S^1, z \mapsto \frac{z}{|z|},
+\]
+die offenbar stetig ist, ist daher auch
+\[
+ h_k = q H_k \simeq q \tilde{f}_C \simeq q c.
+\]
+Es ist also $h_k$ homotop zu einer konstanten Schlinge. Wir wissen, dass dies nur für $k = 0$ der Fall ist. Also muss $f$ ein konstantes Polynom sein.
+
+
 
 
 
