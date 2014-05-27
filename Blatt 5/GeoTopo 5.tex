@@ -165,6 +165,46 @@ Da $r \iota = \id_{S^1}$ ist auch
 Inbesondere muss daher $\mc{S}(r)$ surjektiv sein, da es $\mc{S}(\iota)$ als Rechtsinverses besitzt. Es ist jedoch $\mc{S}(D^2)$ einelementig und $\mc{S}(S^1)$ abzählbar unendlich (aus der Vorlesung bekannt). Dieser Widerspruch zeigt, dass keine solche Abbildung $r$ existieren kann.
 
 
+\subsection{}
+Für alle $x \in D^2$ definieren wir
+\begin{gather*}
+ h_x : \R \to \R^2 \text{ mit } h_x(t) := f(x) + t(x-f(x))
+\shortintertext{und}
+ T_x := \{t \in \R \mid \|h_x(t)\| \leq 1\} = \left\{ t \in \R \,\middle|\, h_x(t) \in D^2 \right\},
+\end{gather*}
+wobei klar ist, dass $h_x$ für alle $x \in D^2$ stetig ist.
+
+Für alle $x \in D^2$ ist $T_x \neq \emptyset$, da $f(x) = h_x(0) \in D^2$, also $0 \in T_x$ für alle $x \in D^2$. Wegen der Konvexität von $D^2$ ist $T_x$ für alle $x \in D^2$ ein Intervall. Da $\|h_x\|$ stetig ist, und $T_x = \|h_x\|^{-1}([0,1])$ ist $T_x$ auch abgeschlossen, also für alle $x \in D^2$ von der Form $T_x = [u_x, m_x]$ mit $u_x, m_x \in \R$, wobei $m_x \geq 0 \geq u_x$. Da $f(x)-x \neq 0$ und $x, f(x) \in D^2$ ist auch klar, dass $m_x > 0$.
+
+
+Aus dem üblichen Analysis-1-Argument folgt auch, dass
+\[
+ \|h_x(u_x)\| = \|h_x(m_x)\| = 1,
+\]
+also $h_x(u_x), h_x(m_x) \in S^1$. Da die durch $h_x$ beschrieben Gerade den Kreis $S^1$ in höchstens zwei Punkten schneidet, ist auch $\|h_x(t)\| < 1$ für alle $u_x < t < m_x$.
+
+Wir definieren
+\[
+ g : D^2 \to S^1, x \mapsto h_x(m_x),
+\]
+und behaupten, dass $g$ stetig ist. Da $h_x$ für alle $x \in X$ stetig ist, genügt es hierfür zu zeigen, dass $m_x$ stetig von $x$ abhängt.
+
+Seien hierfür $x \in D^2, m_x > \varepsilon > 0$ beliebig aber fest. Wir bemerken, dass $\|h_x(t)\|$ für festes $t$ stetig von $x$ abhängt. Es ist $h_x(m_x+\varepsilon) > 1$, daher gibt es $\delta_1 > 0$ mit $\|h_{x'}(m_x+\varepsilon)\| > 1$ für alle $x' \in B_{\delta_1}(x)$, also $m_{x'} < m_x+\varepsilon$ für alle $x' \in B_{\delta_1}(x)$. Da $h_x(m_x-\varepsilon) < 1$ gibt es auch ein $\delta_2 > 0$, so dass $\|h_{x'}(m_x-\varepsilon)\| < 1$ für alle $x' \in B_{\delta_2}(x)$, also $m_{x'} > m_x-\varepsilon$ für alle $x' \in B_{\delta_2}(x)$. Für $\delta = \min\{\delta_1, \delta_2\}$ ist also
+\[
+ |m_{x'}-m_{x}| < \varepsilon \text{ für alle } x' \in B_\delta(x).
+\]
+Dies zeigt die Stetigkeit von $x \mapsto m_x$, und damit auch von $g$.
+
+Wir bemerken weiter, dass $g(x) = x$ für alle $x \in S^1$: Es ist klar, dass $h_x(1) = x$, also $1 \in T_x$. Da $\|h_x(1)\| = 1$ ist auch $1 \nless m_x$. Wegen $m_x = \max T_x$ muss also $m_x = 1$ und deshalb $g(x) = h_x(1) = x$.
+
+Insgesamt zeigt dies, dass $g : D^2 \to S^1$ eine Retraktion, im Widerspruch zu Aufgabenteil (i).
+
+
+
+
+
+
+
 
 
 
