@@ -54,7 +54,7 @@ ist stetig und surjektiv, und faktorisiert als Bijektion
 \]
 die nach der universellen Eigenschaft des Quotienten stetig ist. Da $S^1 \times [0,1]$ als Produkt kompakter Räume kompakt ist, ist auch $\left( S^1 \times [0,1] \right) / A$ quasikompakt. Da $D^2$ Hausdorff ist, ist damit $\psi$ bereits ein Homöomorphismus.
 
-Durch den Isomorphismus $\psi$ faktorisiert $\tilde{F}$ als stetige Abbildung $\bar{F} : D^2 \to X$.
+Über den Homöomorphismus $\psi$ faktorisiert $\tilde{F}$ als stetige Abbildung $\bar{F} : D^2 \to X$.
 
 Insgesamt ergibt sich damit ein Diagramm wie in Abbildung \ref{fig: wow such commute}.
 \begin{figure}\centering
@@ -70,10 +70,10 @@ Insgesamt ergibt sich damit ein Diagramm wie in Abbildung \ref{fig: wow such com
   \draw[->] (Quotient) to node {$\psi$} (D2);
   \draw[->] (D2) to node {$\bar{F}$} (X);
  \end{tikzpicture}
- \caption{Mir fällt kein passender Titel ein.}
+ \caption{Faktorisierungen der Homotopie.}
  \label{fig: wow such commute}
 \end{figure}
-Dieses Diagram kommutiert: Nach Konstruktion ist $\phi = \psi \pi$, sowie $F = \tilde{F} \pi$ und $\tilde{F} = \bar{F} \psi$. Daher ist auch
+Dieses Diagramm kommutiert: Nach Konstruktion ist $\phi = \psi \pi$, sowie $F = \tilde{F} \pi$ und $\tilde{F} = \bar{F} \psi$. Daher ist auch
 \[
  F = \tilde{F} \pi = \bar{F} \psi \pi = \bar{F} \phi.
 \]
@@ -105,7 +105,7 @@ ist $f$ homotop zu einer konstanten Schlinge.
 \section{}
 Ist $X$ zusammenziehbar, so gibt es einen einelementigen Raum $\ast$ und eine Homotopieäquivalenz $\varphi : X \to \ast$. Diese induziert, wie aus Aufgabe 4.4 bekannt, für jeden Raum $K$ eine Bijektion
 \[
- \varphi^K_* :  [K,X] \to [K,\ast], f \mapsto \varphi f.
+ \varphi^K_* :  [K,X] \to [K,\ast], [f] \mapsto [\varphi f].
 \]
 Da $[K, \ast]$ immer einelementig ist, ist dann $[K,X]$ für jeden Raum $K$ einelementig.
 
@@ -128,16 +128,16 @@ Also ist $g$ eine Homotopieäquivalenz und $X$ deshalb zusammenziehbar.
 \subsection{}
 Für die Homotopie
 \[
- F: D^2 \times [0,1], (x,t) = tx
+ F: D^2 \times [0,1] \to D^2, (x,t) = tx
 \]
 ist für alle $x \in D^2$
 \begin{align*}
  F(x,0) &= 0 = \const \text{ und}\\
  F(x,1) &= x = \id_{D^2}(x).
 \end{align*}
-Deshalb ist $\id_{D^2}$ homotop zu einer konstanten Abbildung. Also ist $D^2$ zusammenziehbar und deshalb $\left[ K,D^2 \right]$ für jeden Raum $K$ einelementig. Insbesondere ist daher $\mc{S}\left(D^2\right) = \left[ S^1, D^2 \right]$ einelementig.
+Deshalb ist $\id_{D^2}$ homotop zu einer konstanten Abbildung. Also ist $D^2$ zusammenziehbar, und deshalb $\left[ K,D^2 \right]$ für jeden Raum $K$ einelementig. Insbesondere ist daher $\mc{S}\left(D^2\right) = \left[ S^1, D^2 \right]$ einelementig.
 
-Gibt es eine stetige Abbildung $r : D^2 \to S^1$ mit $r_{|S^1} = \id_{S^1}$, so ergibt sich aus den Funktoreigenschaften von $X \mapsto \mc{S}(X)$ das kommutatives Diagram in Abbildung \ref{fig: SX Funktor}, wobei $\iota : S^1 \to D^2$ die kanonische Inklusion bezeichnet.
+Gibt es eine stetige Abbildung $r : D^2 \to S^1$ mit $r_{|S^1} = \id_{S^1}$, so ergibt sich aus den Funktoreigenschaften von $X \mapsto \mc{S}(X)$ das kommutatives Diagramm in Abbildung \ref{fig: SX Funktor}, wobei $\iota : S^1 \to D^2$ die kanonische Inklusion bezeichnet.
 \begin{figure}\centering
  \begin{tikzpicture}[node distance = 6em, auto]
   \node (S1 1) {$S^1$};
@@ -154,11 +154,15 @@ Gibt es eine stetige Abbildung $r : D^2 \to S^1$ mit $r_{|S^1} = \id_{S^1}$, so 
   \draw[->] (S S1 1) to node[swap] {$\mc{S}(\iota)$}  (S D2);
   \draw[->] (S D2) to node[swap] {$\mc{S}(r)$} (S S1 2);
  \end{tikzpicture}
- \caption{I dunno.}
+ \caption{Funktoreigenschaften von $X \mapsto \mc{S}(X)$.}
  \label{fig: SX Funktor}
 \end{figure}
 
-Da $r \iota = \id_{S^1}$ muss auch $\mc{S}(r) \mc{S}(\iota) = \id_{\mc{S}\left(S^1\right)}$. Inbesondere muss daher $\mc{S}(r)$ surjektiv sein, da es $\mc{S}(\iota)$ als Rechtsinverses besitzt. Es ist jedoch $\mc{S}(D^2)$ einelementig und $\mc{S}(S^1)$ abzählbar unendlich (aus der Vorlesung bekannt). Dieser Widerspruch zeigt, dass keine solche Abbildung $r$ existieren kann.
+Da $r \iota = \id_{S^1}$ ist auch
+\[
+ \mc{S}(r) \mc{S}(\iota) = \mc{S}(r \iota) = \mc{S}(\id_{S^1}) = \id_{\mc{S}\left(S^1\right)}
+\]
+Inbesondere muss daher $\mc{S}(r)$ surjektiv sein, da es $\mc{S}(\iota)$ als Rechtsinverses besitzt. Es ist jedoch $\mc{S}(D^2)$ einelementig und $\mc{S}(S^1)$ abzählbar unendlich (aus der Vorlesung bekannt). Dieser Widerspruch zeigt, dass keine solche Abbildung $r$ existieren kann.
 
 
 
@@ -168,8 +172,8 @@ Da $r \iota = \id_{S^1}$ muss auch $\mc{S}(r) \mc{S}(\iota) = \id_{\mc{S}\left(S
 
 
 \subsection{}
-Sei $t \geq 0$ beliebig aber fest. Für $\iota_t : S^1 \to \C, z \mapsto tz$ ergibt sich das kommutative Diagram in Abbildung \ref{fig: f_t faktorisiert}.
-\begin{figure}[b]\centering
+Sei $t \geq 0$ beliebig aber fest. Für $\iota_t : S^1 \to \C, z \mapsto tz$ ergibt sich das kommutative Diagramm in Abbildung \ref{fig: f_t faktorisiert}.
+\begin{figure}\centering
  \begin{tikzpicture}[node distance = 6em, auto]
   \node (C) {$\C$};
   \node [above left of = C] (S1) {$S^1$};
@@ -181,13 +185,13 @@ Sei $t \geq 0$ beliebig aber fest. Für $\iota_t : S^1 \to \C, z \mapsto tz$ erg
  \caption{$f_t$ faktorisiert durch $\iota_t$ über $\C$.}
  \label{fig: f_t faktorisiert}
 \end{figure}
-Da $\C$ zusammenziehbar ist (denn $\C$ ist homöomorph zu $\R^2$), ist $\iota_t$ homotop zu einer konstanten Abbildung $c : S^1 \to \C$, also $f = f \iota_t$ homotop zur konstanten Abbildung $f c$. (Analog ergibt sich, dass jede stetige Funktion, die über einen zusammenziehbaren Raum faktorisiert, homotop zu einer konstanten Abbildung ist).
+Da $\C$ zusammenziehbar ist (denn $\C$ ist homöomorph zu $\R^2$), ist $\iota_t$ homotop zu einer konstanten Abbildung $c : S^1 \to \C$, also $f_t = f \iota_t$ homotop zur konstanten Abbildung $f c$. (Analog ergibt sich, dass jede stetige Funktion, die über einen zusammenziehbaren Raum faktorisiert, homotop zu einer konstanten Abbildung ist).
 
 
 \subsection{}
 Wir definieren
 \begin{align*}
- F : S^1 \times [0,1] &\to \C - \{0\},0\\
+ F : S^1 \times [0,1] &\to \C - \{0\}, \\
  (z,t) &\mapsto C^k z^k + t \sum_{l=0}^{k-1} a_l C^l z^l.
 \end{align*}
 $F$ ist wohldefiniert, denn für alle $(z,t) \in S^1 \times [0,1]$ ist
@@ -199,7 +203,7 @@ $F$ ist wohldefiniert, denn für alle $(z,t) \in S^1 \times [0,1]$ ist
  \geq C^k - \sum_{l=0}^{k-1} |a_l| C^l
  > 0.
 \end{align*}
-Es ist auch klar, dass $F$ stetig ist, also eine Homotopie. Für alle $z \in S^1$ ist
+Es ist auch klar, dass $F$ stetig ist, also eine Homotopie ist. Für alle $z \in S^1$ ist
 \[
  F(z,0) = C^k z^k \quad \text{und} \quad F(z,1) = \tilde{f}_C(z).
 \]
