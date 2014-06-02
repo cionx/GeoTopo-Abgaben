@@ -24,8 +24,13 @@
 
 
 
-\section{(Freie versus punktierte Schlingen)}
 Im Folgenden schreiben wir $I := [0,1]$.
+
+
+
+
+
+\section{(Freie versus punktierte Schlingen)}
 
 
 \subsection{}
@@ -184,6 +189,66 @@ also dass
  = \left[ \gamma_1 * g * \gamma_1^{-1} \right]_{\pi_1(X,x)}
  = \left[ \gamma_1 g \gamma_1^{-1} \right]_{\pi_1(X,x)}.
 \]
+
+
+
+
+
+\section{}
+
+
+\subsection{}
+Da $A$ und $B$ wegzusammenhängend sind, und $A \cap B \neq \emptyset$, ist $X = A \cup B$ wegzusammenhängend. Insbesondere ist daher
+\[
+ \pi_1(X,x) \cong \pi_1(X,x') \text{ für alle } x, x' \in X.
+\]
+Um zu zeigen, dass $\pi_1(X,x)$ für alle $x \in X$ trivial ist, genügt es daher zu zeigen, dass $\pi_1(X,x)$ für irgendeine $x \in X$ trivial ist. Sei hierfür $x \in A \cap B \neq \emptyset$.
+
+Es sei $f : (I, \del I) \to (X,x)$ eine Schlinge. Da $A$ und $B$ offen sind, und $X = A \cup B$, ist $\{f^{-1}(A), f^{-1}(B)\}$ wegen der Stetigkeit von $f$ eine offene Überdeckung von $I$. Da $I$ ein kompakter metrischer Raum ist, gibt es nach dem Lemma von Lebesgue ein $\delta > 0$, so dass jede Teilmenge $M \subseteq I$ mit $\diam M < \delta$ komplett in $f^{-1}(A)$ oder $f^{-1}(B)$ enthalten ist. Sei $m \in \N, m \geq 1$ groß genug, dass die Teilintervalle
+\[
+ I_k := \left[ \frac{k-1}{m}, \frac{k}{m} \right] \subseteq I \text{ für } k = 1, \ldots, m
+\]
+je komplett in $f^{-1}(A)$ oder $f^{-1}(B)$ enthalten ist. Dann ist $f(I_k) \subseteq A$ oder $f(I_k) \subseteq B$ für alle $k = 1, \ldots, m$.
+
+Wir definieren
+\[
+ x_k := f\left( \frac{k}{m} \right) \text{ für alle } k = 0, \ldots, m.
+\]
+Inbesondere ist
+\[
+ x_0 = x_m = x.
+\]
+Da $A$, $B$ und $A \cap B$ wegzusammenhängend sind, gibt es für alle $k = 1, \ldots, m-1$ einen Weg
+\[
+ \lambda_k : [0,1] \to X
+\]
+von $x$ nach $x_k$, der je komplett in $A$ verläuft, wenn $x_k \in A$, komplett in $B$ verläuft, wenn $x_k \in B$, bzw. komplett in $A \cap B$ verläuft, wenn $x_k \in A \cap B$. Für alle $k = 1, \ldots, m$ definieren wir außerdem den Weg
+\[
+ f_k : [0,1] \to X \text{ mit } f_k(t) := f\left( \frac{k-1}{m} + \frac{t}{m} \right).
+\]
+Man bemerke, dass  $\Img f_k = f(I_k)$ für alle $k = 1, \ldots, m$, sowie $f_k(0) = x_{k-1}$ und$f_k(1) = x_k$ für alle $k = 1, \ldots, m$.
+Es ist nun offenbar
+\begin{align*}
+ f
+ &= f_1 * f_2 * \cdots * f_m \\
+ &\simeq f_1 * \left( \lambda_1^{-1} \lambda_1 \right) * f_2 * \left( \lambda_2^{-1} \lambda_2 \right) * f_3 * \cdots * f_{m-1} * \left( \lambda_{m-1}^{-1} \lambda_{m-1} \right) * f_m \\
+ &\simeq \left( f_1 \lambda_1^{-1} \right) * \left( \lambda_1 * f_2 * \lambda_2^{-1} \right) * \cdots * \left( \lambda_{m-2} * f_{m-1} * \lambda_{m-1}^{-1} \right) * \left( \lambda_{m-1} * f_m \right)
+\end{align*}
+relativ zu $x$. Nun sind die Wege  $f_1 * \lambda_1^{-1}, \lambda_1 * f_2 * \lambda_2^{-1}, \ldots, \lambda_{m-2} * f_{m-1} \lambda_{m-1}^{-1}$ und $\lambda_{m-1} * f_m$ jeweils Schleifen, die von $x$ ausgehen, und sich jeweils komplett in $A$ oder $B$ befinden. Daher sind sie alle zusammenziehbar relativ zu $x$, denn $A$ und $B$ sind einfach zusammenhängend. Daher ist auch $f$ relativ zu $x$ zusammenziehbar. (Man fügt die einzelnen Homotopien einfach passend zusammen.)
+
+Aus der Beliebigkeit von $f$ folgt, dass $\pi_1(X,x)$ trivial ist.
+
+
+\subsection{}
+Es sei $n > 1$. Wir schreiben $S^n = A \cup B$ mit
+\begin{align*}
+ A &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq -1 \right\} \text{ und} \\
+ B &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq 1 \right\}.
+\end{align*}
+$A$ und $B$ sind offenbar offen in $S^n$, und durch die entsprechenden stereografischen Projektionen wissen wir, dass $A \cong \R^n$ und $B \cong \R^n$. Da $\R^n$ offenbar einfach zusammenhängend ist, sind es daher auch $A$ und $B$ (wegen der Funktorialität von $\pi_1$). Offenbar ist $A \cap B \neq \emptyset$ wegzusammenhängend (hier benutzen wir, dass $n > 1$). Nach Aufgabenteil (a) ist deshalb auch $S^n$ einfach zusammenhängend.
+
+
+
 
 
 
