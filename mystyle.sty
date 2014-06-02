@@ -9,7 +9,7 @@
 \usetikzlibrary{positioning}
 
 \renewcommand{\thesection}{Aufgabe \blattNummer.\arabic{section}:} %das Makro wird in der jeweiligen Datei gesetzt
-\renewcommand{\thesubsection}{(\roman{subsection})}
+\renewcommand{\thesubsection}{(\alph{subsection})}
 
 % Umgebungen in kursiver Schrift
 \newcounter{saetze}
@@ -31,7 +31,9 @@
 % Abkürzungen
 \newcommand{\mc}{\mathcal}
 \newcommand{\incl}{\hookrightarrow}
+\newcommand{\del}{\partial}
 \DeclareMathOperator{\const}{const}
+\newcommand{\rel}{\ensuremath{\mathbin{\operatorname{rel}}}}
 
 % Operatornamen
 \DeclareMathOperator{\Img}{Im}

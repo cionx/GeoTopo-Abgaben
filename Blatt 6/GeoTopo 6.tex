@@ -24,6 +24,185 @@
 
 
 
+\section{(Freie versus punktierte Schlingen)}
+Im Folgenden schreiben wir $I := [0,1]$.
+
+
+\subsection{}
+Es sei $x \in X$ beliebig aber fest. Es ist klar, dass die Inklusion
+\[
+ \left\{ f \,\middle|\, f : \left(S^1,1\right) \to (X,x) \text{ ist stetig} \right\}
+ \hookrightarrow
+ \left\{ g \,\middle|\, g : S^1 \to X \text{ ist stetig}\right\}
+ \]
+wohldefiniert ist. Zusammen mit der kanonischen Projektion
+\[
+ \left\{ g \,\middle|\, g : S^1 \to X \text{ ist stetig}\right\} \to \mc{S}(X), g \mapsto [g]
+\]
+ergibt sich damit eine wohldefinierte Abbildung
+\[
+ \left\{ f \,\middle|\, f : \left(S^1,1\right) \to (X,x) \text{ ist stetig} \right\} \to \mc{S}(X), f \mapsto [f].
+\]
+Um zu zeigen, dass diese über $\pi_1(X,x)$ faktorisiert, genügt es zu zeigen, dass für stetige Abbildungen $f,g : (S^1, 1) \to (X, x)$ mit $f \simeq g \rel 1$ auch $f \simeq g$. Dies ist aber klar.
+
+
+\subsection{}
+
+\begin{defi}
+ Sei $X$ ein topologischer Raum und seien $v_1, \ldots, v_n : I \to X$ Wege mit $v_i(1) = v_{i+1}(0)$ für alle $i=1,\ldots,n-1$. Dann bezeichnen wir mit $v_1 * \cdots * v_n$ den Weg
+ \[
+  v_1 * \cdots * v_n : I \to X, t \mapsto
+  \begin{cases}
+   v_1(nt)       & \text{falls } 0 \leq t \leq \frac{1}{n} \\
+   v_2(nt-1)     & \text{falls } \frac{1}{n} \leq t \leq \frac{2}{n} \\
+   v_3(nt-2)     & \text{falls } \frac{2}{n} \leq t \leq \frac{3}{n} \\
+   \vdots        & \vdots \\
+   v_n(nt-(n-1)) & \text{falls } \frac{n-1}{n} \leq t \leq 1.
+  \end{cases}
+ \]
+\end{defi}
+
+\begin{bem}
+ Es ist bekannt und klar, dass die „Verknüpfung“ $*$ assoziativ bis auf Homotopie ist. Es ist auch klar, dass für eine zusammenziehbare Schlinge $C$ und einen Weg $v$ mit entsprechenden Anfangs-, bzw. Endpunkt
+ \[
+  C * v \simeq v \qquad \text{bzw.} \qquad v * C \simeq v.
+ \]
+\end{bem}
+
+\begin{lem}\label{lem: Kreisrotation}
+ Sei $X$ ein topologischer Raum und seien $v_1, \ldots, v_n : I \to X$ Wege, $n \geq 2$, mit $v_i(1) = v_{i+1}(0)$ für alle $i=1,\ldots,n-1$ und $v_n(1) = v_1(0)$. Dann ist
+ \[
+  v_1 * v_2 * \cdots * v_n \simeq v_2 * \cdots * v_n * v_1.
+ \]
+\end{lem}
+\begin{proof}
+ Wir fassen die Schlingen $v_1 * v_2 * \cdots * v_n$ und $v_2 * \cdots * v_n * v_1$ in natürlicher Weise als Abbildungen
+ \[
+  f : (S^1, 1) \to (X, v_1(0)) \text{ und } g : (S^1,1) \to (X,v_2(0))
+ \]
+ auf. Dann ist $g(z) = f(e^{2\pi i/n}z)$ für alle $z \in S^1$, eine entsprechende Homotopie also gegeben durch
+ \[
+  F : S^1 \times I \to X, (z,t) \mapsto f\left( e^{t \cdot 2\pi i/n} z \right)
+ \]
+\end{proof}
+
+Sei nun erneut $x \in X$ beliebig aber fest. Es sei
+\[
+ \varphi : \pi_1(X,x) \to \mc{S}(X)
+\]
+die Vergiss-Abbildung.
+
+Angenommen, $\varphi$ ist surjektiv. Dann gibt es für jeden Punkt $y \in X$ eine Schlinge $f : (S^1, 1) \to (X,x)$, so dass $f$ homotop zur konstanten Schlinge
+\[
+ g : S^1 \to X, z \mapsto y
+\]
+ist. Es gibt also eine Homotopie
+\[
+ F : S^1 \times I \to X
+\]
+mit $F(z,0) = f(z)$ und $F(z,1) = y$ für alle $z \in S^1$. Es ist daher
+\[
+ \gamma : I \to X, t \mapsto F(1,t)
+\]
+eine stetige Abbildung mit
+\[
+ \gamma(0) = F(1,0) = f(1) = x \text{ und } \gamma(1) = F(1,1) = y.
+\]
+Das zeigt, dass $X$ wegzusammenhängend ist.
+
+Angenommen, $X$ ist wegzusammenhängend. Sei dann $f : I \to X$ eine Schlinge, also insbesondere $f(0) = f(1)$, beliebig aber fest. Da $X$ wegzusammenhängend ist, gibt es einen Weg $\gamma: I \to X$ von $x$ nach $f(0)$. Es sei $\gamma^{-1} : I \to X$ der umgekehrte Weg von $f(1)$ nach $x$, d.h. $\gamma^{-1}(t) = \gamma(1-t)$ für alle $t \in I$. Dann ist
+\[
+ g := \gamma * f * \gamma^{-1}
+\]
+eine Schlinge mit $g(0) = g(1) = x$, und nach Lemma \ref{lem: Kreisrotation} ist
+\[
+ g = \gamma * f * \gamma^{-1} \simeq f * \gamma^{-1} * \gamma \simeq f * (\gamma^{-1} * \gamma) \simeq f,
+\]
+da $\gamma^{-1} * \gamma$ offenbar zusammenziehbar ist. Also ist
+\[
+ \varphi([g]_{\pi_1}(X,x)) = [g] = [f].
+\]
+Wegen der Beliebigkeit von $f$ zeigt dies die Surjektivität von $\varphi$.
+
+
+\subsection{}
+Auch hier sei $x \in X$ beliebig aber fest. Es seien $f, g : (I, \del I) \to (X,x)$, so dass $[f]_{\pi_1(X,x)}$ und $[g]_{\pi_1(X,x)}$ konjugiert zueinander sind, d.h. dass es eine Schlinge $h : (I, \del I) \to (X,x)$ gibt mit
+\[
+ [f]_{\pi_1(X,x)} = [h]_{\pi_1(X,x)} [g]_{\pi_1(X,x)} [h]_{\pi_1(X,x)}^{-1} = \left[h * g * h^{-1}\right]_{\pi_1(X,x)}.
+\]
+Es ist dann nach Lemma \ref{lem: Kreisrotation}
+\begin{align*}
+ [f]
+ &= \varphi([f]_{\pi_1(X,x)})
+ = \varphi\left(\left[g * h * g^{-1}\right]_{_{\pi_1(X,x)}}\right)
+ = \left[h * g * h^{-1}\right] \\
+ &= \left[g * h^{-1} * h \right]
+ = [g].
+\end{align*}
+
+Andererseits seien $f,g : (I, \del I) \to (X,x)$ Schlingen, so dass $f \simeq g$. Dann gibt es eine Homotopie $F : I \times I \to X$ mit $F(t,0) = f(t)$ und $F(t,1) = g(t)$ für alle $t \in I$, wobei zusätzlich
+\[
+ F(0,s) = F(1,s) \text{ für alle } s \in I.
+\]
+Für alle $s \in I$ definieren wir
+\[
+ \gamma_s : I \to X \text{ mit } \gamma_s(t) := F(0,ts).
+\]
+Für alle $s \in I$
+\[
+ \gamma_s(0) = F(0,0) = f(0) = x \text{ und }
+ \gamma_s(1) = F(0,s),
+\]
+also $\gamma_s$ ein Weg von $x$ zu $F(0,s)$. Auch ist
+\[
+ \gamma_1(1) = F(0,1) = g(1) = x,
+\]
+also $\gamma_1$ eine Schlinge mit $\gamma_1(0) = \gamma_1(1) = x$. Für alle $s \in I$ definieren wir auch
+\[
+ \gamma_s^{-1} : I \to X, t \mapsto \gamma_s(1-t).
+\]
+Wir betrachten die Homotopie $G : I \times I \to X$ mit
+\[
+ G(t,s) :=
+ \begin{cases}
+  \gamma_s\left( \frac{3}{s} t \right)             & \text{für } 0 \leq t < \frac{s}{3} \\
+  F\left( \frac{3t-s}{3-2s}, s\right)              & \text{für } \frac{s}{3} \leq t \leq 1-\frac{s}{3} \\
+  \gamma_s^{-1}\left( \frac{3}{s}(t-1) + 1 \right) & \text{für } 1-\frac{s}{3} < t \leq 1.
+ \end{cases}.
+\]
+Für alle $t \in I$ ist
+\[
+ G(t,0) = F(t,0) = f(t) \text{ und } G(t,1) = \left( \gamma_1 * g * \gamma_1^{-1} \right)(t).
+\]
+Außerdem ist $G(0,s) = G(1,s) = x$ für alle $s \in I$. Das zeigt, dass
+\[
+ f \simeq \gamma_1 * g * \gamma_1^{-1} \rel \del I,
+\]
+also dass
+\[
+ [f]_{\pi_1(X,x)}
+ = \left[ \gamma_1 * g * \gamma_1^{-1} \right]_{\pi_1(X,x)}
+ = \left[ \gamma_1 g \gamma_1^{-1} \right]_{\pi_1(X,x)}.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
