@@ -251,6 +251,206 @@ $A$ und $B$ sind offenbar offen in $S^n$, und durch die entsprechenden stereogra
 
 
 
+\section{}
+Es sei $(x,x') \in X \times X'$ beliebig aber fest. Da $p : E \to X$ eine Überlagerung ist, gibt es eine Umgebung $U \subseteq X$ von $x$, einen diskreten Raum $D$ und einen Homöomorphismus $\phi : p^{-1}(U) \to U \times D$, so dass das Diagramm in Abbildung \ref{fig: Überlagerung für U} kommutiert. 
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 U) {$p^{-1}(U)$};
+  \node (U x D) [right of = p^-1 U, node distance = 9em] {$U \times D$};
+  \node (U1) [below of = p^-1 U, node distance = 5em] {$U$};
+  \node (U2) [below of = U x D, node distance = 5em] {$U$};
+  \draw[->] (p^-1 U) to node{$\phi$} (U x D);
+  \draw[->] (U1) to node[swap]{$\id_U$} (U2);
+  \draw[->] (p^-1 U) to node[swap]{$p$} (U1);
+  \draw[->] (U x D) to node{$\pi_1$} (U2);
+ \end{tikzpicture}
+ \caption{$p : E \to X$ ist eine Überlagerung.}
+ \label{fig: Überlagerung für U}
+\end{figure}
+
+Analog gibt es, da $p' : E' \to X'$ eine Überlagerung ist, eine Umgebung $U' \subseteq X'$ von $x'$, einen diskreten Raum $D'$ und einen Homöomorphismus $\phi' : p'^{-1}(U) \to U' \times D'$, so dass das Diagramm in Abbildung \ref{fig: Überlagerung für U'} kommutiert.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 U) {$p'^{-1}(U)$};
+  \node (U x D) [right of = p^-1 U, node distance = 9em] {$U' \times D'$};
+  \node (U1) [below of = p^-1 U, node distance = 5em] {$U'$};
+  \node (U2) [below of = U x D, node distance = 5em] {$U'$};
+  \draw[->] (p^-1 U) to node{$\phi'$} (U x D);
+  \draw[->] (U1) to node[swap]{$\id_{U'}$} (U2);
+  \draw[->] (p^-1 U) to node[swap]{$p'$} (U1);
+  \draw[->] (U x D) to node{$\pi'_1$} (U2);
+ \end{tikzpicture}
+ \caption{$p' : E' \to X'$ ist eine Überlagerung.}
+ \label{fig: Überlagerung für U'}
+\end{figure}
+
+Es ist nun $U \times U' \subseteq X \times X'$ eine Umgebung von $(x,x')$ in $X \times X'$ mit
+\[
+ \left( p \times p' \right)^{-1} (U \times U') = p^{-1}(U) \times p'^{-1}(U').
+\]
+Die Homöomorphismen $\phi$ und $\phi'$ liefern uns einen Homöomorphismus
+\[
+ \tilde{\phi} : p^{-1}(U) \times p'^{-1}(U') \to (U \times D) \times (U' \times D') \cong (U \times U') \times (D \times D').
+\]
+Zusammen liefert dies das kommutative Diagramm in Abbildung \ref{fig: Überlagerung für U x U'}.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 U) {$(p \times p')^{-1}(U)$};
+  \node (U x D) [right of = p^-1 U, node distance = 12em] {$(U \times U') \times (D \times D')$};
+  \node (U1) [below of = p^-1 U, node distance = 5em] {$U \times U'$};
+  \node (U2) [below of = U x D, node distance = 5em] {$U \times U'$};
+  \draw[->] (p^-1 U) to node{$\tilde{\phi}$} (U x D);
+  \draw[->] (U1) to node[swap]{$\id_{U \times U'}$} (U2);
+  \draw[->] (p^-1 U) to node[swap]{$p \times p'$} (U1);
+  \draw[->] (U x D) to node{$\tilde{\pi}_1$} (U2);
+ \end{tikzpicture}
+ \caption{$p' : E' \to X'$ ist eine Überlagerung.}
+ \label{fig: Überlagerung für U x U'}
+\end{figure}
+
+Wegen der Beliebigkeit von $(x,x') \in X \times X'$ zeigt dies, dass
+\[
+ p \times p' : E \times E' \to X \times X'
+\]
+eine Überlagerung ist. Es ist auch klar, dass sich die Blätterzahl von $(x,x') \in X \times X'$ als Produkt der Blätterzahl von $x$ und der Blätterzahl von $x'$ ergibt.
+
+
+\subsection{}
+Aus der Definition von $Y \times_X E$ erhalten wir das kommutative Diagramm in Abbildung \ref{fig: Faserprodukt}.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (Y x E) {$Y \times_X E$};
+  \node (Y) [right of = Y x E, node distance = 8em] {$Y$};
+  \node (E) [below of = Y x E, node distance = 5em] {$E$};
+  \node (X) [right of = E, node distance = 8em] {$X$};
+  \draw[->] (Y x E) to node {$\pi_1$} (Y);
+  \draw[->] (E) to node[swap] {$p$} (X);
+  \draw[->] (Y x E) to node[swap] {$\pi_2$} (E);
+  \draw[->] (Y) to node {$f$} (X);
+ \end{tikzpicture}
+ \caption{Das Faserprodukt $Y \times_X E$.}
+ \label{fig: Faserprodukt}
+\end{figure}
+
+Se $y \in Y$ beliebig aber fest. Da $p : E \to X$ eine Überdeckung ist, gibt es eine Umgebung $U \subseteq X$ von $f(y) \in X$, einen diskreten Raum $D$ und einen Homöomorphismus $\phi : p^{-1}(U) \to U \times D$, so dass das Diagramm in Abbildung \ref{fig: unterer Teil} kommutiert.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 U) {$p^{-1}(U)$};
+  \node (U x D) [right of = p^-1 U, node distance = 9em] {$U \times D$};
+  \node (U1) [below of = p^-1 U, node distance = 5em] {$U$};
+  \node (U2) [below of = U x D, node distance = 5em] {$U$};
+  \draw[->] (p^-1 U) to node{$\phi$} (U x D);
+  \draw[->] (U1) to node[swap]{$\id_U$} (U2);
+  \draw[->] (p^-1 U) to node[swap]{$p$} (U1);
+  \draw[->] (U x D) to node{$\pr_1$} (U2);
+ \end{tikzpicture}
+ \caption{$p : E \to X$ ist eine Überlagerung.}
+ \label{fig: unterer Teil}
+\end{figure}
+
+Wir erweitern das Diagramm in Abbildung \ref{fig: unterer Teil} zu dem Diagramm in Abbildung \ref{fig: gesammtes Diagramm}. Dabei wollen wir den Homöomorphismus $\phi$ zu einem Homöomorphismus $\Phi$ liften.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 U) {$p^{-1}(U)$};
+  \node (U x D) [right of = p^-1 U, node distance = 10em] {$U \times D$};
+  \node (U1) [below of = p^-1 U, node distance = 5em] {$U$};
+  \node (U2) [below of = U x D, node distance = 5em] {$U$};
+  \node (pi^-1 p^-1 U) [above of = p^-1 U, node distance = 5em] {$\pi_2^{-1}(p^{-1}(U))$};
+  \node (f^-1 U x D) [above of = U x D, node distance = 5em] {$f^{-1}(U) \times D$};
+  \draw[->] (p^-1 U) to node{$\phi$} (U x D);
+  \draw[->] (U1) to node[swap]{$\id_U$} (U2);
+  \draw[->] (p^-1 U) to node[swap]{$p$} (U1);
+  \draw[->] (U x D) to node{$\pr_1$} (U2);
+  \draw[->] (pi^-1 p^-1 U) to node[swap]{$\pi_2$} (p^-1 U);
+  \draw[->] (f^-1 U x D) to node{$f \times \id_D$} (U x D);
+  \draw[->,dashed] (pi^-1 p^-1 U) to node{$\Phi$} (f^-1 U x D);
+ \end{tikzpicture}
+ \caption{$p : E \to X$ ist eine Überlagerung.}
+ \label{fig: gesammtes Diagramm}
+\end{figure}
+
+Hierfür definieren wir
+\[
+ \Phi : \pi_2^{-1}(p^{-1}(U)) \to f^{-1}(U) \times D, (y,e) \mapsto \left( y, \pr_2 \phi(e) \right),
+\]
+wobei $\pr_2 : U \times D \to D$ die kanonische Projektion bezeichnet. $\Phi$ ist wohldefiniert, denn für $(y,e) \in \pi_2^{-1}(p^{-1}(U))$ ist
+\[
+ f(y) = p(e) = p \pi_2(y,e) \in U.
+\]
+Außerdem definieren wir
+\[
+ \Psi : f^{-1}(U) \times D \to \pi_2^{-1}(p^{-1}(U)), (y,d) \mapsto \left( y, \phi^{-1}(f(y),d) \right).
+\]
+$\Psi$ ist wohldefiniert, denn für $(f,d) \in f^{-1}(U) \times D$ ist
+\[
+ p\left(\pi_2\left( \left( y, \phi^{-1}(f(y),d) \right) \right)\right)
+ = p\left( \phi^{-1}(f(y),d) \right)
+ = \pr_1((f(y),d))
+ = f(y)
+ \in U,
+\]
+
+Es ist klar, dass $\Phi$ und $\Psi$ stetig sind. $\Phi$ und $\Psi$ sind invers zueinander. Für $(y,e) \in \pi_2^{-1}(p^{-1}(U))$ ist
+\[
+ \Psi \Phi (y,e)
+ = \Psi \left( y, \pr_2 \phi(e) \right)
+ = \left( y, \phi^{-1}(f(y), \pr_2 \phi(e)) \right),
+\]
+wobei
+\[
+ e
+ = \phi^{-1} \phi e
+ = \phi^{-1}\left( p(e), \pr_2 \phi(e) \right)
+ = \phi^{-1}\left( f(y), \pr_2 \phi(e) \right).
+\]
+Für $(y,d) \in f^{-1}(U) \times D$ ist
+\[
+ \Phi \Psi (y,d)
+ = \Phi\left( y, \phi^{-1}(f(y),d) \right)
+ = \left( y, \pr_2 \phi \phi^{-1}(f(y),d) \right)
+ = (y,d).
+\]
+Also ist $\Phi$ ein Homöomorphismus. Das Diagramm in Abbildung \ref{fig: gesammtes Diagramm} kommutiert auch, denn für $(y,e) \in \pi_2^{-1}(p^{-1}(U))$ ist
+\begin{align*}
+ \phi \pi_2 (y,e)
+ &= \phi(e)
+ = (p(e), \pr_2 \phi(e))
+ = (f(y), \pr_2 \phi(e)) \\
+ &= (f \times \id_D) (y, \pr_2 \phi(e))
+ = (f \times \id_D) \Phi (y,e).
+\end{align*}
+
+Wegen der Kommutativität des Diagramms in Abbildung \ref{fig: Faserprodukt} ist $p \pi_2 = f \pi_1$, also
+\[
+ \pi_2^{-1}(p^{-1}(U)) = \pi^{-1}(f^{-1}(U)).
+\]
+Da $f$ stetig ist und $U$ eine Umgebung von $f(y)$, ist $f^{-1}(U)$ eine Umgebung von $y$. Damit erhalten wir das Diagramm in \ref{fig: Überlagerung für f^-1 U}.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (pi^-1 f^-1 U) {$\pi_1^{-1}(f^{-1}(U))$};
+  \node (f^-1 U x D) [right of = pi^-1 f^-1 U, node distance = 12em] {$f^{-1}(U) \times D$};
+  \node (f^-1 U 1) [below of = pi^-1 f^-1 U, node distance = 5em] {$f^{-1}(U)$};
+  \node (f^-1 U 2) [below of = f^-1 U x D, node distance = 5em] {$f^{-1}(U)$};
+  \draw[->] (pi^-1 f^-1 U) to node{$\Phi$} (f^-1 U x D);
+  \draw[->] (f^-1 U 1) to node[swap]{$\id_{f^-1(U)}$} (f^-1 U 2);
+  \draw[->] (pi^-1 f^-1 U) to node[swap]{$\pi_1$} (f^-1 U 1);
+  \draw[->] (f^-1 U x D) to node{$\tau_1$} (f^-1 U 2);
+ \end{tikzpicture}
+ \caption{$\pi_1 : Y \times_X E \to Y$ ist eine Überlagerung.}
+ \label{fig: Überlagerung für f^-1 U}
+\end{figure}
+Dieses kommutiert, denn für alle $(y,e) \in \pi_1^{-1}(f^-1(U))$ ist
+\[
+ \pi_1((y,e)) = y = \tau_1( (y, \pr_2 \phi(e)) ) = \tau_1 \Phi((y,e)).
+\]
+Wegen der Beliebigkeit von $y \in Y$ zeigt dies, dass $\pi_1 : Y \times_X E \to Y$ eine Überlagerung ist. Aus der obigen Konstruktion geht direkt hervor, dass die Blätterzahl von $y \in Y$ bezüglich dieser Überlagerung der Blätterzahl von $f(y) \in X$ bezüglich der Überdeckung $p : E \to X$ entspricht.
+
+
+
+
+
+
+
 
 
 
