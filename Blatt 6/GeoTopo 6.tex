@@ -58,24 +58,24 @@ Um zu zeigen, dass diese über $\pi_1(X,x)$ faktorisiert, genügt es zu zeigen, 
  \[
   v_1 * \cdots * v_n : I \to X, t \mapsto
   \begin{cases}
-   v_1(nt)       & \text{falls } 0 \leq t \leq \frac{1}{n} \\
-   v_2(nt-1)     & \text{falls } \frac{1}{n} \leq t \leq \frac{2}{n} \\
-   v_3(nt-2)     & \text{falls } \frac{2}{n} \leq t \leq \frac{3}{n} \\
+   v_1(nt)       & \text{falls } 0 \leq t \leq \frac{1}{n}, \\
+   v_2(nt-1)     & \text{falls } \frac{1}{n} \leq t \leq \frac{2}{n}, \\
+   v_3(nt-2)     & \text{falls } \frac{2}{n} \leq t \leq \frac{3}{n}, \\
    \vdots        & \vdots \\
-   v_n(nt-(n-1)) & \text{falls } \frac{n-1}{n} \leq t \leq 1.
+   v_n(nt-n+1) & \text{falls } \frac{n-1}{n} \leq t \leq 1.
   \end{cases}
  \]
 \end{defi}
 
 \begin{bem}
- Es ist bekannt und klar, dass die „Verknüpfung“ $*$ assoziativ bis auf Homotopie ist. Es ist auch klar, dass für eine zusammenziehbare Schlinge $C$ und einen Weg $v$ mit entsprechenden Anfangs-, bzw. Endpunkt
+ Es ist bekannt und klar, dass die „Verknüpfung“ $*$ assoziativ bis auf Homotopie ist. Es ist auch klar, dass für eine Schlinge $C$ mit $C \simeq \const \rel 1$, bzw. $C \simeq \const \rel 0$, und einen Weg $v$ mit entsprechenden Anfangs-, bzw. Endpunkt
  \[
-  C * v \simeq v \qquad \text{bzw.} \qquad v * C \simeq v.
+  C * v \simeq v \rel 1 \qquad \text{bzw.} \qquad v * C \simeq v \rel 0.
  \]
 \end{bem}
 
 \begin{lem}\label{lem: Kreisrotation}
- Sei $X$ ein topologischer Raum und seien $v_1, \ldots, v_n : I \to X$ Wege, $n \geq 2$, mit $v_i(1) = v_{i+1}(0)$ für alle $i=1,\ldots,n-1$ und $v_n(1) = v_1(0)$. Dann ist
+ Sei $X$ ein topologischer Raum und seien $v_1, \ldots, v_n : I \to X$ Wege mit $v_i(1) = v_{i+1}(0)$ für alle $i=1,\ldots,n-1$ und $v_n(1) = v_1(0)$. Dann ist
  \[
   v_1 * v_2 * \cdots * v_n \simeq v_2 * \cdots * v_n * v_1.
  \]
@@ -85,10 +85,11 @@ Um zu zeigen, dass diese über $\pi_1(X,x)$ faktorisiert, genügt es zu zeigen, 
  \[
   f : (S^1, 1) \to (X, v_1(0)) \text{ und } g : (S^1,1) \to (X,v_2(0))
  \]
- auf. Dann ist $g(z) = f(e^{2\pi i/n}z)$ für alle $z \in S^1$, eine entsprechende Homotopie also gegeben durch
+ auf. Dann ist $g(z) = f(e^{2\pi i/n}z)$ für alle $z \in S^1$ und eine entsprechende Homotopie durch
  \[
   F : S^1 \times I \to X, (z,t) \mapsto f\left( e^{t \cdot 2\pi i/n} z \right)
  \]
+ gegeben.
 \end{proof}
 
 Sei nun erneut $x \in X$ beliebig aber fest. Es sei
@@ -123,9 +124,9 @@ eine Schlinge mit $g(0) = g(1) = x$, und nach Lemma \ref{lem: Kreisrotation} ist
 \[
  g = \gamma * f * \gamma^{-1} \simeq f * \gamma^{-1} * \gamma \simeq f * (\gamma^{-1} * \gamma) \simeq f,
 \]
-da $\gamma^{-1} * \gamma$ offenbar zusammenziehbar ist. Also ist
+da $\gamma^{-1} * \gamma$ relativ zu $f(0)$ zusammenziehbar ist. Also ist
 \[
- \varphi([g]_{\pi_1}(X,x)) = [g] = [f].
+ \varphi([g]_{\pi_1(X,x)}) = [g] = [f].
 \]
 Wegen der Beliebigkeit von $f$ zeigt dies die Surjektivität von $\varphi$.
 
@@ -139,13 +140,18 @@ Es ist dann nach Lemma \ref{lem: Kreisrotation}
 \begin{align*}
  [f]
  &= \varphi([f]_{\pi_1(X,x)})
- = \varphi\left(\left[g * h * g^{-1}\right]_{_{\pi_1(X,x)}}\right)
+ = \varphi\left(\left[g * h * g^{-1}\right]_{\pi_1(X,x)} \right)
  = \left[h * g * h^{-1}\right] \\
  &= \left[g * h^{-1} * h \right]
- = [g].
+ = [g],
 \end{align*}
+da $h^{-1} * h$ relativ zu $g(1)$ zusammenziehbar ist.
 
-Andererseits seien $f,g : (I, \del I) \to (X,x)$ Schlingen, so dass $f \simeq g$. Dann gibt es eine Homotopie $F : I \times I \to X$ mit $F(t,0) = f(t)$ und $F(t,1) = g(t)$ für alle $t \in I$, wobei zusätzlich
+Andererseits seien $f,g : (I, \del I) \to (X,x)$ Schlingen, so dass
+\[
+ [f]_{\pi_1(X,x)} = [g]_{\pi_1(X,x)},
+\]
+also $f \simeq g$. Dann gibt es eine Homotopie $F : I \times I \to X$ mit $F(t,0) = f(t)$ und $F(t,1) = g(t)$ für alle $t \in I$, wobei zusätzlich
 \[
  F(0,s) = F(1,s) \text{ für alle } s \in I.
 \]
@@ -153,7 +159,7 @@ Für alle $s \in I$ definieren wir
 \[
  \gamma_s : I \to X \text{ mit } \gamma_s(t) := F(0,ts).
 \]
-Für alle $s \in I$
+Für alle $s \in I$ ist
 \[
  \gamma_s(0) = F(0,0) = f(0) = x \text{ und }
  \gamma_s(1) = F(0,s),
@@ -170,12 +176,12 @@ Wir betrachten die Homotopie $G : I \times I \to X$ mit
 \[
  G(t,s) :=
  \begin{cases}
-  \gamma_s\left( \frac{3}{s} t \right)             & \text{für } 0 \leq t < \frac{s}{3} \\
-  F\left( \frac{3t-s}{3-2s}, s\right)              & \text{für } \frac{s}{3} \leq t \leq 1-\frac{s}{3} \\
+  \gamma_s\left( \frac{3}{s} t \right)             & \text{für } 0 \leq t < \frac{s}{3}, \\
+  F\left( \frac{3t-s}{3-2s}, s\right)              & \text{für } \frac{s}{3} \leq t \leq 1-\frac{s}{3}, \\
   \gamma_s^{-1}\left( \frac{3}{s}(t-1) + 1 \right) & \text{für } 1-\frac{s}{3} < t \leq 1.
- \end{cases}.
+ \end{cases}
 \]
-Für alle $t \in I$ ist
+(Die Wohldefiniertheit und Stetigkeit von $G$ ist klar.) Für alle $t \in I$ ist
 \[
  G(t,0) = F(t,0) = f(t) \text{ und } G(t,1) = \left( \gamma_1 * g * \gamma_1^{-1} \right)(t).
 \]
@@ -187,7 +193,7 @@ also dass
 \[
  [f]_{\pi_1(X,x)}
  = \left[ \gamma_1 * g * \gamma_1^{-1} \right]_{\pi_1(X,x)}
- = \left[ \gamma_1 g \gamma_1^{-1} \right]_{\pi_1(X,x)}.
+ = \left[ \gamma_1 \right]_{\pi_1(X,x)} \left[ g \right]_{\pi_1(X,x)} \left[ \gamma_1 \right]^{-1}_{\pi_1(X,x)}.
 \]
 
 
@@ -202,7 +208,7 @@ Da $A$ und $B$ wegzusammenhängend sind, und $A \cap B \neq \emptyset$, ist $X =
 \[
  \pi_1(X,x) \cong \pi_1(X,x') \text{ für alle } x, x' \in X.
 \]
-Um zu zeigen, dass $\pi_1(X,x)$ für alle $x \in X$ trivial ist, genügt es daher zu zeigen, dass $\pi_1(X,x)$ für irgendeine $x \in X$ trivial ist. Sei hierfür $x \in A \cap B \neq \emptyset$.
+Um zu zeigen, dass $\pi_1(X,x)$ für alle $x \in X$ trivial ist, genügt es daher zu zeigen, dass $\pi_1(X,x)$ für irgendein $x \in X$ trivial ist. Sei hierfür $x \in A \cap B \neq \emptyset$.
 
 Es sei $f : (I, \del I) \to (X,x)$ eine Schlinge. Da $A$ und $B$ offen sind, und $X = A \cup B$, ist $\{f^{-1}(A), f^{-1}(B)\}$ wegen der Stetigkeit von $f$ eine offene Überdeckung von $I$. Da $I$ ein kompakter metrischer Raum ist, gibt es nach dem Lemma von Lebesgue ein $\delta > 0$, so dass jede Teilmenge $M \subseteq I$ mit $\diam M < \delta$ komplett in $f^{-1}(A)$ oder $f^{-1}(B)$ enthalten ist. Sei $m \in \N, m \geq 1$ groß genug, dass die Teilintervalle
 \[
@@ -220,21 +226,22 @@ Inbesondere ist
 \]
 Da $A$, $B$ und $A \cap B$ wegzusammenhängend sind, gibt es für alle $k = 1, \ldots, m-1$ einen Weg
 \[
- \lambda_k : [0,1] \to X
+ \lambda_k : I \to X
 \]
-von $x$ nach $x_k$, der je komplett in $A$ verläuft, wenn $x_k \in A$, komplett in $B$ verläuft, wenn $x_k \in B$, bzw. komplett in $A \cap B$ verläuft, wenn $x_k \in A \cap B$. Für alle $k = 1, \ldots, m$ definieren wir außerdem den Weg
+von $x$ nach $x_k$, der je komplett in $A$ verläuft, wenn $x_k \in A$, bzw. komplett in $B$ verläuft, wenn $x_k \in B$, bzw. komplett in $A \cap B$ verläuft, wenn $x_k \in A \cap B$. Für alle $k = 1, \ldots, m$ definieren wir außerdem den Weg $f_k : I \to X$ mit
 \[
- f_k : [0,1] \to X \text{ mit } f_k(t) := f\left( \frac{k-1}{m} + \frac{t}{m} \right).
+ f_k(t) := f\left( \frac{k-1}{m} + \frac{t}{m} \right) \text{ für alle } t \in I
 \]
-Man bemerke, dass  $\Img f_k = f(I_k)$ für alle $k = 1, \ldots, m$, sowie $f_k(0) = x_{k-1}$ und$f_k(1) = x_k$ für alle $k = 1, \ldots, m$.
+von $x_{k-1}$ nach $x_k$. Man bemerke, dass  $\Img f_k = f(I_k)$ für alle $k = 1, \ldots, m$.
 Es ist nun offenbar
 \begin{align*}
- f
- &= f_1 * f_2 * \cdots * f_m \\
- &\simeq f_1 * \left( \lambda_1^{-1} \lambda_1 \right) * f_2 * \left( \lambda_2^{-1} \lambda_2 \right) * f_3 * \cdots * f_{m-1} * \left( \lambda_{m-1}^{-1} \lambda_{m-1} \right) * f_m \\
- &\simeq \left( f_1 \lambda_1^{-1} \right) * \left( \lambda_1 * f_2 * \lambda_2^{-1} \right) * \cdots * \left( \lambda_{m-2} * f_{m-1} * \lambda_{m-1}^{-1} \right) * \left( \lambda_{m-1} * f_m \right)
+ &\, f \\
+ =&\, f_1 * f_2 * \cdots * f_m \\
+ \simeq&\, f_1 * \left( \lambda_1^{-1} \lambda_1 \right) * f_2 * \left( \lambda_2^{-1} \lambda_2 \right) * f_3 * \cdots * f_{m-1} * \left( \lambda_{m-1}^{-1} \lambda_{m-1} \right) * f_m \rel x\\
+ \simeq&\, \left( f_1 * \lambda_1^{-1} \right) * \left( \lambda_1 * f_2 * \lambda_2^{-1} \right) * \cdots * \left( \lambda_{m-2} * f_{m-1} * \lambda_{m-1}^{-1} \right) \\
+  &\, * \left( \lambda_{m-1} * f_m \right) \rel x.
 \end{align*}
-relativ zu $x$. Nun sind die Wege  $f_1 * \lambda_1^{-1}, \lambda_1 * f_2 * \lambda_2^{-1}, \ldots, \lambda_{m-2} * f_{m-1} \lambda_{m-1}^{-1}$ und $\lambda_{m-1} * f_m$ jeweils Schleifen, die von $x$ ausgehen, und sich jeweils komplett in $A$ oder $B$ befinden. Daher sind sie alle zusammenziehbar relativ zu $x$, denn $A$ und $B$ sind einfach zusammenhängend. Daher ist auch $f$ relativ zu $x$ zusammenziehbar. (Man fügt die einzelnen Homotopien einfach passend zusammen.)
+Die Wege $f_1 * \lambda_1^{-1}, \lambda_1 * f_2 * \lambda_2^{-1}, \ldots, \lambda_{m-2} * f_{m-1} * \lambda_{m-1}^{-1}$ und $\lambda_{m-1} * f_m$ jeweils Schleifen, die von $x$ ausgehen, und sich jeweils komplett in $A$ oder $B$ befinden. Daher sind sie alle zusammenziehbar relativ zu $x$, denn $A$ und $B$ sind einfach zusammenhängend. Daher ist auch $f$ relativ zu $x$ zusammenziehbar.
 
 Aus der Beliebigkeit von $f$ folgt, dass $\pi_1(X,x)$ trivial ist.
 
@@ -242,8 +249,8 @@ Aus der Beliebigkeit von $f$ folgt, dass $\pi_1(X,x)$ trivial ist.
 \subsection{}
 Es sei $n > 1$. Wir schreiben $S^n = A \cup B$ mit
 \begin{align*}
- A &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq -1 \right\} \text{ und} \\
- B &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq 1 \right\}.
+ A &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq 1 \right\} \text{ und} \\
+ B &= \left\{ (x_1, \ldots, x_{n+1}) \in S^n \,\middle|\, x_{n+1} \neq -1 \right\}.
 \end{align*}
 $A$ und $B$ sind offenbar offen in $S^n$, und durch die entsprechenden stereografischen Projektionen wissen wir, dass $A \cong \R^n$ und $B \cong \R^n$. Da $\R^n$ offenbar einfach zusammenhängend ist, sind es daher auch $A$ und $B$ (wegen der Funktorialität von $\pi_1$). Offenbar ist $A \cap B \neq \emptyset$ wegzusammenhängend (hier benutzen wir, dass $n > 1$). Nach Aufgabenteil (a) ist deshalb auch $S^n$ einfach zusammenhängend.
 
@@ -290,12 +297,15 @@ Es ist nun $U \times U' \subseteq X \times X'$ eine Umgebung von $(x,x')$ in $X 
 \]
 Die Homöomorphismen $\phi$ und $\phi'$ liefern uns einen Homöomorphismus
 \[
- \tilde{\phi} : p^{-1}(U) \times p'^{-1}(U') \to (U \times D) \times (U' \times D') \cong (U \times U') \times (D \times D').
+ \tilde{\phi} :
+ p^{-1}(U) \times p'^{-1}(U')
+ \cong (U \times D) \times (U' \times D')
+ \cong (U \times U') \times (D \times D').
 \]
-Zusammen liefert dies das kommutative Diagramm in Abbildung \ref{fig: Überlagerung für U x U'}.
-\begin{figure}[h]\centering
+Zusammen liefert dies das kommutative Diagramm in Abbildung \ref{fig: Überlagerung für U x U'}. Dabei ist klar, dass $D \times D'$ ebenfalls diskret ist.
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
-  \node (p^-1 U) {$(p \times p')^{-1}(U)$};
+  \node (p^-1 U) {$(p \times p')^{-1}(U \times U')$};
   \node (U x D) [right of = p^-1 U, node distance = 12em] {$(U \times U') \times (D \times D')$};
   \node (U1) [below of = p^-1 U, node distance = 5em] {$U \times U'$};
   \node (U2) [below of = U x D, node distance = 5em] {$U \times U'$};
@@ -317,7 +327,7 @@ eine Überlagerung ist. Es ist auch klar, dass sich die Blätterzahl von $(x,x')
 
 \subsection{}
 Aus der Definition von $Y \times_X E$ erhalten wir das kommutative Diagramm in Abbildung \ref{fig: Faserprodukt}.
-\begin{figure}[h]\centering
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
   \node (Y x E) {$Y \times_X E$};
   \node (Y) [right of = Y x E, node distance = 8em] {$Y$};
@@ -333,7 +343,7 @@ Aus der Definition von $Y \times_X E$ erhalten wir das kommutative Diagramm in A
 \end{figure}
 
 Se $y \in Y$ beliebig aber fest. Da $p : E \to X$ eine Überdeckung ist, gibt es eine Umgebung $U \subseteq X$ von $f(y) \in X$, einen diskreten Raum $D$ und einen Homöomorphismus $\phi : p^{-1}(U) \to U \times D$, so dass das Diagramm in Abbildung \ref{fig: unterer Teil} kommutiert.
-\begin{figure}[h]\centering
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
   \node (p^-1 U) {$p^{-1}(U)$};
   \node (U x D) [right of = p^-1 U, node distance = 9em] {$U \times D$};
@@ -349,7 +359,7 @@ Se $y \in Y$ beliebig aber fest. Da $p : E \to X$ eine Überdeckung ist, gibt es
 \end{figure}
 
 Wir erweitern das Diagramm in Abbildung \ref{fig: unterer Teil} zu dem Diagramm in Abbildung \ref{fig: gesammtes Diagramm}. Dabei wollen wir den Homöomorphismus $\phi$ zu einem Homöomorphismus $\Phi$ liften.
-\begin{figure}[h]\centering
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
   \node (p^-1 U) {$p^{-1}(U)$};
   \node (U x D) [right of = p^-1 U, node distance = 10em] {$U \times D$};
@@ -383,14 +393,14 @@ Außerdem definieren wir
 \]
 $\Psi$ ist wohldefiniert, denn für $(f,d) \in f^{-1}(U) \times D$ ist
 \[
- p\left(\pi_2\left( \left( y, \phi^{-1}(f(y),d) \right) \right)\right)
+ p\left(\pi_2\left( y, \phi^{-1}(f(y),d) \right) \right)
  = p\left( \phi^{-1}(f(y),d) \right)
- = \pr_1((f(y),d))
+ = \pr_1(f(y),d)
  = f(y)
- \in U,
+ \in U.
 \]
 
-Es ist klar, dass $\Phi$ und $\Psi$ stetig sind. $\Phi$ und $\Psi$ sind invers zueinander. Für $(y,e) \in \pi_2^{-1}(p^{-1}(U))$ ist
+Es ist klar, dass $\Phi$ und $\Psi$ stetig sind. Wir bemerken, dass $\Phi$ und $\Psi$ invers zueinander sind. Für $(y,e) \in \pi_2^{-1}(p^{-1}(U))$ ist
 \[
  \Psi \Phi (y,e)
  = \Psi \left( y, \pr_2 \phi(e) \right)
@@ -422,10 +432,10 @@ Also ist $\Phi$ ein Homöomorphismus. Das Diagramm in Abbildung \ref{fig: gesamm
 
 Wegen der Kommutativität des Diagramms in Abbildung \ref{fig: Faserprodukt} ist $p \pi_2 = f \pi_1$, also
 \[
- \pi_2^{-1}(p^{-1}(U)) = \pi^{-1}(f^{-1}(U)).
+ \pi_2^{-1}(p^{-1}(U)) = \pi_1^{-1}(f^{-1}(U)).
 \]
-Da $f$ stetig ist und $U$ eine Umgebung von $f(y)$, ist $f^{-1}(U)$ eine Umgebung von $y$. Damit erhalten wir das Diagramm in \ref{fig: Überlagerung für f^-1 U}.
-\begin{figure}[h]\centering
+Da $f$ stetig ist und $U$ eine Umgebung von $f(y)$ ist, ist $f^{-1}(U)$ eine Umgebung von $y$. Damit erhalten wir das Diagramm in \ref{fig: Überlagerung für f^-1 U}.
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
   \node (pi^-1 f^-1 U) {$\pi_1^{-1}(f^{-1}(U))$};
   \node (f^-1 U x D) [right of = pi^-1 f^-1 U, node distance = 12em] {$f^{-1}(U) \times D$};
@@ -441,7 +451,7 @@ Da $f$ stetig ist und $U$ eine Umgebung von $f(y)$, ist $f^{-1}(U)$ eine Umgebun
 \end{figure}
 Dieses kommutiert, denn für alle $(y,e) \in \pi_1^{-1}(f^-1(U))$ ist
 \[
- \pi_1((y,e)) = y = \tau_1( (y, \pr_2 \phi(e)) ) = \tau_1 \Phi((y,e)).
+ \pi_1((y,e)) = y = \tau_1 (y, \pr_2 \phi(e)) = \tau_1 \Phi(y,e).
 \]
 Wegen der Beliebigkeit von $y \in Y$ zeigt dies, dass $\pi_1 : Y \times_X E \to Y$ eine Überlagerung ist. Aus der obigen Konstruktion geht direkt hervor, dass die Blätterzahl von $y \in Y$ bezüglich dieser Überlagerung der Blätterzahl von $f(y) \in X$ bezüglich der Überdeckung $p : E \to X$ entspricht.
 
@@ -466,9 +476,9 @@ Ist $G = 1$, so ist nichts zu zeigen. Ansonsten seien $e_0 \in E$ und $g \in G-\
 
 Da $\pi_g : E \to E$ stetig ist, ist auch die Abbildung
 \[
- f : E \to E \times E, (e, \mapsto eg) = (\id_E(e), \pi_g(e))
+ f : E \to E \times E, (e, \mapsto eg) = \left( \id_E(e), \pi_g(e) \right)
 \]
-stetig. Da $g \neq 1$ und $G$ frei auf $E$ wirkt, ist $\Img f \cap \Delta = \emptyset$, wobei $\Delta \subseteq E \times E$ die Diagonale bezeichnet. Da $E$ Hausdorff ist, ist $\Delta$ abgeschlossen in $E \times E$, also $E \times E - \Delta$ offen in $E \times E$. Da $(e_0, e_0 g) \in \Img f \subseteq E \times E - \Delta_E$ gibt es deshalb $U, V \subseteq E$ offen mit $(e_0, e_0g) \in U \times V \subseteq E \times E - \Delta$. Inbesondere ist $U \times V \cap \Delta = \emptyset$, also $U \cap V = \emptyset$.
+stetig. Da $g \neq 1$ und $G$ frei auf $E$ wirkt, ist $\Img f \cap \Delta = \emptyset$, wobei $\Delta \subseteq E \times E$ die Diagonale bezeichnet. Da $E$ Hausdorff ist, ist $\Delta$ abgeschlossen in $E \times E$, also $E \times E - \Delta$ offen in $E \times E$. Da $(e_0, e_0 g) \in \Img f \subseteq E \times E - \Delta$ gibt es deshalb $U, V \subseteq E$ offen mit $(e_0, e_0g) \in U \times V \subseteq E \times E - \Delta$. Inbesondere ist $U \times V \cap \Delta = \emptyset$, also $U \cap V = \emptyset$.
 
 Da $\pi_{g^-1}$ ein Homöomorphismus ist, ist $\pi_{g^{-1}}(V) = Vg^{-1}$ offen, und da $e_0 g \in V$ ist $e_0 \in Vg^{-1}$. Wir setzen
 \[
@@ -556,7 +566,7 @@ durch den Homöomorphismus
  \zeta : V \times G \to \bigdotcup_{g \in G} Ug, (v,g) \mapsto \tilde{p}^{-1}(v) g.
 \]
 Damit ergibt sich insgesamt das kommutierende Diagramm in Abbildung \ref{fig: Überlagerung für V}.
-\begin{figure}[h]\centering
+\begin{figure}[ht]\centering
  \begin{tikzpicture}[auto]
   \node (p^-1 V) {$p^{-1}(U)$};
   \node (V x G) [right of = p^-1 V, node distance = 9em] {$V \times D$};
