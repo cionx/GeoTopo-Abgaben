@@ -449,6 +449,153 @@ Wegen der Beliebigkeit von $y \in Y$ zeigt dies, dass $\pi_1 : Y \times_X E \to 
 
 
 
+\section{}
+Wir bemerken zunächst, dass für jeden topologischen Raum $E$ und jede Gruppe $G$, die stetig (von rechts) auf $X$ wirkt, für jedes $g \in G$ die Abbildung
+\[
+ \pi_g : E \to E, e \mapsto eg
+\]
+ein Homöomorphismus ist, denn $\pi_g$ ist bekanntermaßen bijekitv, und
+\[
+ \pi_g^{-1} = \pi_{g^{-1}}
+\]
+ist ebenfalls stetig.
+
+
+\subsection{}
+Ist $G = 1$, so ist nichts zu zeigen. Ansonsten seien $e_0 \in E$ und $g \in G-\{1\}$ beliebig aber fest.
+
+Da $\pi_g : E \to E$ stetig ist, ist auch die Abbildung
+\[
+ f : E \to E \times E, (e, \mapsto eg) = (\id_E(e), \pi_g(e))
+\]
+stetig. Da $g \neq 1$ und $G$ frei auf $E$ wirkt, ist $\Img f \cap \Delta = \emptyset$, wobei $\Delta \subseteq E \times E$ die Diagonale bezeichnet. Da $E$ Hausdorff ist, ist $\Delta$ abgeschlossen in $E \times E$, also $E \times E - \Delta$ offen in $E \times E$. Da $(e_0, e_0 g) \in \Img f \subseteq E \times E - \Delta_E$ gibt es deshalb $U, V \subseteq E$ offen mit $(e_0, e_0g) \in U \times V \subseteq E \times E - \Delta$. Inbesondere ist $U \times V \cap \Delta = \emptyset$, also $U \cap V = \emptyset$.
+
+Da $\pi_{g^-1}$ ein Homöomorphismus ist, ist $\pi_{g^{-1}}(V) = Vg^{-1}$ offen, und da $e_0 g \in V$ ist $e_0 \in Vg^{-1}$. Wir setzen
+\[
+ W = U \cap Vg^{-1}.
+\]
+$W$ ist eine offene Umgebung von $e_0$ mit
+\begin{align*}
+ W \cap Wg
+ &= \left( U \cap Vg^{-1} \right) \cap \left( U \cap Vg^{-1} \right)g \\
+ &= U \cap Vg^{-1} \cap Ug \cap V
+ \subseteq U \cap V
+ = \emptyset,
+\end{align*}
+also $W \cap Wg = \emptyset$.
+
+Wir finden also für jedes $g \in G-\{1\}$ eine offene Umgebung $U_g$ von $e_0$ mit
+\[
+ U_g \cap U_g g = \emptyset.
+\]
+Wir setzen
+\[
+ U := \bigcap \{U_g \mid g \in G-\{1\}\}.
+\]
+Da $G$ endlich ist, ist auch $U$ ein offene Umgebung von $e_0$, und für alle $g \in G-\{1\}$ ist
+\[
+ U \cap Ug
+ \subseteq U_g \cap U_g g
+ = \emptyset,
+\]
+also $U \cap Ug = \emptyset$. Wegen der Beliebigkeit von $e_0 \in E$ zeigt dies, dass $G$ eigentlich diskontinuierlich auf $E$ wirkt.
+
+Fun fact: Die Aufgabe lässt sich auch auf intuitive Weise mithilfe von Netzen lösen. Wir setzen
+\[
+ D := \{U \subseteq E \mid U \text{ ist eine Umgebung von } E\}
+\]
+und ordnen $D$ via
+\[
+ U \geq V \Leftrightarrow U \subseteq V,
+\]
+und erhalten so eine geordnete Menge. Ist $U \cap Ug = \emptyset$ für jedes $U \in D$, so gibt es für jedes $U \in D$ Elemente $x_D, y_D \in D$ mit $y_U = x_U g = \pi_g(X_U)$. Für die beiden Netze $(x_U)_{U \in D}$o und $(y_U)_{U \in D}$ ist klar, dass $x_u \to e_0$ und $y_0 \to e_0$. Da $\pi_g$ stetig ist, ist deshalb auch
+\[
+ y_U = x_U g = \pi_g(x_U) \to \pi_g(e_0) = e_0 g.
+\]
+Da $E$ Hausdorff ist, sind Grenzwerte von Netzen eindeutig. Daher ist $e_0 = e_0 g$. Dies steht wegen $g \neq 1$ im Widerspruch dazu, dass $G$ frei auf $E$ wirkt. Also muss es ein $U \in D$ geben mit $U \cap Ug = \emptyset$.
+
+
+\subsection{}
+Es sei $p : E \to E/G$ die kanonische Projektion. Seien $y_0 \in E/G$ und $x_0 \in E$ mit $p(x_0) = y_0$ beliebig aber fest. Da $G$ eigentlich diskontinuierlich auf $E$ wirkt, gibt es eine offene Umgebung $U$ von $x_0$, so dass $U \cap Ug = \emptyset$ für alle $g \in G-\{1\}$.
+
+Wir bemerken, dass für $g_1, g_2 \in G$ mit $g_1 \neq g_2$ auch $U g_1 \cap U g_2 = \emptyset$, da
+\[
+ \pi_{g_1^{-1}}(U g_1 \cap U g_2) = U \cap U g_2 g_1^{-1} = \emptyset. 
+\]
+
+Für $V := p(U)$ ist daher
+\[
+ p^{-1}(V) = p^{-1}(p(U)) = U^{\text{sat}} = UG = \bigdotcup_{g \in G} Ug.
+\]
+
+Dabei ist klar, dass
+\[
+ \bigdotcup_{g \in G} Ug
+ \cong \coprod_{g \in G} Ug
+ \cong \coprod_{g \in G} U
+ \cong U \times G,
+\]
+wobei wir $G$ als diskreten Raum auffassen. (Man beachte, dass $\pi_g$ einen Homöomorphismus $U \cong Ug$ induziert. Der Homöomorphismus $U \times G \cong \bigdotcup_{g \in G} Ug$ durch
+\[
+ \xi : U \times G \to \bigdotcup_{g \in G} Ug, (u,g) \mapsto ug
+\]
+gegeben.
+
+Wir bemerken, dass sich $p$ zu einem Hömomorphismus $\tilde{p} : U \cong V$ beschränkt: Die Surjektivität und Stetigkeit sind klar. Die Injektivität von $\tilde{p}$ ergibt sich daraus, dass für $x, x' \in U$ mit $\tilde{p}(x) = \tilde{p}(x')$ ein $g \in G$ existiert mit $x' = xg$, wegen $U \cap Ug' = \emptyset$ für $g' \in G-\{1\}$ also $g = 1$ und damit $x' = x$ ist. $\tilde{p}$ ist offen, denn für eine offene Teilmenge $W \subseteq U$ ist $W$ auch offen in $E$, da $U$ offen ist, also auch
+\[
+ \pi^{-1}(p(W)) = WG = \bigdotcup_{g \in G} Wg
+\]
+offen in $E$, und mati $p(W) = \tilde{p}(W)$ offen in $E/G$, also auch offen in $p(V)$.
+
+Damit ist auch
+\[
+ \bigdotcup_{g \in G} Ug \cong V \times G
+\]
+durch den Homöomorphismus
+\[
+ \zeta : V \times G \to \bigdotcup_{g \in G} Ug, (v,g) \mapsto \tilde{p}^{-1}(v) g.
+\]
+Damit ergibt sich insgesamt das kommutierende Diagramm in Abbildung \ref{fig: Überlagerung für V}.
+\begin{figure}[h]\centering
+ \begin{tikzpicture}[auto]
+  \node (p^-1 V) {$p^{-1}(U)$};
+  \node (V x G) [right of = p^-1 V, node distance = 9em] {$V \times D$};
+  \node (V1) [below of = p^-1 V, node distance = 5em] {$V$};
+  \node (V2) [below of = V x G, node distance = 5em] {$V$};
+  \draw[->] (p^-1 V) to node{$\zeta^{-1}$} (V x G);
+  \draw[->] (V1) to node[swap]{$\id_V$} (V2);
+  \draw[->] (p^-1 V) to node[swap]{$p$} (V1);
+  \draw[->] (V x G) to node{$\pi_1$} (V2);
+ \end{tikzpicture}
+ \caption{$p : E \to E/G$ ist eine Überlagerung.}
+ \label{fig: Überlagerung für V}
+\end{figure}
+(Das Diagramm kommutiert, da für alle $(v,g) \in V \times G$
+\[
+ \pi_1(v,g) = v
+\]
+und
+\[
+ p \zeta(v,g) = p(\tilde{p}^{-1}(v) g) = p(\tilde{p}^{-1}(v)) = \tilde{p}(\tilde{p}^{-1}(v)) = v,
+\]
+also $\pi_1 = p \zeta$ und somit $\pi_1 \zeta^{-1} = p$.)
+
+Aus der Beliebigkeit von $y_0 \in E/G$ folgt, dass $p : E \to E/G$ eine Überlagerung ist. Die Blätterzahl ist offenbar $|G|$.
+
+
+\subsection{}
+Die Gruppe $G = \Z/2 = \{1,-1\}$ wirkt stetig von rechts auf $S^n$ via
+\[
+ x.1 = x \text{ und } x.(-1) = -x \text{ für alle } x \in S^n.
+\]
+Die induzierte Äquivalenzrelation $\sim$ auf $S^n$ identifiziert jeden Punkt mit seinem Antipodenpunkt. Da $G$ endlich ist, die offenbar stetig und frei auf dem Hausdorff-Raum $S^n$ wirkt, ist die Gruppenwirkung nach Aufgabenteil (a) eigentlich diskontinuierlich. Nach Aufgabenteil (b) ist daher die Quotientenabbildung $p : S^n \to S^n/{\sim}$ eine zweiblättrige Überlagerung. Da diese der Quotientenabbildung $S^n \to \R P^n$ entspricht, zeigt dies die Aussage.
+
+
+
+
+
+
+
 
 
 
