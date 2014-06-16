@@ -67,6 +67,117 @@ Da $X$ zusammenhängend und lokal wegzusammenhängend ist, gibt es deshalb nach 
 
 
 
+\section{}
+Es ist klar, dass
+\[
+ (X \times \R) \times \Z \to X \times \R, ((x,t),n) \mapsto \left( f^{n}(x), t-n \right).
+\]
+eine Gruppenwirkung von $\Z$ auf $X \times \R$ definiert. Für alle $n \in \Z$ ist die Abbildung
+\[
+ X \times \R \to X \times \R, (x,t) \mapsto (x,t) \cdot n =  \left( f^{n}(x), t-n \right)
+\]
+stetig, da sie in jeder Koordinate stetig ist. Die Gruppenwirkung ist eigentlich diskontinuierlich, da für alle $(x,t) \in X \times \R$ für die Umgebung
+\[
+ U := X \times \left( t-\frac{1}{3} , t + \frac{1}{3} \right) \subseteq X \times \R
+\]
+von $(x,t)$ für alle $n \in \Z, n \neq 0$
+\[
+ Un \cap U
+ = X \times \left( t-\frac{1}{3}-n, t+\frac{1}{3}-n \right) \cap X \times \left( t-\frac{1}{3}, t+\frac{1}{3} \right)
+ = \emptyset.
+\]
+Es bezeichne $\sim_\Z$ die durch die Gruppenwirkung induzierte Äquivalenzrelation auf $X \times [0,1]$ und der Homöomorphismus $g : X \times \R \to X \times \R$ definiert als
+\[
+ g : X \times \R \to X \times \R, (x,t) \mapsto (x,t) \cdot 1 = \left( f(x), t-1 \right).
+\]
+
+Es bezeichne
+\[
+ \iota : X \times [0,1] \to X \times \R
+\]
+die kanonische Inklusion. Weiter seien
+\[
+ p : X \times [0,1] \to T_f
+\]
+und
+\[
+ \pi : X \times \R \to (X \times \R)/\Z
+\]
+die kanonischen Projektionen. Es ist klar, dass $\sim$ die Einschränkung von $\sim_\Z$ auf $X \times [0,1]$ ist, und dass deshalb die stetige Funktion
+\[
+ \pi \iota : X \times [0,1] \to (X \times \R)/\Z
+\]
+als Bijektion
+\[
+ \varphi : T_f \to (X \times \R)/\Z
+\]
+faktorisiert. Diese ist nach der universellen Eigenschaft der Quotientenraumtopologie ebenfalls stetig. Wir erhalten daher das kommutative Diagramm in Abbildung \ref{fig: Abbildungstorus}.
+\begin{figure}[ht]\centering
+ \begin{tikzpicture}[auto, node distance = 6em]
+  \node (X x I) {$X \times [0,1]$};
+  \node (X x R) [right of = X x I, node distance = 8em] {$X \times \R$};
+  \node (Tf) [below of = X x I] {$T_f$};
+  \node (X x R / Z) [below of = X x R] {$(X \times \R)/\Z$};
+  \draw[->] (X x I) to node {$\iota$} (X x R);
+  \draw[->] (Tf) to node[swap] {$\varphi$} (X x R / Z);
+  \draw[->] (X x I) to node[swap] {$p$} (Tf);
+  \draw[->] (X x R) to node {$\pi$} (X x R / Z);
+ \end{tikzpicture}
+ \caption{Homöomorphie zum Abbildungstorus.}
+ \label{fig: Abbildungstorus}
+\end{figure}
+
+Wir zeigen, dass $\varphi$ auch offen ist. Hierfür sei $U \subseteq T_f$ offen und nichtleer. Wir setzen
+\[
+ V := p^{-1}(U) \text{ und }
+ W := \pi^{-1}(\varphi(U)).
+\]
+Es ist klar, dass $V$ offen in $X \times [0,1]$ ist, und dass $W$ die Saturierung von $V$ bezüglich $\sim_\Z$ in $X \times \R$ ist. Außerdem ist die Offenheit von $\varphi(U)$ nach der Definition der Quotientenraumtopologie äquivalent zu der Offenheit von $W$.
+
+Es sei $(x,t) \in W$ beliebig aber fest.
+
+Ist $t \not\in \Z$, so gibt es $(y,u) \in V$ mit $(x,t) \sim_\Z (y,u)$, also
+\[
+ (x,t) = (f^n(y),u-n) = g^n(y,u)
+\]
+für passendes $n \in \N$. Da $V$ offen in $X \times [0,1]$ ist, gibt es eine offene Umgebung $O \subseteq X$ von $y$ und ein offenes Intervall $(a,b) \subseteq [0,1]$ mit $u \in (a,b)$, so dass
+\[
+ (y,u) \in O \times (a,b) \subseteq V.
+\]
+Daher ist
+\[
+ (x,t) = g^n(y,u) \subseteq g^n(O \times (a,b)) = f^n(O) \times (a-n,b-n),
+\]
+wobei $f^n(O) \times (a-n,b-n)$ offen ist, da $f$ ein Homöomorphismus ist.
+
+Ist $t \in \Z$, so ist, da $W$ die Saturierung von $V$ bezüglich $\sim_\Z$ ist, und $V$ bezüglich $\sim$ saturiert ist
+\[
+ \left( f^{t-1}(x) , 1 \right) = (x,t) \cdot (t-1) \in V \text{ und }
+ \left( f^{t}(x) , 0 \right) = (x,t) \cdot t \in V.
+\]
+Da $V$ in $X \times [0,1]$ offen ist, gibt es daher eine offene Umgebung $O$ von $f^{t-1}(x)$ und $a \in (0,1)$ mit
+\[
+ \left( f^{t-1}(x), 1 \right) \in O \times (a,1] \subseteq V \subseteq W,
+\]
+und eine offene Umgebung $O'$ von $f^{t}(x)$ und $a \in (0,1)$ mit
+\[
+ \left( f^{t}(x), 0 \right) \in O' \times [0,b) \subseteq V \subseteq W.
+\]
+Da $W$ bezüglich $\sim_\Z$ saturiert ist, ist daher auch
+\[
+ g\left( O \times (a,1] \right) = f(O) \times (a-1,0] \subseteq W,
+\]
+wobei
+\[
+ \left( f^{t}(x), 0 \right) = g\left( f^{t-1}(x), 1 \right) \subseteq f(O) \times (a-1,0].
+\]
+Es ist deshalb
+\[
+ \tilde{O} := (f(O) \cap O') \times (a-1,b) \in W
+\]
+eine offene Umgebung von $\left( f^{t}(x), 0 \right)$. Daher ist $g^{-t}(\tilde{O}) \subseteq W$ eine offene Umgebung von $g^{-t}(f^t(x),0) = (x,t)$.
+
+Da die Menge $W$ um jeden ihrerer Punkte einen offene Umgebung enthält, ist $W$ offen. Wegen der Beliebigkeit von $U$ zeigt dies, dass $\varphi$ offen ist. Also ist $\varphi$ ein Homöomorphismus.
 
 
 
@@ -74,7 +185,13 @@ Da $X$ zusammenhängend und lokal wegzusammenhängend ist, gibt es deshalb nach 
 
 
 
-\addtocounter{section}{1}
+
+
+
+
+
+
+
 
 
 
