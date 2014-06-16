@@ -24,6 +24,48 @@
 
 
 
+\addtocounter{section}{2}
+
+
+
+
+
+\section{}
+
+
+\subsection{}
+Die Multiplikation ist assoziativ, da für alle $(n, m), (n', m'), (n'', m'') \in \Z \times \Z$
+\begin{align*}
+  &\, ((n, m) \cdot (n', m')) \cdot (n'', m'') \\
+ =&\, \left(n + (-1)^m n', m + m'\right) \cdot (n'', m'') \\
+ =&\, \left(n + (-1)^m n' + (-1)^{m+m'} n'', m + m' + m''\right) \\
+ =&\, \left(n + (-1)^m \left(n' + (-1)^{m'} n''\right) ,m + m' + m''\right) \\
+ =&\, (n, m) \cdot (n' + (-1)^{m'} n'', m' + m'') \\
+ =&\, (n, m) \cdot ((n', m') \cdot (n'', m'')).
+\end{align*}
+Das Element $(0,0) \in \Z \times \Z$ ist bezüglich der Multiplikation rechtsneutral, da für alle $(n,m) \in \Z \times \Z$
+\[
+ (n,m) \cdot (0,0) = (n + (-1)^0 \cdot 0, m + 0) = (n,m).
+\]
+Das Element $(n,m) \in \Z \times \Z$ hat das Rechtsinverse $((-1)^{m+1}n,-m) \in \Z \times \Z$, da
+\[
+ (n,m) \cdot \left((-1)^{m+1} n, -m\right)
+ = (n + (-1)^m (-1)^{m+1} n, m - m)
+ = (0, 0).
+\]
+Das zeigt, dass $\Z \rtimes \Z$ eine Gruppe ist. Sie ist nicht abelsch, da etwa
+\[
+ (1,0) \cdot (1,1) = (2,1) \neq (0,1) = (1,1) \cdot (1,0).
+\]
+
+
+
+
+
+
+
+
+
 
 
 
