@@ -3,6 +3,7 @@
 
 \usepackage{xltxtra}
 \usepackage{../mystyle}
+\usepackage{tikz-cd}
 
 % die Nummer des Aufgabenblattes
 \newcommand{\blattNummer}{7}
@@ -24,7 +25,56 @@
 
 
 
-\addtocounter{section}{2}
+\section{}
+Wir gehen davon aus, dass $X \neq \emptyset$, damit der Begriff der Fundamentalgruppe für $X$ Sinn ergibt.
+
+\begin{figure}[ht]\centering
+ \begin{tikzpicture}[auto, node distance = 6em]
+  \node (R) {$(\R,r_0)$};
+  \node (S1) [below of = R] {$(S^1,y_0)$};
+  \node (X) [left of = S1, node distance = 8em] {$(X,x_0)$};
+  \draw[->] (X) to node[swap] {$f_i$} (S1);
+  \draw[->] (R) to node {$\exp$} (S1);
+  \draw[->,dashed] (X) to node {$\tilde{f}_i$} (R);
+ \end{tikzpicture}
+ \caption{Liftung von $f_i$.}
+ \label{fig: Liftung von f_i}
+\end{figure}
+
+Es genügt zu zeigen, dass je zwei stetige Abbildungen $f_1, f_2 : X \to S^1$ zueinander homotop sind. Es sei ein Basispunkt $x_0 \in X$ fixiert, $y_0 = f_1(x_0)$ und $r_0 \in \R$ mit $\exp(r_0) = y_0$. Es ist
+\[
+ {f_1}_* (\pi_1(X,x_0)) \subseteq \pi_1(S^1, y_0)
+\]
+eine endliche Untergruppe, wegen
+\[
+ \pi_1(S^1, y_0) \cong \Z
+\]
+also
+\[
+ f_1^*(\pi_1(X,x_0)) \cong 1
+\]
+und somit
+\[
+ {f_1}_*(\pi_1(X,x_0)) \subseteq \exp_*(\pi_1(\R,r_0)).
+\]
+
+Da $X$ zusammenhängend und lokal wegzusammenhängend ist, gibt es deshalb nach dem Liftungssatz eine Liftung $\tilde{f}_1 : (X,x_0) \to (\R, r_0)$ von $f_1$, siehe Abbildung \ref{fig: Liftung von f_i}. Analog gibt es auch eine Liftung $\tilde{f}_2 : X \to \R$ von $f_2$. Da $\R$ zusammenziehbar ist, ist $\tilde{f}_1 \simeq \tilde{f}_2$ homotop. Daher ist auch
+\[
+ f_1 = \exp \tilde{f}_1 \simeq f_2 = \exp \tilde{f}_2.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+\addtocounter{section}{1}
 
 
 
