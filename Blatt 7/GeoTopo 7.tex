@@ -3,7 +3,6 @@
 
 \usepackage{xltxtra}
 \usepackage{../mystyle}
-\usepackage{tikz-cd}
 
 % die Nummer des Aufgabenblattes
 \newcommand{\blattNummer}{7}
@@ -310,7 +309,7 @@ und
 \]
 Es ist dann
 \[
- \pi_1 F : S^1 \times [0,1] \to X
+ \pi_1 F : S^1 \times I \to X
 \]
 eine Homotopie von $\gamma$ zur konstanten Schleife relativ zu $1$. Daher ist $[\gamma]$ das neutrale Element. Das zeigt, dass $\ker j_*$ trivial ist, also $j_*$ injektiv.
 
@@ -361,6 +360,78 @@ ist deshalb
  q_* s_* = (qs)_* = {\id_{S^1}}_* = \id_{\pi_1(S^1,\exp(t))}.
 \]
 Wegen der Beliebigkeit von $[(x,t)] \in T_f$ zeigt dies, dass $q_*$ split-surjektiv ist.
+
+
+\subsection{}
+Es sei $x \in X$ beliebig aber fest.
+
+Es sei zunächst $[\tilde{\gamma}] \in \im \iota_*$. Dann gibt es $\gamma : (S^1, 1) \to (X,x)$ mit $\tilde{\gamma} = \iota \gamma$. Da für alle $z \in S^1$
+\[
+ q \tilde{\gamma}(z)
+ = q \iota \gamma(z)
+ = q ([(\gamma(z),0)])
+ = \exp(0)
+ = 1
+\]
+ist $q_*([\tilde{\gamma}])$ das neutrale Element, also $[\tilde{\gamma}] \in \ker q_*$. Das zeigt, dass $\im \iota_* \subseteq \ker q_*$.
+
+Sei andererseits $[\tilde{\gamma}] \in \ker q_*$. Da $p$ ein Überlagerungsabbildung ist, lässt sich die Schlinge $\tilde{\gamma} : I \to T_f$ nach dem Wege-Liftungssatz zu einem Weg $\gamma : X \times I \to S^1$ mit Anfangpunkt $(x,0)$ liften. Da
+\[
+ p \gamma(0) = \tilde{\gamma}(0) = \tilde{\gamma}(1) = p \gamma (1)
+\]
+ist $p \gamma(1) = (x,0)$. Da die Schlinge
+\[
+ q \tilde{\gamma}
+ = q p \gamma
+ = \exp \pi_2 \gamma
+\]
+nullhomotop ist, muss sie Windungszahl $0$ haben. Da die Windungszahl ist gerade $\pi_2 \gamma(0) - \pi_2 \gamma(1)$ ist, muss also
+\[
+ \pi_2 \gamma(0) = \pi_2 \gamma(1).
+\]
+Da $\gamma(0)$ und $\gamma(1)$ in der zweiten Koordinate übereinstimmen, und $p \gamma(0) = p \gamma(1)$ müssen sie auch in der ersten Koordinate übereinstimmen. (Da für festes $t \in \R$ in $X \times \{t\}$ keine Punkte miteinander identifiziert werden.) Also ist $\gamma(0) = \gamma(1)$ und $\gamma$ somit ebenfalls eine Schlinge.
+
+Wir betrachten die Homotopie
+\[
+ F : [0,1] \times I \to X \times \R, (t,s) \mapsto ( \pi_1(\gamma(t)), s \pi_2(\gamma(t)) ).
+\]
+Da für alle $t \in [0,1]$
+\[
+ F(t,0) = (\pi_1(\gamma(t)),0) \text{ und }
+ F(t,1) = \gamma(t),
+\]
+sowie für alle $s \in [0,1]$
+\[
+ F(0,s) = F(1,s) = (x,0)
+\]
+ist $F$ eine Homotopie von $\gamma$ zu einer Schlinge $\tau$, die komplett in $X \times \{0\}$ liegt, relativ zum Anfangs- und Endpunkt. Es ist daher
+\[
+ p F : [0,1] \times I \to T_f
+\]
+eine Homotopie von $\tilde{\gamma}$ zu einer Schlinge $\tilde{\tau}$, die komplett in $p(X \times \{0\}) = \im \iota$ liegt, relativ zum Anfangs-und Endpunkt. Daher ist
+\[
+ [\tilde{\gamma}] = [\tilde{\tau}].
+\]
+Da $\tau$ komplett in $X \times \{0\}$ verläuft ist auch
+\[
+ \tilde{\tau} = p \tau = \iota \pi_1 \tau,
+\]
+also
+\[
+ [\tilde{\tau}] = \iota_* [\pi_1 \tau] \in \im \iota_*.
+\]
+Dies zeigt, dass $\ker q_* \subseteq \im \iota_*$.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
