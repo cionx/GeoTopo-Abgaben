@@ -183,20 +183,6 @@ Da die Menge $W$ um jeden ihrerer Punkte einen offene Umgebung enthält, ist $W$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{}
 
 
@@ -249,6 +235,92 @@ eine Umgebung von $(x,y)$, für die für alle $(n,m) \in \Z \rtimes \Z$ mit $(n,
 \[
  U \cdot (n,m) \cap U = \emptyset.
 \]
+
+
+
+
+
+\section{}
+Es ist klar, dass die Inklusion
+\[
+ j : X \to X \times \R, x \mapsto (x,0),
+\]
+stetig ist. Aus Aufgabe 7.2 ist bekant, dass die Abbildung
+\[
+ p : X \times \R \to T_f, (x,t) \mapsto [(x,t)].
+\]
+eine Überlagerungsabbildung ist. Da offenbar $\iota = pj$ ist $\iota$ ebenfalls stetig.
+
+Bezeichnen
+\[
+ \pi_1 : X \times \R \to X \text{ und } \pi_2 : X \times \R \to \R
+\]
+die kanonischen Projektionen, so ist es klar, dass die Abbildung
+\[
+ \exp \pi_2 : X \times \R \to S^1
+\]
+über $T_f$ faktorisiert, wobei es sich bei der faktorisierten Abbildung offenbar um $q$ handelt. Inbesondere ist $q$ daher wohldefiniert. Aus der universellen Eigenschaft des Quotientenraumtopologie folgt weiter, dass $q$ stetig ist. Insgesamt erhalten wir damit das kommutative Diagramm in Abbildung \ref{fig: großes Diagramm}.
+\begin{figure}\centering
+ \begin{tikzpicture}[auto]
+  \node (X x R) {$X \times \R$};
+  \node (Tf) [below of = X x R, node distance = 6em] {$T_f$};
+  \node (X)  [left of = Tf, node distance = 8em] {$X$};
+  \node (S1) [right of = Tf, node distance = 8em] {$S^1$};
+  \draw[->] (X) to node[swap] {$\iota$} (Tf);
+  \draw[->] (Tf) to node[swap] {$q$} (S1);
+  \draw[->] (X x R) to node {$p$} (Tf);
+  \draw[->] (X) to node {$j$} (X x R);
+  \draw[->] (X x R) to node {$\exp \pi_2$} (S1);
+ \end{tikzpicture}
+ \caption{Ein Diagramm.}
+ \label{fig: großes Diagramm}
+\end{figure}
+
+
+\subsection{}
+Es sei $x \in X$ beliebig aber fest. Da
+\[
+ \iota_* = (pj)_* = p_* j_*
+\]
+genügt es für die Injektivität von $\iota_*$ zu zeigen, dass
+\[
+ j_* : \pi_1(X,x) \to \pi_1(X \times \R, (x,0))
+\]
+und
+\[
+ p_* : \pi_1(X \times \R, (x,0)) \to \pi_1(T_f, \iota(x))
+\]
+injektiv sind. Da $p$ eine Überlagerungsabbildung ist, ist $p_*$ bekanntermaßen injektiv.
+
+Es sei $\gamma : (S^1,1) \to (X,x)$ mit $[\gamma] \in \ker j_*$. Dann ist
+\[
+ j \gamma : (S^1,1) \to (X \times \R, (x,0))
+\]
+homotop zur konstanten Schleife relativ zu $1$. Es gibt also eine Homotopie
+\[
+ F : S^1 \times I \to X \times \R,
+\]
+so dass
+\[
+ F(z,0) = j\gamma(z) \text{ und } F(z,1) = (x,0) \text{ für alle } z \in S^1
+\]
+und
+\[
+ F(0,t) = (x,0) \text{ für alle } t \in I.
+\]
+Es ist dann
+\[
+ \pi_1 F : S^1 \times [0,1] \to X
+\]
+eine Homotopie von $\gamma$ zur konstanten Schleife relativ zu $1$. Daher ist $[\gamma]$ das neutrale Element. Das zeigt, dass $\ker j_*$ trivial ist, also $j_*$ injektiv.
+
+
+
+
+
+
+
+
 
 
 
