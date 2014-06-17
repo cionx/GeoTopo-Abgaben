@@ -315,6 +315,63 @@ Es ist dann
 eine Homotopie von $\gamma$ zur konstanten Schleife relativ zu $1$. Daher ist $[\gamma]$ das neutrale Element. Das zeigt, dass $\ker j_*$ trivial ist, also $j_*$ injektiv.
 
 
+\subsection{}
+Es sei $[(x,t)] \in T_f$ beliebig aber fest.
+
+Da $x$ wegzusammenhängend ist, gibt es einen Weg $\gamma : [t-1,t] \to X$ von $f(x)$ nach $x$. Es ist daher
+\[
+ \tilde{\gamma} : [t-1,t] \to X \times \R, s \mapsto (\gamma(s),s)
+\]
+ein Weg von $(f(x),t-1)$ nach $(x,t)$. Daher ist
+\[
+ p \tilde{\gamma} : [t-1,t] \to T_f, s \mapsto [(\gamma(s),s)]
+\]
+eine Schlinge mit
+\[
+ p\tilde{\gamma}(0) = p\tilde{\gamma}(1) = [(x,t)].
+\]
+Über die Abbildung
+\[
+ \exp : [t-1,t] \to S^1
+\]
+faktorisiert $p\tilde{\gamma}$ als eindeutige, nach der universellen Eigenschaft der Quotientenraumtopologie stetige, Abbildung
+\[
+ s : S^1 \to T_f,
+\]
+d.h. $p \tilde{\gamma} = s \exp$. Wir bemerken, dass auch
+\[
+ q p \tilde{\gamma} = \exp.
+\]
+Wir erhalten also die beiden kommutativen Diagramme in Abbildung TODO.
+
+Da
+\[
+ q s \exp = q p \tilde{\gamma} = \exp
+\]
+folgt aus der Surjektivität von $\exp : [t-1,t] \to S^1$, dass $qs = \id_{S^1}$. Da
+\[
+ q : (T_f, [(x,t)]) \to (S^1, \exp(t))
+\]
+und
+\[
+ s : (S^1, \exp(t)) = (T_f, [(x,t)])
+\]
+ist deshalb
+\[
+ q_* s_* = (qs)_* = {\id_{S^1}}_* = \id_{\pi_1(S^1,\exp(t))}.
+\]
+Wegen der Beliebigkeit von $[(x,t)] \in T_f$ zeigt dies, dass $q_*$ split-surjektiv ist.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
