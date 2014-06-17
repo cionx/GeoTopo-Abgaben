@@ -243,15 +243,13 @@ und
 \]
 die kanonischen Projektionen, so faktorisiert deshalb $\pi \iota$ über $\pi_K$ zu einer Bijektion
 \[
- f : K \to \R^2,
+ f : K \to \R^2/{\sim},
 \]
 die nach der universellen Eigenschaft der Quotientenraumtopologie stetig ist. Da $\R^2$ Hausdorff ist, und die Gruppenwirkung von $\Z \rtimes \Z$ eigentlich diskontinuierlich, ist auch $\R/{\sim}$ Hausdorff, und $K$ ist als Quotient eines kompakten Raumes ebenfalls quasi-kompakt. Daher ist $f$ bereits ein Homöomorphismus.
 
 
 \subsection{}
 Offenbar ist $K$ auch homöomorph zum Abbildungstorus von $S^1$ unter der Konjugation.
-
-
 
 
 
@@ -266,13 +264,13 @@ stetig ist. Aus Aufgabe 7.2 ist bekant, dass die Abbildung
 \[
  p : X \times \R \to T_f, (x,t) \mapsto [(x,t)].
 \]
-eine Überlagerungsabbildung ist. Da offenbar $\iota = pj$ ist $\iota$ ebenfalls stetig.
+eine Überlagerungsabbildung ist. Da offenbar $i = pj$ ist $i$ ebenfalls stetig.
 
 Bezeichnen
 \[
  \pi_1 : X \times \R \to X \text{ und } \pi_2 : X \times \R \to \R
 \]
-die kanonischen Projektionen, so ist es klar, dass die Abbildung
+die kanonischen Projektionen, so ist klar, dass die Abbildung
 \[
  \exp \pi_2 : X \times \R \to S^1
 \]
@@ -283,7 +281,7 @@ die kanonischen Projektionen, so ist es klar, dass die Abbildung
   \node (Tf) [below of = X x R, node distance = 6em] {$T_f$};
   \node (X)  [left of = Tf, node distance = 8em] {$X$};
   \node (S1) [right of = Tf, node distance = 8em] {$S^1$};
-  \draw[->] (X) to node[swap] {$\iota$} (Tf);
+  \draw[->] (X) to node[swap] {$i$} (Tf);
   \draw[->] (Tf) to node[swap] {$q$} (S1);
   \draw[->] (X x R) to node {$p$} (Tf);
   \draw[->] (X) to node {$j$} (X x R);
@@ -297,15 +295,15 @@ die kanonischen Projektionen, so ist es klar, dass die Abbildung
 \subsection{}
 Es sei $x \in X$ beliebig aber fest. Da
 \[
- \iota_* = (pj)_* = p_* j_*
+ i_* = (pj)_* = p_* j_*
 \]
-genügt es für die Injektivität von $\iota_*$ zu zeigen, dass
+genügt es für die Injektivität von $i_*$ zu zeigen, dass
 \[
  j_* : \pi_1(X,x) \to \pi_1(X \times \R, (x,0))
 \]
 und
 \[
- p_* : \pi_1(X \times \R, (x,0)) \to \pi_1(T_f, \iota(x))
+ p_* : \pi_1(X \times \R, (x,0)) \to \pi_1(T_f, i(x))
 \]
 injektiv sind. Da $p$ eine Überlagerungsabbildung ist, ist $p_*$ bekanntermaßen injektiv.
 
@@ -323,7 +321,7 @@ so dass
 \]
 und
 \[
- F(0,t) = (x,0) \text{ für alle } t \in I.
+ F(1,t) = (x,0) \text{ für alle } t \in I.
 \]
 Es ist dann
 \[
@@ -345,27 +343,53 @@ ein Weg von $(f(x),t-1)$ nach $(x,t)$. Daher ist
 \]
 eine Schlinge mit
 \[
- p\tilde{\gamma}(0) = p\tilde{\gamma}(1) = [(x,t)].
+ p\tilde{\gamma}(0) = [(f(x),t-1)] = [(x,t)] = p\tilde{\gamma}(1).
 \]
 Über die Abbildung
 \[
- \exp : [t-1,t] \to S^1
+ \exp_{|[t-1,t]} : [t-1,t] \to S^1
 \]
-faktorisiert $p\tilde{\gamma}$ als eindeutige, nach der universellen Eigenschaft der Quotientenraumtopologie stetige, Abbildung
+faktorisiert $p\tilde{\gamma}$ als Abbildung
 \[
  s : S^1 \to T_f,
 \]
-d.h. $p \tilde{\gamma} = s \exp$. Wir bemerken, dass auch
+d.h. $p \tilde{\gamma} = s \exp_{|[t-1,t]}$, die nach der universellen Eigenschaft der Quotientenraumtopologie stetig ist.
+Wir bemerken, dass auch
 \[
- q p \tilde{\gamma} = \exp.
+ q p \tilde{\gamma} = \exp_{|[t-1,t]}.
 \]
-Wir erhalten also die beiden kommutativen Diagramme in Abbildung TODO.
+Wir erhalten also die beiden kommutativen Diagramme in Abbildung \ref{fig: Konstruktion von s}.
+\begin{figure}\centering
+ \begin{tikzpicture}[auto, node distance = 6em]
+  \node (X x R) {$X \times \R$};
+  \node (I) [right of = X x R, node distance = 8em] {$[t,t-1]$};
+  \node (Tf) [below of = X x R] {$T_f$};
+  \node (S1) [below of = I] {$S^1$};
+  \draw[->] (I) to node[swap] {$\tilde{\gamma}$} (X x R);
+  \draw[->] (X x R) to node[swap] {$p$} (Tf);
+  \draw[->] (I) to node {$\exp_{|[t-1,t]}$} (S1);
+  \draw[->] (S1) to node {$s$} (Tf);
+ \end{tikzpicture}
+ \begin{tikzpicture}[auto, node distance = 6em]
+  \node (X x R) {$X \times \R$};
+  \node (I) [right of = X x R, node distance = 8em] {$[t,t-1]$};
+  \node (Tf) [below of = X x R] {$T_f$};
+  \node (S1) [below of = I] {$S^1$};
+  \draw[->] (I) to node[swap] {$\tilde{\gamma}$} (X x R);
+  \draw[->] (X x R) to node[swap] {$p$} (Tf);
+  \draw[->] (I) to node {$\exp_{|[t-1,t]}$} (S1);
+  \draw[->] (Tf) to node[swap] {$q$} (S1);
+ \end{tikzpicture}
+ \caption{Konstruktion von $s$.}
+ \label{fig: Konstruktion von s}
+\end{figure}
+
 
 Da
 \[
- q s \exp = q p \tilde{\gamma} = \exp
+ q s \exp_{|[t-1,t]} = q p \tilde{\gamma} = \exp_{|[t-1,t]}
 \]
-folgt aus der Surjektivität von $\exp : [t-1,t] \to S^1$, dass $qs = \id_{S^1}$. Da
+folgt aus der Surjektivität von $\exp_{|[t-1,t]}$, dass $qs = \id_{S^1}$. Da
 \[
  q : (T_f, [(x,t)]) \to (S^1, \exp(t))
 \]
@@ -383,21 +407,21 @@ Wegen der Beliebigkeit von $[(x,t)] \in T_f$ zeigt dies, dass $q_*$ split-surjek
 \subsection{}
 Es sei $x \in X$ beliebig aber fest.
 
-Es sei zunächst $[\tilde{\gamma}] \in \im \iota_*$. Dann gibt es $\gamma : (S^1, 1) \to (X,x)$ mit $\tilde{\gamma} = \iota \gamma$. Da für alle $z \in S^1$
+Es sei zunächst $[\tilde{\gamma}] \in \im i_*$. Dann gibt es $\gamma : (S^1, 1) \to (X,x)$ mit $\tilde{\gamma} = i \gamma$. Da für alle $z \in S^1$
 \[
  q \tilde{\gamma}(z)
- = q \iota \gamma(z)
+ = q i \gamma(z)
  = q ([(\gamma(z),0)])
  = \exp(0)
  = 1
 \]
-ist $q_*([\tilde{\gamma}])$ das neutrale Element, also $[\tilde{\gamma}] \in \ker q_*$. Das zeigt, dass $\im \iota_* \subseteq \ker q_*$.
+ist $q_*([\tilde{\gamma}])$ das neutrale Element, also $[\tilde{\gamma}] \in \ker q_*$. Das zeigt, dass $\im i_* \subseteq \ker q_*$.
 
-Sei andererseits $[\tilde{\gamma}] \in \ker q_*$. Da $p$ ein Überlagerungsabbildung ist, lässt sich die Schlinge $\tilde{\gamma} : I \to T_f$ nach dem Wege-Liftungssatz zu einem Weg $\gamma : X \times I \to S^1$ mit Anfangpunkt $(x,0)$ liften. Da
+Sei andererseits $[\tilde{\gamma}] \in \ker q_*$. Da $p$ ein Überlagerungsabbildung ist, lässt sich die Schlinge $\tilde{\gamma} : (I,\del I) \to (T_f,i(x))$ nach dem Wege-Liftungssatz zu einem Weg $\gamma : I \to X \times \R$ mit Anfangpunkt $(x,0)$ liften. Da
 \[
  p \gamma(0) = \tilde{\gamma}(0) = \tilde{\gamma}(1) = p \gamma (1)
 \]
-ist $p \gamma(1) = (x,0)$. Da die Schlinge
+ist auch $p \gamma(1) = (x,0)$. Da die Schlinge
 \[
  q \tilde{\gamma}
  = q p \gamma
@@ -411,58 +435,34 @@ Da $\gamma(0)$ und $\gamma(1)$ in der zweiten Koordinate übereinstimmen, und $p
 
 Wir betrachten die Homotopie
 \[
- F : [0,1] \times I \to X \times \R, (t,s) \mapsto ( \pi_1(\gamma(t)), s \pi_2(\gamma(t)) ).
+ F : I \times I \to X \times \R, (t,s) \mapsto ( \pi_1(\gamma(t)), s \pi_2(\gamma(t)) ).
 \]
-Da für alle $t \in [0,1]$
+Da für alle $t \in I$
 \[
  F(t,0) = (\pi_1(\gamma(t)),0) \text{ und }
  F(t,1) = \gamma(t),
 \]
-sowie für alle $s \in [0,1]$
+sowie für alle $s \in I$
 \[
  F(0,s) = F(1,s) = (x,0)
 \]
 ist $F$ eine Homotopie von $\gamma$ zu einer Schlinge $\tau$, die komplett in $X \times \{0\}$ liegt, relativ zum Anfangs- und Endpunkt. Es ist daher
 \[
- p F : [0,1] \times I \to T_f
+ p F : I \times I \to T_f
 \]
-eine Homotopie von $\tilde{\gamma}$ zu einer Schlinge $\tilde{\tau}$, die komplett in $p(X \times \{0\}) = \im \iota$ liegt, relativ zum Anfangs-und Endpunkt. Daher ist
+eine Homotopie von $\tilde{\gamma} = p \gamma$ zu der Schlinge $\tilde{\tau} = p \tau$, die komplett in $p(X \times \{0\}) = \im i$ liegt, relativ zum Anfangs-und Endpunkt. Daher ist
 \[
  [\tilde{\gamma}] = [\tilde{\tau}].
 \]
-Da $\tau$ komplett in $X \times \{0\}$ verläuft ist auch
+Da $\tau$ komplett in $X \times \{0\}$ verläuft, gilt auch
 \[
- \tilde{\tau} = p \tau = \iota \pi_1 \tau,
+ \tilde{\tau} = p \tau = i \pi_1 \tau,
 \]
 also
 \[
- [\tilde{\tau}] = \iota_* [\pi_1 \tau] \in \im \iota_*.
+ [\tilde{\tau}] = i_* [\pi_1 \tau] \in \im i_*.
 \]
-Dies zeigt, dass $\ker q_* \subseteq \im \iota_*$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Dies zeigt, dass $\ker q_* \subseteq \im i_*$.
 
 
 
